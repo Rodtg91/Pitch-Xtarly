@@ -257,9 +257,9 @@ Genera exactamente 14 slides en este orden y con esta estructura JSON:
       "type": "cta",
       "order": 14,
       "content": {
-        "title": "Empieza hoy. Sin tarjeta de crédito.",
+        "title": "14 días gratis. Sin compromisos.",
         "subtitle": "Tu programa de recompensas listo en menos de 5 minutos.",
-        "ctaText": "Crear cuenta gratis",
+        "ctaText": "Empezar gratis",
         "ctaUrl": "https://xtarly.com",
         "contact": {
           "whatsapp": "+52 55 0000 0000",

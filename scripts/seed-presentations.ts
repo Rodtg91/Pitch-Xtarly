@@ -62,7 +62,7 @@ function cafeterias(): Slides {
 		{ type: "features", order: 11, content: { title: "Todo lo que incluye Xtarly Rewards", features: [{ emoji: "☕", title: "Sellos digitales", description: "10 cafés = 1 café gratis. Configurable por tipo de bebida o monto." }, { emoji: "💳", title: "Apple & Google Wallet", description: "La tarjeta de tu cafetería vive en el teléfono del cliente." }, { emoji: "📊", title: "Dashboard en tiempo real", description: "Cuántos clientes, con qué frecuencia, cuánto gastan. RFM completo." }, { emoji: "🔔", title: "Push automáticos", description: "Winback, cumpleaños, proximidad, campañas de doble sellos." }] } },
 		{ type: "testimonial", order: 12, content: { quote: "Antes no sabía quiénes eran mis clientes de todos los días. Ahora tengo 340 registrados, sé cuáles son mis mejores y cuáles llevan tiempo sin venir. En 2 meses subí las visitas un 28%.", author: "Patricia Mendoza", business: "Café La Viga, Condesa CDMX" } },
 		{ type: "pricing", order: 13, content: { title: "Empieza gratis. Crece sin límites.", plans: PLANS } },
-		{ type: "cta", order: 14, content: { title: "Empieza hoy. Sin tarjeta de crédito.", subtitle: "Tu programa de recompensas para cafetería listo en 5 minutos.", ctaText: "Crear cuenta gratis", ctaUrl: "https://xtarly.com", contact: CTA_CONTACT } },
+		{ type: "cta", order: 14, content: { title: "14 días gratis. Sin compromisos.", subtitle: "Tu programa de recompensas para cafetería listo en 5 minutos.", ctaText: "Empezar gratis", ctaUrl: "https://xtarly.com", contact: CTA_CONTACT } },
 	];
 }
 
@@ -81,7 +81,7 @@ function restaurantes(): Slides {
 		{ type: "features", order: 11, content: { title: "Todo lo que incluye Xtarly Rewards", features: [{ emoji: "🍽️", title: "Puntos y niveles VIP", description: "Bronze → Silver → Gold → Platinum. Cada nivel desbloquea beneficios exclusivos." }, { emoji: "💳", title: "Apple & Google Wallet", description: "Tarjeta con nivel VIP siempre visible en el teléfono del comensal." }, { emoji: "📊", title: "Segmentos RFM", description: "Identifica Champions, clientes en riesgo y los que casi se van." }, { emoji: "🔔", title: "Campañas para días lentos", description: "Puntos dobles en martes, ofertas de temporada, cumpleaños VIP." }] } },
 		{ type: "testimonial", order: 12, content: { quote: "Antes pagaba $4,000 al mes en anuncios de Instagram para llenar las mesas del martes. Ahora mando un push a mis 200 clientes Gold y el martes se llena solo. Ahorré el presupuesto de marketing completo.", author: "Roberto Gutiérrez", business: "Restaurante El Refugio, Polanco CDMX" } },
 		{ type: "pricing", order: 13, content: { title: "Empieza gratis. Crece sin límites.", plans: PLANS } },
-		{ type: "cta", order: 14, content: { title: "Deja de pagar comisiones por tus propios clientes.", subtitle: "Tu programa de lealtad listo en 5 minutos. Sin contratos.", ctaText: "Crear cuenta gratis", ctaUrl: "https://xtarly.com", contact: CTA_CONTACT } },
+		{ type: "cta", order: 14, content: { title: "Deja de pagar comisiones por tus propios clientes.", subtitle: "Tu programa de lealtad listo en 5 minutos. Sin contratos.", ctaText: "Empezar gratis", ctaUrl: "https://xtarly.com", contact: CTA_CONTACT } },
 	];
 }
 
@@ -100,7 +100,7 @@ function pastelerias(): Slides {
 		{ type: "features", order: 11, content: { title: "Todo lo que incluye Xtarly Rewards", features: [{ emoji: "🍰", title: "Sellos + puntos combinados", description: "Sellos para la rutina semanal, puntos para pedidos especiales grandes." }, { emoji: "💳", title: "Apple & Google Wallet", description: "Tarjeta con nivel VIP y acceso anticipado a colecciones." }, { emoji: "📊", title: "Segmentos por temporada", description: "Identifica quién solo compra en Navidad y actívalos con tiempo." }, { emoji: "🔔", title: "Campañas de temporada automáticas", description: "Push pre-temporada, cumpleaños y recordatorios de puntos por vencer." }] } },
 		{ type: "testimonial", order: 12, content: { quote: "Siempre dependía de diciembre y Día de Muertos. Ahora mis clientes vienen cada viernes por su sello semanal. Julio, que antes era muerto, este año subió 35% gracias a las campañas de cumpleaños.", author: "Sofía Ramírez", business: "Pastelería La Dulce Vida, San Pedro Garza García" } },
 		{ type: "pricing", order: 13, content: { title: "Empieza gratis. Crece sin límites.", plans: PLANS } },
-		{ type: "cta", order: 14, content: { title: "Tu pastelería merece clientes todo el año.", subtitle: "Programa de lealtad listo en 5 minutos. Sin contratos.", ctaText: "Crear cuenta gratis", ctaUrl: "https://xtarly.com", contact: CTA_CONTACT } },
+		{ type: "cta", order: 14, content: { title: "Tu pastelería merece clientes todo el año.", subtitle: "Programa de lealtad listo en 5 minutos. Sin contratos.", ctaText: "Empezar gratis", ctaUrl: "https://xtarly.com", contact: CTA_CONTACT } },
 	];
 }
 
@@ -119,7 +119,7 @@ function autolavados(): Slides {
 		{ type: "features", order: 11, content: { title: "Todo lo que incluye Xtarly Rewards", features: [{ emoji: "🚗", title: "Sellos digitales 5×1", description: "Configurable: 5, 8 o 10 lavados = 1 gratis. Ajustado a tu margen." }, { emoji: "💳", title: "Apple & Google Wallet", description: "El cliente siempre sabe cuántos sellos tiene — en su teléfono." }, { emoji: "📊", title: "Retención en tiempo real", description: "% de clientes que volvieron este mes vs el anterior." }, { emoji: "🔔", title: "Campañas climáticas", description: "Push manuales en días de lluvia, puentes y temporadas altas." }] } },
 		{ type: "testimonial", order: 12, content: { quote: "Abrieron un autolavado nuevo a 2 cuadras y pensé que iba a perder la mitad de mis clientes. Con Xtarly, los que tienen sellos acumulados no se van — tienen razón para quedarse conmigo.", author: "Miguel Hernández", business: "Auto Spa Express, Monterrey NL" } },
 		{ type: "pricing", order: 13, content: { title: "Empieza gratis. Crece sin límites.", plans: PLANS } },
-		{ type: "cta", order: 14, content: { title: "La competencia no tiene esto. Tú sí puedes.", subtitle: "Programa de sellos listo en 5 minutos. Sin contratos.", ctaText: "Crear cuenta gratis", ctaUrl: "https://xtarly.com", contact: CTA_CONTACT } },
+		{ type: "cta", order: 14, content: { title: "La competencia no tiene esto. Tú sí puedes.", subtitle: "Programa de sellos listo en 5 minutos. Sin contratos.", ctaText: "Empezar gratis", ctaUrl: "https://xtarly.com", contact: CTA_CONTACT } },
 	];
 }
 
@@ -138,7 +138,7 @@ function spas(): Slides {
 		{ type: "features", order: 11, content: { title: "Todo lo que incluye Xtarly Rewards", features: [{ emoji: "💎", title: "Niveles Jade → Cristal → Diamante", description: "Cada nivel desbloquea beneficios reales: upgrades, vino, acceso preferente." }, { emoji: "💳", title: "Apple & Google Wallet", description: "La tarjeta Diamante en su teléfono es un símbolo de pertenencia." }, { emoji: "📊", title: "LTV y retención por cliente", description: "Identifica quién está en riesgo de abandono antes de que pase." }, { emoji: "🔔", title: "Recordatorios de autocuidado", description: "\"Han pasado 3 semanas\" automático. Tu cliente vuelve antes." }] } },
 		{ type: "testimonial", order: 12, content: { quote: "Mis clientes de nivel Diamante gastan el doble que los que no tienen programa. Y lo mejor es que ya no tengo que recordarles venir — Xtarly les manda el push en el momento exacto.", author: "Valeria Torres", business: "Spa Serenita, Lomas de Chapultepec CDMX" } },
 		{ type: "pricing", order: 13, content: { title: "Empieza gratis. Crece sin límites.", plans: PLANS } },
-		{ type: "cta", order: 14, content: { title: "Tus mejores clientes merecen el mejor programa.", subtitle: "Loyalty VIP listo en 5 minutos. Sin contratos.", ctaText: "Crear cuenta gratis", ctaUrl: "https://xtarly.com", contact: CTA_CONTACT } },
+		{ type: "cta", order: 14, content: { title: "Tus mejores clientes merecen el mejor programa.", subtitle: "Loyalty VIP listo en 5 minutos. Sin contratos.", ctaText: "Empezar gratis", ctaUrl: "https://xtarly.com", contact: CTA_CONTACT } },
 	];
 }
 
@@ -157,7 +157,7 @@ function gyms(): Slides {
 		{ type: "features", order: 11, content: { title: "Todo lo que incluye Xtarly Rewards", features: [{ emoji: "🏋️", title: "Puntos por asistencia", description: "Registro de visita + puntos automáticos. Sin torniquetes especiales." }, { emoji: "💳", title: "Niveles en Apple & Google Wallet", description: "Beginner → Warrior → Champion. La racha visible motiva la visita." }, { emoji: "📊", title: "Predicción de cancelaciones", description: "Identifica miembros con baja asistencia antes de que cancelen." }, { emoji: "🔔", title: "Push de reactivación", description: "\"No rompas tu racha\" automático a los 3 días sin venir." }] } },
 		{ type: "testimonial", order: 12, content: { quote: "Antes perdía 15 miembros por mes en febrero. Este año con los retos de asistencia y los puntos, solo perdí 4. El push de 'no rompas tu racha' es lo que más impacto tuvo — los que lo reciben, vienen.", author: "Carlos Acosta", business: "FitBox Gym, San Ángel CDMX" } },
 		{ type: "pricing", order: 13, content: { title: "Empieza gratis. Crece sin límites.", plans: PLANS } },
-		{ type: "cta", order: 14, content: { title: "Menos cancelaciones. Más asistencia. Mismo esfuerzo.", subtitle: "Programa de loyalty para gym listo en 5 minutos.", ctaText: "Crear cuenta gratis", ctaUrl: "https://xtarly.com", contact: CTA_CONTACT } },
+		{ type: "cta", order: 14, content: { title: "Menos cancelaciones. Más asistencia. Mismo esfuerzo.", subtitle: "Programa de loyalty para gym listo en 5 minutos.", ctaText: "Empezar gratis", ctaUrl: "https://xtarly.com", contact: CTA_CONTACT } },
 	];
 }
 
@@ -176,7 +176,7 @@ function salonesBelleza(): Slides {
 		{ type: "features", order: 11, content: { title: "Todo lo que incluye Xtarly Rewards", features: [{ emoji: "💇", title: "Sellos por servicio", description: "Corte, tinte, tratamiento — cada uno suma hacia el servicio gratis." }, { emoji: "💳", title: "Historial en Apple & Google Wallet", description: "\"Última visita\" visible en su teléfono — ella sabe cuándo volver." }, { emoji: "📊", title: "Seguimiento por clienta", description: "Cuándo fue, qué se hizo, cuánto gastó, cuándo es probable que vuelva." }, { emoji: "🔔", title: "Recordatorio de retoque automático", description: "6 semanas = push automático. No más clientas perdidas por olvido." }] } },
 		{ type: "testimonial", order: 12, content: { quote: "Perdí a mi mejor estilista y me llevó a 40 clientas. Con Xtarly, las que tenían sellos acumulados se quedaron porque no querían perder su progreso. Salvó el 70% de mis clientas.", author: "Lorena Vásquez", business: "Salón Studio L, Guadalajara JAL" } },
 		{ type: "pricing", order: 13, content: { title: "Empieza gratis. Crece sin límites.", plans: PLANS } },
-		{ type: "cta", order: 14, content: { title: "El salón que fideliza nunca pierde a sus clientas.", subtitle: "Loyalty para salones listo en 5 minutos. Sin contratos.", ctaText: "Crear cuenta gratis", ctaUrl: "https://xtarly.com", contact: CTA_CONTACT } },
+		{ type: "cta", order: 14, content: { title: "El salón que fideliza nunca pierde a sus clientas.", subtitle: "Loyalty para salones listo en 5 minutos. Sin contratos.", ctaText: "Empezar gratis", ctaUrl: "https://xtarly.com", contact: CTA_CONTACT } },
 	];
 }
 
@@ -195,7 +195,7 @@ function tiendasRopa(): Slides {
 		{ type: "features", order: 11, content: { title: "Todo lo que incluye Xtarly Rewards", features: [{ emoji: "👗", title: "Puntos por compra generosos", description: "$1 = 2 puntos. Puntos dobles en quincena y lanzamientos de temporada." }, { emoji: "💳", title: "Niveles VIP en Apple & Google Wallet", description: "Silver → Gold → VIP Elite. El estatus visible en su teléfono." }, { emoji: "📊", title: "Top clientes identificados", description: "Tus 50 mejores clientes por gasto anual. Tratalos diferente." }, { emoji: "🔔", title: "Preventa exclusiva automática", description: "Push para Gold+ 48h antes de lanzar colección al público." }] } },
 		{ type: "testimonial", order: 12, content: { quote: "Mis clientas VIP Elite gastan 4 veces más que las demás. Y lo mejor es que compran fuera de temporada — porque quieren mantener su nivel. El programa de loyalty convirtió mi boutique en un club.", author: "Andrea Soto", business: "Boutique Ánimo, Monterrey NL" } },
 		{ type: "pricing", order: 13, content: { title: "Empieza gratis. Crece sin límites.", plans: PLANS } },
-		{ type: "cta", order: 14, content: { title: "Tu tienda puede tener el club VIP que tienen las grandes marcas.", subtitle: "Loyalty para boutique listo en 5 minutos. Sin contratos.", ctaText: "Crear cuenta gratis", ctaUrl: "https://xtarly.com", contact: CTA_CONTACT } },
+		{ type: "cta", order: 14, content: { title: "Tu tienda puede tener el club VIP que tienen las grandes marcas.", subtitle: "Loyalty para boutique listo en 5 minutos. Sin contratos.", ctaText: "Empezar gratis", ctaUrl: "https://xtarly.com", contact: CTA_CONTACT } },
 	];
 }
 
@@ -214,7 +214,7 @@ function farmacias(): Slides {
 		{ type: "features", order: 11, content: { title: "Todo lo que incluye Xtarly Rewards", features: [{ emoji: "💊", title: "Puntos por compra + salud", description: "Puntos dobles en vitaminas y suplementos — margen más alto para ti." }, { emoji: "💳", title: "Apple & Google Wallet", description: "Saldo de puntos siempre visible. El cliente sabe que tiene descuento." }, { emoji: "📊", title: "Pacientes crónicos identificados", description: "Sabe quién compra cada mes y cuándo debe volver." }, { emoji: "🔔", title: "Recordatorio de surtido", description: "Push automático cuando se acerca la fecha de reposición." }] } },
 		{ type: "testimonial", order: 12, content: { quote: "Mis clientes de medicamento crónico antes iban donde estuviera más cerca ese día. Ahora van a mi farmacia porque tienen puntos y porque les mando el recordatorio de surtido. Mi recompra mensual subió 23%.", author: "Dr. Eduardo Ríos", business: "Farmacia San Rafael, Querétaro QRO" } },
 		{ type: "pricing", order: 13, content: { title: "Empieza gratis. Crece sin límites.", plans: PLANS } },
-		{ type: "cta", order: 14, content: { title: "La farmacia que cuida a sus clientes nunca los pierde.", subtitle: "Loyalty para farmacia listo en 5 minutos. Sin contratos.", ctaText: "Crear cuenta gratis", ctaUrl: "https://xtarly.com", contact: CTA_CONTACT } },
+		{ type: "cta", order: 14, content: { title: "La farmacia que cuida a sus clientes nunca los pierde.", subtitle: "Loyalty para farmacia listo en 5 minutos. Sin contratos.", ctaText: "Empezar gratis", ctaUrl: "https://xtarly.com", contact: CTA_CONTACT } },
 	];
 }
 
@@ -233,7 +233,7 @@ function veterinarias(): Slides {
 		{ type: "features", order: 11, content: { title: "Todo lo que incluye Xtarly Rewards", features: [{ emoji: "🐾", title: "Wallet con nombre de mascota", description: "\"Tarjeta de Rocky\" — la conexión emocional que ningún otro loyalty tiene." }, { emoji: "💳", title: "Sellos por consulta", description: "5 consultas = 1 gratis. El dueño siempre tiene razón para volver." }, { emoji: "📊", title: "Historial de salud por mascota", description: "Vacunas, cirugías, desparasitaciones. Todo registrado y visible." }, { emoji: "🔔", title: "Recordatorios de vacunas", description: "\"Las vacunas de Rocky vencen esta semana\" — automático y personalizado." }] } },
 		{ type: "testimonial", order: 12, content: { quote: "Lo que más sorprendió a mis clientes fue la tarjeta con el nombre de su perro. Muestran la 'Tarjeta de Max' a todo el mundo. Mis citas de medicina preventiva subieron 40% — los dueños llegan ANTES de que haya urgencia.", author: "Dra. Carmen López", business: "Veterinaria San Francisco, Zapopan JAL" } },
 		{ type: "pricing", order: 13, content: { title: "Empieza gratis. Crece sin límites.", plans: PLANS } },
-		{ type: "cta", order: 14, content: { title: "La veterinaria que conoce a Rocky nunca lo pierde.", subtitle: "Loyalty veterinario con perfil de mascota listo en 5 minutos.", ctaText: "Crear cuenta gratis", ctaUrl: "https://xtarly.com", contact: CTA_CONTACT } },
+		{ type: "cta", order: 14, content: { title: "La veterinaria que conoce a Rocky nunca lo pierde.", subtitle: "Loyalty veterinario con perfil de mascota listo en 5 minutos.", ctaText: "Empezar gratis", ctaUrl: "https://xtarly.com", contact: CTA_CONTACT } },
 	];
 }
 
