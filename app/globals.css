@@ -73,7 +73,8 @@ body {
 .niche-card-image {
   position: relative;
   width: 100%;
-  aspect-ratio: 3 / 2;
+  flex: 1;
+  min-height: 0;
   background: var(--bg-elevated);
   overflow: hidden;
 }

@@ -13,15 +13,19 @@ export function NicheCard({ id, name, color, imageUrl }: NicheCardProps) {
 	const accent = color ?? "#6366f1";
 
 	return (
-		<Link href={`/niches/${id}`} className="niche-card group" style={{ "--accent": accent } as React.CSSProperties}>
-			{/* Image — 3:2 aspect ratio, fully contained */}
+		<Link
+			href={`/niches/${id}`}
+			className="niche-card"
+			style={{ "--accent": accent, height: "100%" } as React.CSSProperties}
+		>
+			{/* Image — flex-grow fills all available vertical space */}
 			<div className="niche-card-image">
 				{imageUrl ? (
 					<Image
 						src={imageUrl}
 						alt={name}
 						fill
-						sizes="(max-width: 640px) 50vw, 20vw"
+						sizes="20vw"
 						style={{ objectFit: "contain" }}
 						priority
 					/>
