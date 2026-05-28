@@ -1,0 +1,52 @@
+datasource db {
+    provider  = "postgresql"
+    url       = env("DATABASE_URL")
+    directUrl = env("DIRECT_URL")
+}
+
+generator client {
+    provider = "prisma-client-js"
+}
+
+model PitchNiche {
+    id          String   @id @default(cuid())
+    name        String
+    description String?
+    icon        String?
+    color       String?
+    imageUrl    String?
+    pitches     Pitch[]
+    createdAt   DateTime @default(now())
+    updatedAt   DateTime @updatedAt
+
+    @@map("pitch_niche")
+}
+
+model Pitch {
+    id          String       @id @default(cuid())
+    title       String
+    nicheId     String
+    niche       PitchNiche   @relation(fields: [nicheId], references: [id], onDelete: Cascade)
+    slides      PitchSlide[]
+    publicSlug  String       @unique @default(cuid())
+    isPublished Boolean      @default(false)
+    createdAt   DateTime     @default(now())
+    updatedAt   DateTime     @updatedAt
+
+    @@index([nicheId])
+    @@map("pitch")
+}
+
+model PitchSlide {
+    id        String   @id @default(cuid())
+    pitchId   String
+    pitch     Pitch    @relation(fields: [pitchId], references: [id], onDelete: Cascade)
+    order     Int
+    type      String
+    content   Json
+    createdAt DateTime @default(now())
+    updatedAt DateTime @updatedAt
+
+    @@index([pitchId, order])
+    @@map("pitch_slide")
+}
