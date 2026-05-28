@@ -19,7 +19,7 @@ export default async function NichesPage() {
 				display: "flex",
 				alignItems: "center",
 				justifyContent: "center",
-				padding: "48px 20px",
+				padding: "52px 12px 12px",
 				position: "relative",
 			}}
 		>
@@ -52,10 +52,9 @@ export default async function NichesPage() {
 			<div
 				style={{
 					width: "100%",
-					maxWidth: "1400px",
 					display: "grid",
 					gridTemplateColumns: "repeat(5, 1fr)",
-					gap: "20px",
+					gap: "12px",
 				}}
 			>
 				{niches.map((n) => (
