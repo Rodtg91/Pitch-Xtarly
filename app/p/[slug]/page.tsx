@@ -1,6 +1,6 @@
 "use client";
 
-import { WifiOff, X } from "lucide-react";
+import { ChevronLeft, ChevronRight, WifiOff, X } from "lucide-react";
 import { use, useCallback, useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
 
@@ -141,83 +141,126 @@ export default function PublicPitchPage({ params }: { params: Promise<{ slug: st
 				style={{ background: "transparent" }}
 			/>
 
-			{/* Back button — top-left */}
-			<button
-				type="button"
-				onClick={() => router.push("/")}
-				className="absolute top-4 left-4 z-50 p-2 rounded-full flex items-center justify-center"
-				style={{ background: "rgba(0,0,0,0.5)", color: "rgba(248,249,250,0.7)" }}
-				aria-label="Volver a nichos"
-			>
-				<X size={16} />
-			</button>
+			{/* ── Top bar ─────────────────────────────────────────────────────── */}
+			<div className="absolute top-5 inset-x-5 flex items-center justify-between z-50 pointer-events-none">
+				{/* Close button */}
+				<button
+					type="button"
+					onClick={() => router.push("/niches")}
+					className="pointer-events-auto flex items-center justify-center rounded-2xl transition-all hover:scale-105 active:scale-95"
+					style={{
+						width: 48,
+						height: 48,
+						background: "rgba(15,15,20,0.7)",
+						backdropFilter: "blur(12px)",
+						border: "1px solid rgba(255,255,255,0.1)",
+						color: "rgba(248,249,250,0.85)",
+						boxShadow: "0 4px 20px rgba(0,0,0,0.4)",
+					}}
+					aria-label="Volver a nichos"
+				>
+					<X size={20} strokeWidth={2} />
+				</button>
 
-			{/* Top bar — z-50 keeps it above the overlay */}
-			<div className="absolute top-4 left-1/2 -translate-x-1/2 flex items-center gap-3 z-50 pointer-events-none">
-				{isOffline && (
+				{/* Center: title + offline badge */}
+				<div className="flex items-center gap-2 pointer-events-none">
+					{isOffline && (
+						<div
+							className="flex items-center gap-1.5 text-xs px-3 py-2 rounded-xl"
+							style={{
+								background: "rgba(15,15,20,0.7)",
+								backdropFilter: "blur(12px)",
+								border: "1px solid rgba(245,158,11,0.3)",
+								color: "#f59e0b",
+							}}
+						>
+							<WifiOff size={13} />
+							Offline
+						</div>
+					)}
 					<div
-						className="flex items-center gap-1.5 text-xs px-3 py-1.5 rounded-full"
+						className="text-xs px-4 py-2 rounded-xl font-medium tracking-wide"
 						style={{
-							background: "rgba(0,0,0,0.6)",
-							color: "#f59e0b",
-							border: "1px solid rgba(245,158,11,0.3)",
+							background: "rgba(15,15,20,0.7)",
+							backdropFilter: "blur(12px)",
+							border: "1px solid rgba(255,255,255,0.08)",
+							color: "rgba(248,249,250,0.55)",
 						}}
 					>
-						<WifiOff size={12} />
-						Offline
+						{pitchTitle}
 					</div>
-				)}
+				</div>
+
+				{/* Slide counter */}
 				<div
-					className="text-xs px-3 py-1.5 rounded-full"
-					style={{ background: "rgba(0,0,0,0.6)", color: "rgba(248,249,250,0.5)" }}
+					className="flex items-center gap-1 px-4 py-2 rounded-2xl font-semibold tabular-nums pointer-events-none"
+					style={{
+						background: "rgba(15,15,20,0.7)",
+						backdropFilter: "blur(12px)",
+						border: "1px solid rgba(255,255,255,0.1)",
+						boxShadow: "0 4px 20px rgba(0,0,0,0.4)",
+					}}
 				>
-					{pitchTitle}
+					<span style={{ fontSize: 16, color: "rgba(248,249,250,0.95)" }}>{current + 1}</span>
+					<span style={{ fontSize: 13, color: "rgba(248,249,250,0.35)", margin: "0 2px" }}>/</span>
+					<span style={{ fontSize: 13, color: "rgba(248,249,250,0.45)" }}>{slides.length}</span>
 				</div>
 			</div>
 
-			{/* Slide counter */}
-			<div
-				className="absolute top-4 right-4 text-sm px-3 py-1.5 rounded-full z-50 pointer-events-none"
-				style={{ background: "rgba(0,0,0,0.6)", color: "rgba(248,249,250,0.7)" }}
-			>
-				{current + 1} / {slides.length}
-			</div>
-
-			{/* Navigation dots */}
-			<div className="absolute bottom-6 left-1/2 -translate-x-1/2 flex gap-2 z-50">
+			{/* ── Navigation dots ───────────────────────────────────────────────── */}
+			<div className="absolute bottom-7 left-1/2 -translate-x-1/2 flex items-center gap-2 z-50">
 				{slides.map((_, i) => (
 					<button
 						key={i}
 						type="button"
 						onClick={() => setCurrent(i)}
-						className="rounded-full transition-all"
+						className="rounded-full transition-all hover:scale-110"
 						style={{
-							width: i === current ? 24 : 8,
-							height: 8,
-							background: i === current ? "var(--brand-cyan)" : "rgba(255,255,255,0.3)",
+							width: i === current ? 28 : 7,
+							height: 7,
+							background: i === current ? "var(--brand-cyan)" : "rgba(255,255,255,0.25)",
+							boxShadow: i === current ? "0 0 10px rgba(98,229,255,0.5)" : "none",
 						}}
 					/>
 				))}
 			</div>
 
-			{/* Left / Right arrows — desktop only */}
+			{/* ── Left / Right arrows ───────────────────────────────────────────── */}
 			<button
 				type="button"
 				onClick={goPrev}
 				disabled={current === 0}
-				className="absolute left-4 top-1/2 -translate-y-1/2 disabled:opacity-0 p-3 rounded-full transition-all z-50 hidden md:flex items-center"
-				style={{ background: "rgba(0,0,0,0.4)", color: "#f8f9fa" }}
+				className="absolute left-5 top-1/2 -translate-y-1/2 z-50 hidden md:flex items-center justify-center rounded-2xl transition-all hover:scale-105 active:scale-95 disabled:opacity-0 disabled:pointer-events-none"
+				style={{
+					width: 52,
+					height: 52,
+					background: "rgba(15,15,20,0.7)",
+					backdropFilter: "blur(12px)",
+					border: "1px solid rgba(255,255,255,0.1)",
+					color: "rgba(248,249,250,0.85)",
+					boxShadow: "0 4px 20px rgba(0,0,0,0.4)",
+				}}
+				aria-label="Anterior"
 			>
-				←
+				<ChevronLeft size={26} strokeWidth={1.75} />
 			</button>
 			<button
 				type="button"
 				onClick={goNext}
 				disabled={current === slides.length - 1}
-				className="absolute right-4 top-1/2 -translate-y-1/2 disabled:opacity-0 p-3 rounded-full transition-all z-50 hidden md:flex items-center"
-				style={{ background: "rgba(0,0,0,0.4)", color: "#f8f9fa" }}
+				className="absolute right-5 top-1/2 -translate-y-1/2 z-50 hidden md:flex items-center justify-center rounded-2xl transition-all hover:scale-105 active:scale-95 disabled:opacity-0 disabled:pointer-events-none"
+				style={{
+					width: 52,
+					height: 52,
+					background: "rgba(15,15,20,0.7)",
+					backdropFilter: "blur(12px)",
+					border: "1px solid rgba(255,255,255,0.1)",
+					color: "rgba(248,249,250,0.85)",
+					boxShadow: "0 4px 20px rgba(0,0,0,0.4)",
+				}}
+				aria-label="Siguiente"
 			>
-				→
+				<ChevronRight size={26} strokeWidth={1.75} />
 			</button>
 		</div>
 	);
