@@ -39,7 +39,7 @@ export function PricingSlide({ content }: { content: PricingContent }) {
 						key={i}
 						style={{
 							background: plan.highlight ? "#1B1638" : "var(--slide-bg)",
-							padding: "1.5rem 1.5rem 1.75rem",
+							padding: content.plans.length >= 4 ? "1.1rem 1rem 1.25rem" : "1.5rem 1.5rem 1.75rem",
 							display: "flex",
 							flexDirection: "column",
 							position: "relative",

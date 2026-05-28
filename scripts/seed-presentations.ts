@@ -6,25 +6,32 @@ import { prisma } from "../lib/db";
 
 const PLANS = [
 	{
-		name: "Gratis",
-		price: "$0",
-		period: "siempre",
+		name: "Wallet",
+		price: "$19",
+		period: "mes",
 		highlight: false,
-		features: ["Hasta 200 clientes", "Programa de sellos o puntos", "Apple & Google Wallet", "Panel web básico"],
+		features: ["Tarjetas Apple & Google Wallet", "Hasta 300 transacciones/mes", "Notificaciones por geolocalización", "Analytics con KPIs y RFM", "Soporte prioritario"],
 	},
 	{
 		name: "Shared",
-		price: "$499",
+		price: "$29",
 		period: "mes",
-		highlight: true,
-		features: ["Clientes ilimitados", "App Xtarly compartida", "Push notifications", "Analytics + RFM", "Campañas automáticas", "Multi-sucursal"],
+		highlight: false,
+		features: ["Apple & Google Wallet incluidos", "App marketplace compartida", "Hasta 600 transacciones/mes", "Dashboard completo KPIs y RFM", "Multi-sucursal"],
 	},
 	{
 		name: "Branded",
-		price: "$1,999",
+		price: "$99",
+		period: "mes",
+		highlight: true,
+		features: ["Apple & Google Wallet incluidos", "Tu propia app marca blanca", "Hasta 2,000 transacciones/mes", "Dashboard completo KPIs y RFM", "Notificaciones WhatsApp Business"],
+	},
+	{
+		name: "Premium",
+		price: "$299",
 		period: "mes",
 		highlight: false,
-		features: ["Todo en Shared", "App con tu nombre y logo", "En App Store y Google Play", "Soporte prioritario"],
+		features: ["Apple & Google Wallet incluidos", "App totalmente personalizada", "Hasta 6,000 transacciones/mes", "REST API y webhooks", "Soporte y onboarding prioritarios"],
 	},
 ];
 

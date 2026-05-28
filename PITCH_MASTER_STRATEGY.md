@@ -541,25 +541,25 @@ ACCIÓN        → Empezar gratis hoy, sin tarjeta
 
 | Campo | Contenido |
 |---|---|
-| **Objetivo** | Hacer accesible el primer paso (plan gratis) |
-| **Headline** | `Empieza gratis. Crece sin límites.` |
-| **Visual** | 3 cards de plan: |
+| **Objetivo** | Mostrar la escalera de valor y lo accesible del primer paso |
+| **Headline** | `Precios simples. Crece sin límites.` |
+| **Visual** | 4 cards de plan: |
 
-| Plan | Gratis | **Shared ⭐** | Branded |
-|---|---|---|---|
-| Precio | $0 | $499/mes | $1,999/mes |
-| Clientes | Hasta 200 | Ilimitados | Ilimitados |
-| App | Web-only | App Xtarly Shared | App propia con tu marca |
-| Wallet | ✅ | ✅ | ✅ |
-| Push notifications | ❌ | ✅ | ✅ |
-| RFM Analytics | Básico | ✅ Completo | ✅ Completo |
-| Multi-sucursal | ❌ | ✅ | ✅ |
-| Campañas | ❌ | ✅ | ✅ |
-| White label app | ❌ | ❌ | ✅ |
+| Plan | Wallet | Shared | **Branded ⭐** | Premium |
+|---|---|---|---|---|
+| Precio | $19 USD/mes | $29 USD/mes | $99 USD/mes | $299 USD/mes |
+| Transacciones | 300/mes | 600/mes | 2,000/mes | 6,000/mes |
+| App | Sin app móvil | App Xtarly compartida | App marca blanca (plantilla) | App totalmente personalizada |
+| Apple & Google Wallet | ✅ | ✅ | ✅ | ✅ |
+| Dashboard KPIs y RFM | ✅ | ✅ | ✅ | ✅ |
+| Notificaciones WhatsApp | ✅ | ❌ | ✅ | ✅ |
+| Multi-sucursal | ✅ | ✅ | ✅ | ✅ |
+| REST API y webhooks | ❌ | ❌ | ❌ | ✅ |
+| White label app | ❌ | ❌ | ✅ | ✅ |
 
-| **Framing de precio** | "$499/mes = $16/día = 2 cafés" — menos que atraer 3 clientes nuevos en Instagram |
-| **CTA principal** | Shared (botón con gradiente de marca) |
-| **Animación** | Card Shared "levita" o tiene glow comparado con las otras |
+| **Framing de precio** | "$99/mes = $3.30/día" — menos que perder un cliente habitual |
+| **CTA principal** | Branded (card resaltada con highlight) |
+| **Animación** | Card Branded "levita" o tiene glow comparado con las otras |
 | **Emoción target** | Accesibilidad + lógica |
 | **Objeción eliminada** | "Debe ser muy caro" |
 

@@ -220,28 +220,35 @@ Genera exactamente 14 slides en este orden y con esta estructura JSON:
       "type": "pricing",
       "order": 13,
       "content": {
-        "title": "Empieza gratis. Crece sin límites.",
+        "title": "Precios simples. Crece sin límites.",
         "plans": [
           {
-            "name": "Gratis",
-            "price": "$0",
-            "period": "siempre",
+            "name": "Wallet",
+            "price": "$19",
+            "period": "mes",
             "highlight": false,
-            "features": ["Hasta 200 clientes", "Programa de sellos o puntos", "Panel web básico", "Apple & Google Wallet"]
+            "features": ["Tarjetas Apple & Google Wallet", "Hasta 300 transacciones/mes", "Notificaciones por geolocalización", "Analytics con KPIs y RFM"]
           },
           {
             "name": "Shared",
-            "price": "$499",
+            "price": "$29",
             "period": "mes",
-            "highlight": true,
-            "features": ["Clientes ilimitados", "App Xtarly compartida", "Push notifications", "Analytics + RFM", "Campañas automáticas", "Multi-sucursal"]
+            "highlight": false,
+            "features": ["Apple & Google Wallet incluidos", "App marketplace compartida", "Hasta 600 transacciones/mes", "Dashboard completo KPIs y RFM"]
           },
           {
             "name": "Branded",
-            "price": "$1,999",
+            "price": "$99",
+            "period": "mes",
+            "highlight": true,
+            "features": ["Apple & Google Wallet incluidos", "Tu propia app marca blanca", "Hasta 2,000 transacciones/mes", "Notificaciones WhatsApp Business"]
+          },
+          {
+            "name": "Premium",
+            "price": "$299",
             "period": "mes",
             "highlight": false,
-            "features": ["Todo en Shared", "App con tu nombre y logo", "En App Store y Google Play", "Soporte prioritario"]
+            "features": ["App totalmente personalizada", "Hasta 6,000 transacciones/mes", "REST API y webhooks", "Onboarding prioritario"]
           }
         ]
       }
