@@ -125,10 +125,23 @@ export default function PublicPitchPage({ params }: { params: Promise<{ slug: st
 
 	return (
 		<div className="fixed inset-0" style={{ background: "#000" }}>
-			{/* Slide content */}
+			{/* Slide content — safe zone: top 80px (nav bar), bottom 64px (dots), sides 72px (arrows, desktop) */}
 			{slide && (
-				<div className="w-full h-full">
-					<SlideViewer slide={slide} />
+				<div
+					className="absolute inset-0 flex items-center justify-center"
+					style={{
+						paddingTop: 80,
+						paddingBottom: 64,
+						paddingLeft: "clamp(0px, 5vw, 72px)",
+						paddingRight: "clamp(0px, 5vw, 72px)",
+					}}
+				>
+					<div
+						className="w-full h-full rounded-xl overflow-hidden"
+						style={{ maxWidth: "calc((100vh - 144px) * 16 / 9)" }}
+					>
+						<SlideViewer slide={slide} />
+					</div>
 				</div>
 			)}
 
