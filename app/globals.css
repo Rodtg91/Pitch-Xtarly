@@ -13,6 +13,19 @@
   --accent-hover: #4f52e0;
 }
 
+html.light {
+  --bg-base: #f5f7fa;
+  --bg-surface: #ffffff;
+  --bg-elevated: #eef0f6;
+  --border: rgba(0,0,0,0.08);
+  --border-hover: rgba(0,0,0,0.15);
+  --text-primary: #111827;
+  --text-secondary: #6b7280;
+  --text-muted: #9ca3af;
+  --accent: #6366f1;
+  --accent-hover: #4f52e0;
+}
+
 *, *::before, *::after {
   box-sizing: border-box;
   margin: 0;
