@@ -1,7 +1,8 @@
 "use client";
 
-import { WifiOff } from "lucide-react";
+import { WifiOff, X } from "lucide-react";
 import { use, useCallback, useEffect, useState } from "react";
+import { useRouter } from "next/navigation";
 
 import { SlideViewer } from "@/components/slide-viewer";
 import { getCachedPitchBySlug } from "@/lib/offline-cache";
@@ -15,6 +16,7 @@ interface Slide {
 
 export default function PublicPitchPage({ params }: { params: Promise<{ slug: string }> }) {
 	const { slug } = use(params);
+	const router = useRouter();
 	const [slides, setSlides] = useState<Slide[]>([]);
 	const [pitchTitle, setPitchTitle] = useState("");
 	const [current, setCurrent] = useState(0);
@@ -138,6 +140,17 @@ export default function PublicPitchPage({ params }: { params: Promise<{ slug: st
 				aria-label="Siguiente slide"
 				style={{ background: "transparent" }}
 			/>
+
+			{/* Back button — top-left */}
+			<button
+				type="button"
+				onClick={() => router.push("/")}
+				className="absolute top-4 left-4 z-50 p-2 rounded-full flex items-center justify-center"
+				style={{ background: "rgba(0,0,0,0.5)", color: "rgba(248,249,250,0.7)" }}
+				aria-label="Volver a nichos"
+			>
+				<X size={16} />
+			</button>
 
 			{/* Top bar — z-50 keeps it above the overlay */}
 			<div className="absolute top-4 left-1/2 -translate-x-1/2 flex items-center gap-3 z-50 pointer-events-none">
