@@ -1,5 +1,19 @@
 import type { Metadata, Viewport } from "next";
+import { Geist, Nunito } from "next/font/google";
 import "./globals.css";
+
+const geistFont = Geist({
+	weight: ["400", "500", "600", "700"],
+	subsets: ["latin"],
+	variable: "--font-geist",
+});
+
+const nunitoFont = Nunito({
+	weight: ["400", "600", "700", "800"],
+	subsets: ["latin"],
+	variable: "--font-nunito",
+	display: "swap",
+});
 
 export const metadata: Metadata = {
 	title: "Xtarly Pitch",
@@ -21,11 +35,11 @@ export const viewport: Viewport = {
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
 	return (
-		<html lang="es">
+		<html lang="es" className={`${geistFont.variable} ${nunitoFont.variable}`}>
 			<head>
 				<link rel="apple-touch-icon" href="/icons/icon-192.png" />
 			</head>
-			<body className="min-h-screen bg-gray-950 text-white" suppressHydrationWarning>{children}</body>
+			<body className="min-h-screen" suppressHydrationWarning>{children}</body>
 		</html>
 	);
 }

@@ -35,7 +35,7 @@ export default async function HomePage() {
 					<div className="flex h-8 w-8 items-center justify-center rounded-lg bg-indigo-600 text-sm font-bold text-white shadow-lg shadow-indigo-600/30">
 						X
 					</div>
-					<span className="font-semibold text-white">Xtarly Pitch</span>
+					<span className="font-heading text-base text-white">Xtarly Pitch</span>
 				</div>
 			</header>
 
@@ -68,8 +68,8 @@ export default async function HomePage() {
 				{/* ── Nichos ── */}
 				<section className="mb-12">
 					<div className="mb-6">
-						<h2 className="text-xl font-bold text-white">Nichos de mercado</h2>
-						<p className="mt-0.5 text-sm" style={{ color: "var(--text-secondary)" }}>
+						<h2 className="font-heading text-2xl text-white">Nichos de mercado</h2>
+						<p className="mt-1 text-sm" style={{ color: "var(--text-secondary)" }}>
 							Selecciona un nicho para ver sus presentaciones
 						</p>
 					</div>
@@ -93,8 +93,8 @@ export default async function HomePage() {
 				{recentPitches.length > 0 && (
 					<section>
 						<div className="mb-6">
-							<h2 className="text-xl font-bold text-white">Presentaciones recientes</h2>
-							<p className="mt-0.5 text-sm" style={{ color: "var(--text-secondary)" }}>
+							<h2 className="font-heading text-2xl text-white">Presentaciones recientes</h2>
+							<p className="mt-1 text-sm" style={{ color: "var(--text-secondary)" }}>
 								Tus pitches más recientes, listos para presentar
 							</p>
 						</div>

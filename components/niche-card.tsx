@@ -84,9 +84,9 @@ export function NicheCard({ id, name, icon, color, imageUrl, pitchCount }: Niche
 				<span style={{ fontSize: "20px", lineHeight: 1 }}>{icon ?? "📊"}</span>
 				<div style={{ flex: 1, minWidth: 0 }}>
 					<p
+						className="font-heading"
 						style={{
 							fontSize: "14px",
-							fontWeight: 600,
 							color: "white",
 							overflow: "hidden",
 							textOverflow: "ellipsis",

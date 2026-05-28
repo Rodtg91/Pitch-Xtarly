@@ -31,7 +31,7 @@ export function PitchCard({
 							<span className="text-xs text-[#9ca3b0] font-medium">{nicheName}</span>
 						</div>
 					)}
-					<h3 className="font-semibold text-white leading-snug line-clamp-2">{title}</h3>
+					<h3 className="font-heading text-base text-white leading-snug line-clamp-2">{title}</h3>
 				</div>
 				<span
 					className={`mt-0.5 flex-shrink-0 flex items-center gap-1 rounded-full px-2 py-0.5 text-xs font-medium ${

@@ -1,4 +1,3 @@
-@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap");
 @import "tailwindcss";
 
 :root {
@@ -27,10 +26,17 @@ html {
 }
 
 body {
-  font-family: "Inter", -apple-system, BlinkMacSystemFont, sans-serif;
+  font-family: var(--font-geist), -apple-system, BlinkMacSystemFont, sans-serif;
   background-color: var(--bg-base);
   color: var(--text-primary);
   line-height: 1.5;
+}
+
+/* Heading font — matches apps/web font-heading (Nunito) */
+.font-heading {
+  font-family: var(--font-nunito), var(--font-geist), sans-serif;
+  font-weight: 800;
+  letter-spacing: -0.02em;
 }
 
 ::selection {

@@ -64,7 +64,7 @@ export default async function NichePage({ params }: { params: Promise<{ id: stri
 						{niche.icon ?? "📊"}
 					</div>
 					<div>
-						<h1 className="text-2xl font-bold text-white drop-shadow">{niche.name}</h1>
+						<h1 className="font-heading text-2xl text-white drop-shadow">{niche.name}</h1>
 						<p className="text-sm text-white/60">
 							{niche.pitches.length} {niche.pitches.length === 1 ? "presentación" : "presentaciones"}
 						</p>
@@ -84,7 +84,7 @@ export default async function NichePage({ params }: { params: Promise<{ id: stri
 						>
 							{niche.icon ?? "📊"}
 						</div>
-						<h3 className="mb-1 text-lg font-semibold text-white">Sin presentaciones aún</h3>
+						<h3 className="font-heading mb-1 text-xl text-white">Sin presentaciones aún</h3>
 						<p className="max-w-xs text-sm" style={{ color: "var(--text-secondary)" }}>
 							Pronto habrá presentaciones disponibles para {niche.name}
 						</p>
