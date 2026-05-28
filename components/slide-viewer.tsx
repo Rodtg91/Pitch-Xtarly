@@ -1,10 +1,17 @@
-import { CtaSlide } from "./slide-types/cta-slide";
+import { AnalyticsSlide } from "./slide-types/analytics-slide";
 import { CoverSlide } from "./slide-types/cover-slide";
+import { CtaSlide } from "./slide-types/cta-slide";
 import { FeaturesSlide } from "./slide-types/features-slide";
+import { HowItWorksSlide } from "./slide-types/how-it-works-slide";
+import { JourneySlide } from "./slide-types/journey-slide";
+import { NotificationsSlide } from "./slide-types/notifications-slide";
 import { PricingSlide } from "./slide-types/pricing-slide";
 import { ProblemSlide } from "./slide-types/problem-slide";
+import { RoiSlide } from "./slide-types/roi-slide";
 import { SolutionSlide } from "./slide-types/solution-slide";
 import { TestimonialSlide } from "./slide-types/testimonial-slide";
+import { VsComparisonSlide } from "./slide-types/vs-comparison-slide";
+import { WalletSlide } from "./slide-types/wallet-slide";
 
 interface Slide {
 	id: string;
@@ -34,9 +41,26 @@ export function SlideViewer({ slide }: { slide: Slide }) {
 			return <TestimonialSlide content={c} />;
 		case "cta":
 			return <CtaSlide content={c} />;
+		case "wallet":
+			return <WalletSlide content={c} />;
+		case "how-it-works":
+			return <HowItWorksSlide content={c} />;
+		case "roi":
+			return <RoiSlide content={c} />;
+		case "vs-comparison":
+			return <VsComparisonSlide content={c} />;
+		case "journey":
+			return <JourneySlide content={c} />;
+		case "analytics":
+			return <AnalyticsSlide content={c} />;
+		case "notifications":
+			return <NotificationsSlide content={c} />;
 		default:
 			return (
-				<div className="flex items-center justify-center h-full bg-gray-900 text-gray-400">
+				<div
+					className="flex items-center justify-center h-full"
+					style={{ background: "var(--slide-surface)", color: "var(--slide-text-muted)" }}
+				>
 					Tipo de slide desconocido: {slide.type}
 				</div>
 			);

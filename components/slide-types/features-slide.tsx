@@ -5,18 +5,40 @@ interface FeaturesContent {
 
 export function FeaturesSlide({ content }: { content: FeaturesContent }) {
 	return (
-		<div className="flex flex-col justify-center h-full px-16 py-12 bg-gray-950">
-			<h2 className="text-4xl md:text-5xl font-bold text-white mb-10">{content.title}</h2>
+		<div
+			className="flex flex-col justify-center h-full px-16 py-12"
+			style={{ background: "var(--slide-bg)" }}
+		>
+			<h2
+				className="text-4xl md:text-5xl font-bold mb-10"
+				style={{ color: "var(--slide-text)" }}
+			>
+				{content.title}
+			</h2>
 			<div className="grid grid-cols-2 gap-6">
 				{content.features.map((f, i) => (
 					<div
 						key={i}
-						className="flex items-start gap-5 bg-gray-900 border border-gray-800 rounded-2xl p-6"
+						className="flex items-start gap-5 rounded-2xl p-6"
+						style={{
+							background: "var(--slide-surface)",
+							border: "1px solid var(--slide-border)",
+						}}
 					>
-						<span className="text-4xl">{f.emoji}</span>
+						<span className="text-4xl leading-none mt-0.5">{f.emoji}</span>
 						<div>
-							<h3 className="text-xl font-semibold text-white mb-1">{f.title}</h3>
-							<p className="text-gray-400 text-base">{f.description}</p>
+							<h3
+								className="text-xl font-semibold mb-1"
+								style={{ color: "var(--slide-text)" }}
+							>
+								{f.title}
+							</h3>
+							<p
+								className="text-base leading-relaxed"
+								style={{ color: "var(--slide-text-secondary)" }}
+							>
+								{f.description}
+							</p>
 						</div>
 					</div>
 				))}

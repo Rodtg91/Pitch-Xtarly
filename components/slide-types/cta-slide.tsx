@@ -10,23 +10,42 @@ interface CtaContent {
 	};
 }
 
+// El CTA siempre usa gradiente de marca — es el clímax visual y de conversión.
 export function CtaSlide({ content }: { content: CtaContent }) {
 	return (
-		<div className="flex flex-col items-center justify-center h-full px-16 py-12 text-center bg-gradient-to-br from-indigo-900 via-purple-900 to-indigo-800">
-			<h2 className="text-4xl md:text-6xl font-bold text-white mb-4">{content.title}</h2>
-			<p className="text-xl text-indigo-200 mb-10">{content.subtitle}</p>
+		<div
+			className="flex flex-col items-center justify-center h-full px-16 py-12 text-center"
+			style={{ background: "var(--brand-gradient-bg)" }}
+		>
+			<h2
+				className="text-4xl md:text-6xl font-bold mb-4 leading-tight"
+				style={{ color: "#f8f9fa" }}
+			>
+				{content.title}
+			</h2>
+			<p
+				className="text-xl mb-10"
+				style={{ color: "rgba(248,249,250,0.7)" }}
+			>
+				{content.subtitle}
+			</p>
 
 			<a
 				href={content.ctaUrl ?? "#"}
 				target="_blank"
 				rel="noopener noreferrer"
-				className="bg-white text-indigo-900 font-bold text-xl px-10 py-4 rounded-full hover:bg-indigo-50 transition-colors mb-12"
+				className="font-bold text-xl px-10 py-4 rounded-full transition-opacity hover:opacity-90 mb-12"
+				style={{
+					background: "linear-gradient(135deg, var(--brand-cyan), var(--brand-violet))",
+					color: "#f8f9fa",
+					boxShadow: "0 4px 30px rgba(98,229,255,0.3)",
+				}}
 			>
 				{content.ctaText}
 			</a>
 
 			{content.contact && (
-				<div className="flex flex-wrap justify-center gap-8 text-indigo-200">
+				<div className="flex flex-wrap justify-center gap-8" style={{ color: "rgba(248,249,250,0.6)" }}>
 					{content.contact.whatsapp && (
 						<div className="flex items-center gap-2">
 							<span className="text-xl">📱</span>

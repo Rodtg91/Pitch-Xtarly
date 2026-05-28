@@ -11,6 +11,27 @@
   --text-muted: #4b5263;
   --accent: #6366f1;
   --accent-hover: #4f52e0;
+
+  /* Brand palette */
+  --brand-cyan: #62E5FF;
+  --brand-violet: #7C5CFF;
+  --brand-magenta: #E94FE6;
+  --brand-dark: #1B1638;
+  --brand-gradient: linear-gradient(135deg, #62E5FF 0%, #7C5CFF 50%, #E94FE6 100%);
+  --brand-gradient-bg: linear-gradient(135deg, #0D0B1A 0%, #1B1638 40%, #2D1B69 100%);
+
+  /* Slide-specific tokens */
+  --slide-bg: #08090e;
+  --slide-surface: #0f1117;
+  --slide-surface-2: #161822;
+  --slide-border: rgba(255,255,255,0.07);
+  --slide-text: #f8f9fa;
+  --slide-text-secondary: #9ca3b0;
+  --slide-text-muted: #4b5263;
+  --slide-accent-subtle: rgba(99,102,241,0.12);
+  --slide-accent-border: rgba(99,102,241,0.25);
+  --slide-cyan-subtle: rgba(98,229,255,0.08);
+  --slide-cyan-border: rgba(98,229,255,0.15);
 }
 
 html.light {
@@ -24,6 +45,27 @@ html.light {
   --text-muted: #9ca3af;
   --accent: #6366f1;
   --accent-hover: #4f52e0;
+
+  /* Brand palette — same in both themes */
+  --brand-cyan: #62E5FF;
+  --brand-violet: #7C5CFF;
+  --brand-magenta: #E94FE6;
+  --brand-dark: #1B1638;
+  --brand-gradient: linear-gradient(135deg, #62E5FF 0%, #7C5CFF 50%, #E94FE6 100%);
+  --brand-gradient-bg: linear-gradient(135deg, #0D0B1A 0%, #1B1638 40%, #2D1B69 100%);
+
+  /* Slide-specific tokens — light overrides */
+  --slide-bg: #f5f7fa;
+  --slide-surface: #ffffff;
+  --slide-surface-2: #eef0f6;
+  --slide-border: rgba(0,0,0,0.08);
+  --slide-text: #111827;
+  --slide-text-secondary: #6b7280;
+  --slide-text-muted: #9ca3af;
+  --slide-accent-subtle: rgba(99,102,241,0.06);
+  --slide-accent-border: rgba(99,102,241,0.2);
+  --slide-cyan-subtle: rgba(98,229,255,0.05);
+  --slide-cyan-border: rgba(98,229,255,0.2);
 }
 
 *, *::before, *::after {
