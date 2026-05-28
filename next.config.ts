@@ -33,6 +33,7 @@ const withPWA = withPWAInit({
 const nextConfig: NextConfig = {
   eslint: { ignoreDuringBuilds: true },
   images: { unoptimized: true },
+  serverExternalPackages: ["@prisma/client", "prisma"],
 };
 
 export default withPWA(nextConfig);
