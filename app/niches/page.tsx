@@ -14,7 +14,7 @@ export default async function NichesPage() {
 	return (
 		<div
 			className="relative min-h-dvh"
-			style={{ background: "var(--bg-base)", padding: "52px 12px 12px" }}
+			style={{ background: "var(--bg-base)", padding: "72px 12px 12px" }}
 		>
 			{/* Back button */}
 			<Link
