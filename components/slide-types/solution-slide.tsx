@@ -79,7 +79,7 @@ export function SolutionSlide({ content }: { content: SolutionContent }) {
 							style={{
 								fontSize: "clamp(1.5rem, 3vw, 2.5rem)",
 								color: "#7C5CFF",
-								opacity: 0.3,
+								opacity: 0.45,
 								lineHeight: 1,
 								flexShrink: 0,
 								width: "2.5rem",

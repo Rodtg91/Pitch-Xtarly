@@ -56,7 +56,7 @@ export function CtaSlide({ content }: { content: CtaContent }) {
 				className="slide-body"
 				style={{
 					fontSize: "clamp(0.875rem, 1.5vw, 1.1rem)",
-					color: "rgba(248,249,250,0.55)",
+					color: "rgba(248,249,250,0.75)",
 					marginBottom: "2.5rem",
 					maxWidth: "40ch",
 				}}
@@ -78,7 +78,7 @@ export function CtaSlide({ content }: { content: CtaContent }) {
 				{content.contact?.web && (
 					<span
 						className="slide-body"
-						style={{ fontSize: "clamp(0.75rem, 1.2vw, 0.9rem)", color: "rgba(248,249,250,0.35)" }}
+						style={{ fontSize: "clamp(0.75rem, 1.2vw, 0.9rem)", color: "rgba(248,249,250,0.60)" }}
 					>
 						{content.contact.web}
 					</span>
@@ -99,7 +99,7 @@ export function CtaSlide({ content }: { content: CtaContent }) {
 					{content.contact.whatsapp && (
 						<div style={{ display: "flex", alignItems: "center", gap: "0.5rem" }}>
 							<span style={{ fontSize: "0.875rem" }}>📱</span>
-							<span className="slide-body" style={{ fontSize: "clamp(0.65rem, 1.1vw, 0.8rem)", color: "rgba(248,249,250,0.4)" }}>
+							<span className="slide-body" style={{ fontSize: "clamp(0.65rem, 1.1vw, 0.8rem)", color: "rgba(248,249,250,0.68)" }}>
 								{content.contact.whatsapp}
 							</span>
 						</div>

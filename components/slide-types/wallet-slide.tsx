@@ -30,7 +30,7 @@ export function WalletSlide({ content }: { content: WalletContent }) {
 					borderRight: "1px solid rgba(255,255,255,0.06)",
 				}}
 			>
-				<span className="slide-label" style={{ color: "#62E5FF", opacity: 0.7, marginBottom: "1.25rem" }}>
+				<span className="slide-label" style={{ color: "#62E5FF", marginBottom: "1.25rem" }}>
 					Apple Wallet · Google Wallet
 				</span>
 				<div className="slide-rule" style={{ marginBottom: "1.25rem" }} />
@@ -49,7 +49,7 @@ export function WalletSlide({ content }: { content: WalletContent }) {
 					className="slide-body"
 					style={{
 						fontSize: "clamp(0.75rem, 1.3vw, 0.95rem)",
-						color: "rgba(248,249,250,0.55)",
+						color: "rgba(248,249,250,0.75)",
 						marginBottom: "2rem",
 						maxWidth: "38ch",
 						lineHeight: 1.65,
@@ -72,7 +72,7 @@ export function WalletSlide({ content }: { content: WalletContent }) {
 						/>
 						<p
 							className="slide-body"
-							style={{ fontSize: "clamp(0.7rem, 1.2vw, 0.875rem)", color: "rgba(248,249,250,0.6)", lineHeight: 1.55 }}
+							style={{ fontSize: "clamp(0.7rem, 1.2vw, 0.875rem)", color: "rgba(248,249,250,0.78)", lineHeight: 1.55 }}
 						>
 							{b}
 						</p>
@@ -119,7 +119,7 @@ export function WalletSlide({ content }: { content: WalletContent }) {
 						>
 							★
 						</div>
-						<span style={{ fontSize: "11px", fontWeight: 600, color: "rgba(255,255,255,0.5)" }}>
+						<span style={{ fontSize: "11px", fontWeight: 600, color: "rgba(255,255,255,0.65)" }}>
 							Xtarly Rewards · ahora
 						</span>
 					</div>
@@ -141,7 +141,7 @@ export function WalletSlide({ content }: { content: WalletContent }) {
 				>
 					<div style={{ display: "flex", alignItems: "center", justifyContent: "space-between", marginBottom: "20px" }}>
 						<div>
-							<div style={{ fontSize: "9px", fontWeight: 600, letterSpacing: "0.1em", textTransform: "uppercase", color: "#62E5FF", opacity: 0.7, marginBottom: "3px" }}>
+							<div style={{ fontSize: "9px", fontWeight: 600, letterSpacing: "0.1em", textTransform: "uppercase", color: "#62E5FF", marginBottom: "3px" }}>
 								Loyalty Card
 							</div>
 							<div style={{ fontSize: "13px", fontWeight: 700, color: "#f8f9fa" }}>
@@ -174,10 +174,10 @@ export function WalletSlide({ content }: { content: WalletContent }) {
 					</div>
 
 					<div style={{ display: "flex", alignItems: "center", justifyContent: "space-between" }}>
-						<p style={{ fontSize: "10px", color: "rgba(248,249,250,0.4)", margin: 0 }}>
+						<p style={{ fontSize: "10px", color: "rgba(248,249,250,0.65)", margin: 0 }}>
 							Ana García · 8 de 10
 						</p>
-						<div style={{ fontSize: "9px", fontWeight: 600, color: "#62E5FF", letterSpacing: "0.06em", opacity: 0.6 }}>
+						<div style={{ fontSize: "9px", fontWeight: 600, color: "#62E5FF", letterSpacing: "0.06em" }}>
 							WALLET
 						</div>
 					</div>

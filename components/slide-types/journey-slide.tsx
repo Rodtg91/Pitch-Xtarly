@@ -45,7 +45,7 @@ export function JourneySlide({ content }: { content: JourneyContent }) {
 				{content.subheadline && (
 					<p
 						className="slide-body"
-						style={{ fontSize: "clamp(0.75rem, 1.3vw, 0.9rem)", color: "var(--slide-text-muted)", marginTop: "0.6rem" }}
+						style={{ fontSize: "clamp(0.75rem, 1.3vw, 0.9rem)", color: "var(--slide-text-secondary)", marginTop: "0.6rem" }}
 					>
 						{content.subheadline}
 					</p>
@@ -125,7 +125,7 @@ export function JourneySlide({ content }: { content: JourneyContent }) {
 								className="slide-body"
 								style={{
 									fontSize: "clamp(0.6rem, 1vw, 0.75rem)",
-									color: "var(--slide-text-muted)",
+									color: "var(--slide-text-secondary)",
 									lineHeight: 1.5,
 									maxWidth: "16ch",
 								}}

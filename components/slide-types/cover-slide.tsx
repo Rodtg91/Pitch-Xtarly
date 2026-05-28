@@ -13,7 +13,7 @@ export function CoverSlide({ content }: { content: CoverContent }) {
 				display: "flex",
 				flexDirection: "column",
 				justifyContent: "center",
-				padding: "6% 10% 6% 8%",
+				padding: "6% 42% 6% 8%",
 			}}
 		>
 			{/* eslint-disable-next-line @next/next/no-img-element */}
@@ -30,7 +30,7 @@ export function CoverSlide({ content }: { content: CoverContent }) {
 			/>
 
 			{content.tagline && (
-				<span className="slide-label" style={{ color: "rgba(248,249,250,0.45)", marginBottom: "1rem" }}>
+				<span className="slide-label" style={{ color: "rgba(248,249,250,0.70)", marginBottom: "1rem" }}>
 					{content.tagline}
 				</span>
 			)}
@@ -42,7 +42,6 @@ export function CoverSlide({ content }: { content: CoverContent }) {
 				style={{
 					fontSize: "clamp(2rem, 4.8vw, 4.25rem)",
 					color: "#f8f9fa",
-					maxWidth: "70%",
 					marginBottom: "2.25rem",
 				}}
 			>
@@ -53,8 +52,7 @@ export function CoverSlide({ content }: { content: CoverContent }) {
 				className="slide-body"
 				style={{
 					fontSize: "clamp(0.85rem, 1.5vw, 1.1rem)",
-					color: "rgba(248,249,250,0.55)",
-					maxWidth: "54%",
+					color: "rgba(248,249,250,0.72)",
 					lineHeight: 1.7,
 				}}
 			>
@@ -70,11 +68,29 @@ export function CoverSlide({ content }: { content: CoverContent }) {
 					fontWeight: 600,
 					letterSpacing: "0.12em",
 					textTransform: "uppercase",
-					color: "rgba(248,249,250,0.2)",
+					color: "rgba(248,249,250,0.38)",
 				}}
 			>
 				xtarly.com
 			</span>
+
+			{/* Right column — lifestyle photo placeholder */}
+			<div
+				className="img-placeholder"
+				style={{
+					position: "absolute",
+					top: "8%",
+					right: "5%",
+					bottom: "12%",
+					width: "31%",
+				}}
+			>
+				<span style={{ fontSize: "1.5rem", opacity: 0.3 }}>📸</span>
+				<span className="img-placeholder-label">Foto lifestyle</span>
+				<p className="img-placeholder-prompt">
+					Overhead flat-lay on dark espresso-stained wood. Smartphone showing rewards wallet card in Apple Wallet, artisan coffee cup with latte art, small succulent. Deep purples and cyans with warm amber. Studio lighting, f/2.8 bokeh. Vertical 2:3, no text.
+				</p>
+			</div>
 		</div>
 	);
 }

@@ -69,7 +69,7 @@ export function HowItWorksSlide({ content }: { content: HowItWorksContent }) {
 							style={{
 								fontSize: "clamp(3rem, 7vw, 6.5rem)",
 								color: "#7C5CFF",
-								opacity: 0.15,
+								opacity: 0.28,
 								lineHeight: 1,
 								marginBottom: "0.5rem",
 							}}
@@ -77,9 +77,17 @@ export function HowItWorksSlide({ content }: { content: HowItWorksContent }) {
 							{step.number}
 						</div>
 
-						{/* Icon */}
-						<div style={{ fontSize: "clamp(1.5rem, 2.5vw, 2.25rem)", marginBottom: "0.75rem" }}>
-							{step.icon}
+						{/* Step photo placeholder */}
+						<div
+							className="img-placeholder"
+							style={{ width: "100%", aspectRatio: "4/3", marginBottom: "0.75rem" }}
+						>
+							<span style={{ fontSize: "1rem", opacity: 0.3 }}>📸</span>
+							<p className="img-placeholder-prompt" style={{ fontSize: "0.4rem" }}>
+								{i === 0 && "Customer's hand raising phone toward camera at checkout, iPhone showing QR loyalty code. Warm retail lighting."}
+								{i === 1 && "Cashier's hands holding Android phone scanning a QR code at counter. Soft bokeh background, modern retail."}
+								{i === 2 && "Phone lock screen with push notification: star icon, success message, confetti colors. Dark wallpaper, macro."}
+							</p>
 						</div>
 
 						<h3

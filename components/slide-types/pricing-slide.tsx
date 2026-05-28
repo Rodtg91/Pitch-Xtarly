@@ -66,7 +66,7 @@ export function PricingSlide({ content }: { content: PricingContent }) {
 						{/* Name */}
 						<span
 							className="slide-label"
-							style={{ color: plan.highlight ? "rgba(248,249,250,0.45)" : "var(--slide-text-muted)", marginBottom: "0.75rem" }}
+							style={{ color: plan.highlight ? "rgba(248,249,250,0.65)" : "var(--slide-text-muted)", marginBottom: "0.75rem" }}
 						>
 							{plan.name}
 						</span>
@@ -86,7 +86,7 @@ export function PricingSlide({ content }: { content: PricingContent }) {
 								className="slide-body"
 								style={{
 									fontSize: "clamp(0.65rem, 1vw, 0.8rem)",
-									color: plan.highlight ? "rgba(248,249,250,0.4)" : "var(--slide-text-muted)",
+									color: plan.highlight ? "rgba(248,249,250,0.65)" : "var(--slide-text-muted)",
 									marginLeft: "0.3rem",
 								}}
 							>

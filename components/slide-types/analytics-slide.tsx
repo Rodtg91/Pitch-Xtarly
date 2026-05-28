@@ -62,7 +62,7 @@ export function AnalyticsSlide({ content }: { content: AnalyticsContent }) {
 				{content.subheadline && (
 					<p
 						className="slide-body"
-						style={{ fontSize: "clamp(0.7rem, 1.2vw, 0.875rem)", color: "var(--slide-text-muted)", marginBottom: "2rem" }}
+						style={{ fontSize: "clamp(0.7rem, 1.2vw, 0.875rem)", color: "var(--slide-text-secondary)", marginBottom: "2rem" }}
 					>
 						{content.subheadline}
 					</p>
@@ -166,16 +166,19 @@ export function AnalyticsSlide({ content }: { content: AnalyticsContent }) {
 								</span>
 							</div>
 							<div style={{ display: "flex", alignItems: "center", gap: "0.75rem" }}>
-								{/* Mini bar */}
-								<div
-									style={{
-										height: "3px",
-										borderRadius: "2px",
-										width: `${Math.max(16, (s.count / total) * 80)}px`,
-										background: s.color,
-										opacity: 0.35,
-									}}
-								/>
+								{/* Animated bar */}
+								<div style={{ width: "80px", height: "4px", background: "var(--slide-border)", borderRadius: "2px", overflow: "hidden" }}>
+									<div
+										className="chart-bar-x"
+										style={{
+											height: "100%",
+											width: `${Math.max(8, (s.count / total) * 100)}%`,
+											background: s.color,
+											borderRadius: "2px",
+											animationDelay: `${i * 110}ms`,
+										}}
+									/>
+								</div>
 								<span
 									className="slide-number-hero"
 									style={{ fontSize: "clamp(0.75rem, 1.3vw, 1rem)", color: "var(--slide-text)", minWidth: "2rem", textAlign: "right" }}

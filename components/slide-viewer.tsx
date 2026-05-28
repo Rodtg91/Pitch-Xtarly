@@ -24,21 +24,24 @@ interface Slide {
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 type SlideContent = any;
 
-function SlideIcon() {
+// Cover y CTA ya tienen el logo prominente en su layout.
+// El resto lo muestra en top-right a opacidad visible.
+function SlideLogo({ type }: { type: string }) {
+	const prominent = type === "cover" || type === "cta";
 	return (
 		// eslint-disable-next-line @next/next/no-img-element
 		<img
-			src="/icons/Xtarlyicono.png"
-			alt=""
-			aria-hidden="true"
+			src="/icons/logo-dark.webp"
+			alt="Xtarly"
 			style={{
 				position: "absolute",
-				bottom: "3.5%",
-				right: "3.5%",
-				width: "clamp(18px, 2.2vw, 28px)",
-				height: "auto",
+				top: prominent ? "auto" : "3.5%",
+				bottom: prominent ? "5%" : "auto",
+				right: "4%",
+				height: "clamp(15px, 1.9vw, 22px)",
+				width: "auto",
 				objectFit: "contain",
-				opacity: 0.15,
+				opacity: prominent ? 0.25 : 0.55,
 				pointerEvents: "none",
 				userSelect: "none",
 			}}
@@ -107,7 +110,7 @@ export function SlideViewer({ slide }: { slide: Slide }) {
 	return (
 		<div style={{ width: "100%", height: "100%", position: "relative" }}>
 			{slideNode}
-			<SlideIcon />
+			<SlideLogo type={slide.type} />
 		</div>
 	);
 }

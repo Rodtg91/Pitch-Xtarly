@@ -151,7 +151,65 @@ body {
   font-weight: 600;
   letter-spacing: 0.12em;
   text-transform: uppercase;
-  opacity: 0.55;
+  opacity: 0.75;
+}
+
+/* ── Animated chart primitives ── */
+@keyframes growBarX {
+  from { transform: scaleX(0); }
+  to   { transform: scaleX(1); }
+}
+@keyframes growBarY {
+  from { transform: scaleY(0); }
+  to   { transform: scaleY(1); }
+}
+@keyframes fadeUpIn {
+  from { opacity: 0; transform: translateY(8px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+@keyframes pulseDot {
+  0%, 100% { opacity: 0.08; }
+  50%       { opacity: 0.22; }
+}
+
+.chart-bar-x {
+  transform-origin: left center;
+  animation: growBarX 0.7s cubic-bezier(0.22,1,0.36,1) both;
+}
+.chart-bar-y {
+  transform-origin: bottom center;
+  animation: growBarY 0.7s cubic-bezier(0.22,1,0.36,1) both;
+}
+.chart-fade {
+  animation: fadeUpIn 0.5s ease-out both;
+}
+
+/* ── Image placeholder ── */
+.img-placeholder {
+  border-radius: 10px;
+  border: 1px dashed rgba(98,229,255,0.22);
+  background: rgba(98,229,255,0.025);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 0.4rem;
+  padding: 6%;
+  overflow: hidden;
+}
+.img-placeholder-label {
+  font-size: 0.48rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: #62E5FF;
+  opacity: 0.5;
+}
+.img-placeholder-prompt {
+  font-size: 0.44rem;
+  color: rgba(248,249,250,0.28);
+  line-height: 1.55;
+  text-align: center;
 }
 
 /* Slide CTA button — only on CTA slides */

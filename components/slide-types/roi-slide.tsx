@@ -55,7 +55,7 @@ export function RoiSlide({ content }: { content: RoiContent }) {
 				{content.subheadline && (
 					<p
 						className="slide-body"
-						style={{ fontSize: "clamp(0.7rem, 1.2vw, 0.875rem)", color: "var(--slide-text-muted)", marginBottom: "2.5rem" }}
+						style={{ fontSize: "clamp(0.7rem, 1.2vw, 0.875rem)", color: "var(--slide-text-secondary)", marginBottom: "2.5rem" }}
 					>
 						{content.subheadline}
 					</p>
@@ -80,7 +80,7 @@ export function RoiSlide({ content }: { content: RoiContent }) {
 						className="slide-body"
 						style={{
 							fontSize: "clamp(0.7rem, 1.1vw, 0.8rem)",
-							color: "var(--slide-text-muted)",
+							color: "var(--slide-text-secondary)",
 							marginTop: "0.75rem",
 							maxWidth: "28ch",
 						}}
@@ -99,7 +99,7 @@ export function RoiSlide({ content }: { content: RoiContent }) {
 					padding: "7% 8% 7% 5%",
 				}}
 			>
-				<span className="slide-label" style={{ color: "var(--slide-text-muted)", marginBottom: "1.5rem" }}>
+				<span className="slide-label" style={{ color: "var(--slide-text-secondary)", marginBottom: "1.5rem" }}>
 					El cálculo
 				</span>
 
@@ -160,6 +160,53 @@ export function RoiSlide({ content }: { content: RoiContent }) {
 						<span className="slide-body" style={{ fontSize: "clamp(0.65rem, 1vw, 0.75rem)", color: "var(--slide-text-muted)" }}>
 							Ingresos actuales: {formatMXN(baseMonthly)}/mes
 						</span>
+					</div>
+
+					{/* Gráfica comparativa animada */}
+					<div style={{ marginTop: "1.25rem", paddingTop: "1rem", borderTop: "1px solid var(--slide-border)" }}>
+						<span className="slide-label" style={{ color: "var(--slide-text-muted)", display: "block", marginBottom: "0.75rem" }}>
+							Ingresos mensuales
+						</span>
+						<div style={{ display: "flex", alignItems: "flex-end", gap: "1rem", height: "56px" }}>
+							{/* Barra base */}
+							<div style={{ display: "flex", flexDirection: "column", alignItems: "center", gap: "4px" }}>
+								<div
+									className="chart-bar-y"
+									style={{
+										width: "28px",
+										height: "34px",
+										background: "var(--slide-surface-2)",
+										border: "1px solid var(--slide-border)",
+										borderRadius: "3px 3px 0 0",
+										animationDelay: "0.1s",
+									}}
+								/>
+								<span style={{ fontSize: "0.45rem", color: "var(--slide-text-muted)", whiteSpace: "nowrap" }}>Actual</span>
+							</div>
+							{/* Barra con Xtarly */}
+							<div style={{ display: "flex", flexDirection: "column", alignItems: "center", gap: "4px" }}>
+								<div
+									className="chart-bar-y"
+									style={{
+										width: "28px",
+										height: `${Math.min(52, 34 + Math.round((extraMonthly / baseMonthly) * 28))}px`,
+										background: "linear-gradient(to top, #7C5CFF, #62E5FF)",
+										borderRadius: "3px 3px 0 0",
+										animationDelay: "0.35s",
+									}}
+								/>
+								<span style={{ fontSize: "0.45rem", color: "#62E5FF", whiteSpace: "nowrap" }}>Con Xtarly</span>
+							</div>
+							{/* Delta */}
+							<div
+								className="chart-fade"
+								style={{ paddingBottom: "20px", animationDelay: "0.7s" }}
+							>
+								<span style={{ fontSize: "clamp(0.65rem, 1.1vw, 0.8rem)", fontWeight: 700, color: "#22c55e" }}>
+									+{formatMXN(extraMonthly)}/mes
+								</span>
+							</div>
+						</div>
 					</div>
 				</div>
 			</div>

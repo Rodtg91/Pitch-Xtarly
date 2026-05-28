@@ -74,10 +74,39 @@ export function NotificationsSlide({ content }: { content: NotificationsContent 
 						</div>
 						<p
 							className="slide-body"
-							style={{ fontSize: "clamp(0.65rem, 1.1vw, 0.8rem)", color: "rgba(248,249,250,0.35)", marginTop: "0.4rem", maxWidth: "24ch" }}
+							style={{ fontSize: "clamp(0.65rem, 1.1vw, 0.8rem)", color: "rgba(248,249,250,0.60)", marginTop: "0.4rem", maxWidth: "24ch" }}
 						>
 							CTR promedio en push loyalty — 8× más que email
 						</p>
+
+						{/* Gráfica comparativa CTR */}
+						<div style={{ marginTop: "1rem", display: "flex", flexDirection: "column", gap: "0.45rem" }}>
+							{[
+								{ label: "Email promo", value: 1.0, color: "rgba(255,255,255,0.18)" },
+								{ label: "Push loyalty", value: 8.1, color: "#7C5CFF" },
+							].map((item, i) => (
+								<div key={i} style={{ display: "flex", alignItems: "center", gap: "0.5rem" }}>
+									<span style={{ fontSize: "0.48rem", color: "rgba(248,249,250,0.45)", width: "3.5rem", flexShrink: 0 }}>
+										{item.label}
+									</span>
+									<div style={{ flex: 1, height: "5px", background: "rgba(255,255,255,0.06)", borderRadius: "3px", overflow: "hidden" }}>
+										<div
+											className="chart-bar-x"
+											style={{
+												height: "100%",
+												width: `${(item.value / 8.1) * 100}%`,
+												background: item.color,
+												borderRadius: "3px",
+												animationDelay: `${i * 300}ms`,
+											}}
+										/>
+									</div>
+									<span style={{ fontSize: "0.55rem", fontWeight: 700, color: "rgba(248,249,250,0.72)", width: "2.2rem", textAlign: "right" }}>
+										{item.value}%
+									</span>
+								</div>
+							))}
+						</div>
 					</div>
 				)}
 			</div>
@@ -123,7 +152,7 @@ export function NotificationsSlide({ content }: { content: NotificationsContent 
 									>
 										★
 									</div>
-									<span style={{ fontSize: "11px", fontWeight: 600, color: "rgba(255,255,255,0.45)" }}>
+									<span style={{ fontSize: "11px", fontWeight: 600, color: "rgba(255,255,255,0.65)" }}>
 										{notif.title}
 									</span>
 								</div>
@@ -142,7 +171,7 @@ export function NotificationsSlide({ content }: { content: NotificationsContent 
 										{meta.label}
 									</span>
 									{notif.time && (
-										<span style={{ fontSize: "10px", color: "rgba(255,255,255,0.25)" }}>
+										<span style={{ fontSize: "10px", color: "rgba(255,255,255,0.42)" }}>
 											{notif.time}
 										</span>
 									)}
