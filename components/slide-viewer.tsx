@@ -1,3 +1,4 @@
+import type React from "react";
 import { AnalyticsSlide } from "./slide-types/analytics-slide";
 import { CoverSlide } from "./slide-types/cover-slide";
 import { CtaSlide } from "./slide-types/cta-slide";
@@ -23,40 +24,77 @@ interface Slide {
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 type SlideContent = any;
 
+function SlideIcon() {
+	return (
+		// eslint-disable-next-line @next/next/no-img-element
+		<img
+			src="/icons/Xtarlyicono.png"
+			alt=""
+			aria-hidden="true"
+			style={{
+				position: "absolute",
+				bottom: "3.5%",
+				right: "3.5%",
+				width: "clamp(18px, 2.2vw, 28px)",
+				height: "auto",
+				objectFit: "contain",
+				opacity: 0.15,
+				pointerEvents: "none",
+				userSelect: "none",
+			}}
+		/>
+	);
+}
+
 export function SlideViewer({ slide }: { slide: Slide }) {
 	const c = slide.content as SlideContent;
 
+	let slideNode: React.ReactNode;
 	switch (slide.type) {
 		case "cover":
-			return <CoverSlide content={c} />;
+			slideNode = <CoverSlide content={c} />;
+			break;
 		case "problem":
-			return <ProblemSlide content={c} />;
+			slideNode = <ProblemSlide content={c} />;
+			break;
 		case "solution":
-			return <SolutionSlide content={c} />;
+			slideNode = <SolutionSlide content={c} />;
+			break;
 		case "features":
-			return <FeaturesSlide content={c} />;
+			slideNode = <FeaturesSlide content={c} />;
+			break;
 		case "pricing":
-			return <PricingSlide content={c} />;
+			slideNode = <PricingSlide content={c} />;
+			break;
 		case "testimonial":
-			return <TestimonialSlide content={c} />;
+			slideNode = <TestimonialSlide content={c} />;
+			break;
 		case "cta":
-			return <CtaSlide content={c} />;
+			slideNode = <CtaSlide content={c} />;
+			break;
 		case "wallet":
-			return <WalletSlide content={c} />;
+			slideNode = <WalletSlide content={c} />;
+			break;
 		case "how-it-works":
-			return <HowItWorksSlide content={c} />;
+			slideNode = <HowItWorksSlide content={c} />;
+			break;
 		case "roi":
-			return <RoiSlide content={c} />;
+			slideNode = <RoiSlide content={c} />;
+			break;
 		case "vs-comparison":
-			return <VsComparisonSlide content={c} />;
+			slideNode = <VsComparisonSlide content={c} />;
+			break;
 		case "journey":
-			return <JourneySlide content={c} />;
+			slideNode = <JourneySlide content={c} />;
+			break;
 		case "analytics":
-			return <AnalyticsSlide content={c} />;
+			slideNode = <AnalyticsSlide content={c} />;
+			break;
 		case "notifications":
-			return <NotificationsSlide content={c} />;
+			slideNode = <NotificationsSlide content={c} />;
+			break;
 		default:
-			return (
+			slideNode = (
 				<div
 					className="flex items-center justify-center h-full"
 					style={{ background: "var(--slide-surface)", color: "var(--slide-text-muted)" }}
@@ -65,4 +103,11 @@ export function SlideViewer({ slide }: { slide: Slide }) {
 				</div>
 			);
 	}
+
+	return (
+		<div style={{ width: "100%", height: "100%", position: "relative" }}>
+			{slideNode}
+			<SlideIcon />
+		</div>
+	);
 }

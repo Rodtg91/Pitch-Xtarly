@@ -16,9 +16,24 @@ export function CoverSlide({ content }: { content: CoverContent }) {
 				padding: "6% 10% 6% 8%",
 			}}
 		>
-			<span className="slide-label" style={{ color: "rgba(248,249,250,0.45)", marginBottom: "1.75rem" }}>
-				{content.tagline ?? "Xtarly Rewards"}
-			</span>
+			{/* eslint-disable-next-line @next/next/no-img-element */}
+			<img
+				src="/icons/logo-dark.webp"
+				alt="Xtarly"
+				style={{
+					height: "clamp(26px, 3.5vw, 42px)",
+					width: "auto",
+					objectFit: "contain",
+					objectPosition: "left center",
+					marginBottom: "1.75rem",
+				}}
+			/>
+
+			{content.tagline && (
+				<span className="slide-label" style={{ color: "rgba(248,249,250,0.45)", marginBottom: "1rem" }}>
+					{content.tagline}
+				</span>
+			)}
 
 			<div className="slide-rule" style={{ marginBottom: "1.75rem" }} />
 

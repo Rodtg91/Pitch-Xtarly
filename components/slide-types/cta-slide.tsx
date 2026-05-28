@@ -22,6 +22,22 @@ export function CtaSlide({ content }: { content: CtaContent }) {
 				padding: "7% 10% 7% 8%",
 			}}
 		>
+			{/* eslint-disable-next-line @next/next/no-img-element */}
+			<img
+				src="/icons/logo-dark.webp"
+				alt="Xtarly"
+				style={{
+					position: "absolute",
+					top: "6%",
+					left: "8%",
+					height: "clamp(22px, 3vw, 36px)",
+					width: "auto",
+					objectFit: "contain",
+					opacity: 0.85,
+					pointerEvents: "none",
+				}}
+			/>
+
 			<div className="slide-rule" style={{ marginBottom: "1.75rem" }} />
 
 			<h2
