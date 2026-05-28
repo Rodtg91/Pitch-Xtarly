@@ -1,6 +1,8 @@
 import OpenAI from "openai";
 
-const openai = new OpenAI({ apiKey: process.env.OPENAI_API_KEY });
+function getOpenAI() {
+	return new OpenAI({ apiKey: process.env.OPENAI_API_KEY });
+}
 
 export interface SlideContent {
 	[key: string]: unknown;
@@ -121,7 +123,7 @@ export async function generatePitchSlides(
 	nicheName: string,
 	customInstructions?: string,
 ): Promise<GeneratedSlide[]> {
-	const response = await openai.chat.completions.create({
+	const response = await getOpenAI().chat.completions.create({
 		model: "gpt-4o-mini",
 		messages: [
 			{ role: "system", content: SYSTEM_PROMPT },
