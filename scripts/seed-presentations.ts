@@ -237,11 +237,11 @@ const NICHE_SLIDES: Record<string, () => Slides> = {
 	"Restaurantes": restaurantes,
 	"Pastelerías": pastelerias,
 	"Autolavados": autolavados,
-	"Spas y Wellness": spas,
+	"Spas y Bienestar": spas,
 	"Gyms y Fitness": gyms,
 	"Salones de Belleza": salonesBelleza,
 	"Tiendas de Ropa": tiendasRopa,
-	"Farmacias": farmacias,
+	"Farmacias y Salud": farmacias,
 	"Clínicas Veterinarias": veterinarias,
 };
 
