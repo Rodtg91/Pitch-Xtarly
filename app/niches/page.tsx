@@ -12,14 +12,24 @@ export default async function NichesPage() {
 	});
 
 	return (
-		<div style={{ position: "relative", width: "100vw", height: "100dvh", overflow: "hidden", background: "var(--bg-base)" }}>
+		<div
+			style={{
+				minHeight: "100dvh",
+				background: "var(--bg-base)",
+				display: "flex",
+				alignItems: "center",
+				justifyContent: "center",
+				padding: "48px 20px",
+				position: "relative",
+			}}
+		>
 			{/* Back button */}
 			<Link
 				href="/"
 				style={{
-					position: "absolute",
-					top: "14px",
-					left: "14px",
+					position: "fixed",
+					top: "16px",
+					left: "16px",
 					zIndex: 10,
 					display: "flex",
 					alignItems: "center",
@@ -27,10 +37,9 @@ export default async function NichesPage() {
 					width: "36px",
 					height: "36px",
 					borderRadius: "50%",
-					background: "rgba(0,0,0,0.45)",
-					backdropFilter: "blur(8px)",
-					border: "1px solid rgba(255,255,255,0.12)",
-					color: "#fff",
+					background: "var(--bg-surface)",
+					border: "1px solid var(--border)",
+					color: "var(--text-secondary)",
 					textDecoration: "none",
 					transition: "background 0.2s",
 				}}
@@ -43,12 +52,10 @@ export default async function NichesPage() {
 			<div
 				style={{
 					width: "100%",
-					height: "100%",
-					padding: "6px",
+					maxWidth: "1400px",
 					display: "grid",
 					gridTemplateColumns: "repeat(5, 1fr)",
-					gridTemplateRows: "repeat(2, 1fr)",
-					gap: "6px",
+					gap: "20px",
 				}}
 			>
 				{niches.map((n) => (
