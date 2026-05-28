@@ -12,36 +12,11 @@ interface JourneyContent {
 }
 
 const DEFAULT_MOMENTS: JourneyMoment[] = [
-	{
-		number: 1,
-		icon: "📲",
-		title: "Primera visita",
-		description: "El cliente escanea el QR en caja y agrega su tarjeta a Wallet en 10 segundos.",
-	},
-	{
-		number: 2,
-		icon: "⭐",
-		title: "Acumula",
-		description: "Suma sellos o puntos en cada visita. Ve su progreso en tiempo real.",
-	},
-	{
-		number: 3,
-		icon: "🔔",
-		title: "Recibe notificaciones",
-		description: "Push personalizados cuando está cerca, cuando casi completa y en su cumpleaños.",
-	},
-	{
-		number: 4,
-		icon: "🎁",
-		title: "Canjea su recompensa",
-		description: "Muestra el QR en caja. El cajero escanea y confirma en segundos.",
-	},
-	{
-		number: 5,
-		icon: "💛",
-		title: "Regresa más seguido",
-		description: "El cliente siente que lo conoces. La relación ya no es anónima.",
-	},
+	{ number: 1, icon: "📲", title: "Primera visita", description: "Escanea el QR y agrega su tarjeta a Wallet en 10 segundos." },
+	{ number: 2, icon: "⭐", title: "Acumula", description: "Suma sellos o puntos en cada visita. Ve su progreso en tiempo real." },
+	{ number: 3, icon: "🔔", title: "Notificaciones", description: "Push cuando está cerca, cuando casi completa y en su cumpleaños." },
+	{ number: 4, icon: "🎁", title: "Canjea", description: "Muestra el QR en caja. Confirmado en 3 segundos." },
+	{ number: 5, icon: "💛", title: "Regresa", description: "Ya no es un cliente anónimo — es una relación con historial." },
 ];
 
 export function JourneySlide({ content }: { content: JourneyContent }) {
@@ -49,87 +24,117 @@ export function JourneySlide({ content }: { content: JourneyContent }) {
 
 	return (
 		<div
-			className="flex flex-col justify-center h-full px-16 py-12"
-			style={{ background: "var(--slide-bg)" }}
+			className="slide-root"
+			style={{
+				background: "var(--slide-bg)",
+				display: "flex",
+				flexDirection: "column",
+				justifyContent: "center",
+				padding: "6% 8%",
+			}}
 		>
-			<h2
-				className="text-4xl md:text-5xl font-bold mb-3 leading-tight"
-				style={{ color: "var(--slide-text)" }}
-			>
-				{content.headline}
-			</h2>
-			{content.subheadline && (
-				<p className="text-lg mb-10" style={{ color: "var(--slide-text-secondary)" }}>
-					{content.subheadline}
-				</p>
-			)}
+			{/* Header */}
+			<div style={{ marginBottom: "4%" }}>
+				<div className="slide-rule" style={{ marginBottom: "1.25rem" }} />
+				<h2
+					className="slide-display"
+					style={{ fontSize: "clamp(1.5rem, 3.5vw, 3rem)", color: "var(--slide-text)" }}
+				>
+					{content.headline}
+				</h2>
+				{content.subheadline && (
+					<p
+						className="slide-body"
+						style={{ fontSize: "clamp(0.75rem, 1.3vw, 0.9rem)", color: "var(--slide-text-muted)", marginTop: "0.6rem" }}
+					>
+						{content.subheadline}
+					</p>
+				)}
+			</div>
 
-			{/* Timeline */}
-			<div className="relative mt-4">
+			{/* Timeline grid */}
+			<div
+				style={{
+					display: "grid",
+					gridTemplateColumns: `repeat(${moments.length}, 1fr)`,
+					position: "relative",
+				}}
+			>
 				{/* Connecting line */}
 				<div
-					className="absolute top-7 left-7 right-7 h-px"
-					style={{ background: "var(--slide-border)" }}
+					style={{
+						position: "absolute",
+						top: "1.25rem",
+						left: "10%",
+						right: "10%",
+						height: "1px",
+						background: "var(--slide-border)",
+						zIndex: 0,
+					}}
 				/>
 
-				<div className="flex items-start justify-between relative">
-					{moments.map((m, i) => (
-						<div key={i} className="flex flex-col items-center text-center flex-1 relative">
-							{/* Node */}
+				{moments.map((m, i) => {
+					const isFirst = i === 0;
+					const isLast = i === moments.length - 1;
+					const isHighlight = isFirst || isLast;
+
+					return (
+						<div
+							key={i}
+							style={{
+								display: "flex",
+								flexDirection: "column",
+								alignItems: "center",
+								textAlign: "center",
+								padding: "0 4%",
+								position: "relative",
+								zIndex: 1,
+							}}
+						>
+							{/* Step indicator */}
 							<div
-								className="w-14 h-14 rounded-full flex items-center justify-center text-2xl mb-4 flex-shrink-0 relative z-10"
 								style={{
-									background: "var(--slide-surface)",
-									border: `2px solid ${i === 0 || i === moments.length - 1 ? "rgba(98,229,255,0.5)" : "var(--slide-border)"}`,
-									boxShadow: i === 0 || i === moments.length - 1 ? "0 0 20px rgba(98,229,255,0.15)" : "none",
+									width: "2.5rem",
+									height: "2.5rem",
+									borderRadius: "50%",
+									background: isHighlight ? "#7C5CFF" : "var(--slide-surface)",
+									border: isHighlight ? "none" : "1px solid var(--slide-border)",
+									display: "flex",
+									alignItems: "center",
+									justifyContent: "center",
+									fontSize: "1.1rem",
+									marginBottom: "0.75rem",
+									flexShrink: 0,
 								}}
 							>
 								{m.icon}
 							</div>
 
-							{/* Step number badge */}
-							<div
-								className="absolute top-0 left-1/2 -translate-x-1/2 w-5 h-5 rounded-full flex items-center justify-center text-xs font-bold z-20"
+							<span
 								style={{
-									background: "var(--brand-gradient-bg)",
-									border: "1px solid rgba(98,229,255,0.3)",
-									color: "var(--brand-cyan)",
-									marginTop: "-6px",
-									marginLeft: "14px",
+									fontSize: "clamp(0.65rem, 1.1vw, 0.8rem)",
+									fontWeight: 700,
+									color: isHighlight ? "#7C5CFF" : "var(--slide-text)",
+									marginBottom: "0.35rem",
+									lineHeight: 1.2,
 								}}
 							>
-								{m.number}
-							</div>
-
-							<h3
-								className="text-sm font-bold mb-1.5 px-2"
-								style={{ color: "var(--slide-text)" }}
-							>
 								{m.title}
-							</h3>
+							</span>
 							<p
-								className="text-xs leading-relaxed px-2 max-w-[140px]"
-								style={{ color: "var(--slide-text-muted)" }}
+								className="slide-body"
+								style={{
+									fontSize: "clamp(0.6rem, 1vw, 0.75rem)",
+									color: "var(--slide-text-muted)",
+									lineHeight: 1.5,
+									maxWidth: "16ch",
+								}}
 							>
 								{m.description}
 							</p>
 						</div>
-					))}
-				</div>
-			</div>
-
-			{/* Bottom highlight */}
-			<div
-				className="mt-10 rounded-xl px-5 py-3 flex items-center gap-3 self-start"
-				style={{
-					background: "var(--slide-cyan-subtle)",
-					border: "1px solid var(--slide-cyan-border)",
-				}}
-			>
-				<span style={{ color: "var(--brand-cyan)" }}>✦</span>
-				<span className="text-sm" style={{ color: "var(--slide-text-secondary)" }}>
-					Todo el journey sucede en el teléfono del cliente. Sin fricción, sin contraseñas, sin descargas obligatorias.
-				</span>
+					);
+				})}
 			</div>
 		</div>
 	);

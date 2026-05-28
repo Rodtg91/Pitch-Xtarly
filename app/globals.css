@@ -87,11 +87,105 @@ body {
   line-height: 1.5;
 }
 
-/* Heading font — matches apps/web font-heading (Nunito) */
+/* Heading font */
 .font-heading {
   font-family: var(--font-nunito), var(--font-geist), sans-serif;
   font-weight: 800;
-  letter-spacing: -0.02em;
+  letter-spacing: -0.03em;
+  line-height: 1.05;
+}
+
+/* ── Slide design system ── */
+
+/* Scale root: slides are viewed at 16:9. Base everything on this. */
+.slide-root {
+  font-family: var(--font-geist), -apple-system, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  position: relative;
+}
+
+/* Slide typography scale */
+.slide-display {
+  font-family: var(--font-nunito), var(--font-geist), sans-serif;
+  font-weight: 800;
+  letter-spacing: -0.035em;
+  line-height: 1.0;
+}
+.slide-heading {
+  font-family: var(--font-nunito), var(--font-geist), sans-serif;
+  font-weight: 800;
+  letter-spacing: -0.025em;
+  line-height: 1.1;
+}
+.slide-body {
+  font-family: var(--font-geist), -apple-system, sans-serif;
+  font-weight: 400;
+  line-height: 1.55;
+}
+
+/* Violet rule accent — used as structural divider */
+.slide-rule {
+  display: block;
+  width: 3rem;
+  height: 3px;
+  background: #7C5CFF;
+  border-radius: 2px;
+  flex-shrink: 0;
+}
+
+/* Editorial number — large ordinal used as hero visual */
+.slide-number-hero {
+  font-family: var(--font-nunito), var(--font-geist), sans-serif;
+  font-weight: 800;
+  letter-spacing: -0.04em;
+  line-height: 0.9;
+  color: #7C5CFF;
+}
+
+/* Slide section label — small caps label above headings */
+.slide-label {
+  font-size: 0.65rem;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  opacity: 0.55;
+}
+
+/* Slide CTA button — only on CTA slides */
+.slide-btn-primary {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.75rem 2rem;
+  border-radius: 999px;
+  font-weight: 700;
+  font-size: 1rem;
+  letter-spacing: -0.01em;
+  background: #f8f9fa;
+  color: #1B1638;
+  transition: opacity 0.15s;
+  text-decoration: none;
+  border: none;
+  cursor: pointer;
+}
+.slide-btn-primary:hover { opacity: 0.88; }
+
+/* Slide check item */
+.slide-check {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.75rem;
+}
+.slide-check-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: #7C5CFF;
+  flex-shrink: 0;
+  margin-top: 0.55em;
 }
 
 /* ── Niche card ── */

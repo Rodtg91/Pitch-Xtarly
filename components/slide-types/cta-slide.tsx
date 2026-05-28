@@ -10,58 +10,90 @@ interface CtaContent {
 	};
 }
 
-// El CTA siempre usa gradiente de marca — es el clímax visual y de conversión.
 export function CtaSlide({ content }: { content: CtaContent }) {
 	return (
 		<div
-			className="flex flex-col items-center justify-center h-full px-16 py-12 text-center"
-			style={{ background: "var(--brand-gradient-bg)" }}
+			className="slide-root"
+			style={{
+				background: "var(--brand-gradient-bg)",
+				display: "flex",
+				flexDirection: "column",
+				justifyContent: "center",
+				padding: "7% 10% 7% 8%",
+			}}
 		>
+			<div className="slide-rule" style={{ marginBottom: "1.75rem" }} />
+
 			<h2
-				className="text-4xl md:text-6xl font-bold mb-4 leading-tight"
-				style={{ color: "#f8f9fa" }}
+				className="slide-display"
+				style={{
+					fontSize: "clamp(2rem, 5vw, 4.5rem)",
+					color: "#f8f9fa",
+					maxWidth: "16ch",
+					marginBottom: "1.25rem",
+				}}
 			>
 				{content.title}
 			</h2>
+
 			<p
-				className="text-xl mb-10"
-				style={{ color: "rgba(248,249,250,0.7)" }}
+				className="slide-body"
+				style={{
+					fontSize: "clamp(0.875rem, 1.5vw, 1.1rem)",
+					color: "rgba(248,249,250,0.55)",
+					marginBottom: "2.5rem",
+					maxWidth: "40ch",
+				}}
 			>
 				{content.subtitle}
 			</p>
 
-			<a
-				href={content.ctaUrl ?? "#"}
-				target="_blank"
-				rel="noopener noreferrer"
-				className="font-bold text-xl px-10 py-4 rounded-full transition-opacity hover:opacity-90 mb-12"
-				style={{
-					background: "linear-gradient(135deg, var(--brand-cyan), var(--brand-violet))",
-					color: "#f8f9fa",
-					boxShadow: "0 4px 30px rgba(98,229,255,0.3)",
-				}}
-			>
-				{content.ctaText}
-			</a>
+			<div style={{ display: "flex", alignItems: "center", gap: "1.5rem", flexWrap: "wrap" }}>
+				<a
+					href={content.ctaUrl ?? "#"}
+					target="_blank"
+					rel="noopener noreferrer"
+					className="slide-btn-primary"
+					style={{ fontSize: "clamp(0.8rem, 1.3vw, 1rem)" }}
+				>
+					{content.ctaText} →
+				</a>
 
-			{content.contact && (
-				<div className="flex flex-wrap justify-center gap-8" style={{ color: "rgba(248,249,250,0.6)" }}>
+				{content.contact?.web && (
+					<span
+						className="slide-body"
+						style={{ fontSize: "clamp(0.75rem, 1.2vw, 0.9rem)", color: "rgba(248,249,250,0.35)" }}
+					>
+						{content.contact.web}
+					</span>
+				)}
+			</div>
+
+			{/* Contact row */}
+			{content.contact && (content.contact.whatsapp || content.contact.email) && (
+				<div
+					style={{
+						display: "flex",
+						gap: "2rem",
+						marginTop: "3rem",
+						paddingTop: "2rem",
+						borderTop: "1px solid rgba(255,255,255,0.07)",
+					}}
+				>
 					{content.contact.whatsapp && (
-						<div className="flex items-center gap-2">
-							<span className="text-xl">📱</span>
-							<span className="text-lg">{content.contact.whatsapp}</span>
+						<div style={{ display: "flex", alignItems: "center", gap: "0.5rem" }}>
+							<span style={{ fontSize: "0.875rem" }}>📱</span>
+							<span className="slide-body" style={{ fontSize: "clamp(0.65rem, 1.1vw, 0.8rem)", color: "rgba(248,249,250,0.4)" }}>
+								{content.contact.whatsapp}
+							</span>
 						</div>
 					)}
 					{content.contact.email && (
-						<div className="flex items-center gap-2">
-							<span className="text-xl">✉️</span>
-							<span className="text-lg">{content.contact.email}</span>
-						</div>
-					)}
-					{content.contact.web && (
-						<div className="flex items-center gap-2">
-							<span className="text-xl">🌐</span>
-							<span className="text-lg">{content.contact.web}</span>
+						<div style={{ display: "flex", alignItems: "center", gap: "0.5rem" }}>
+							<span style={{ fontSize: "0.875rem" }}>✉️</span>
+							<span className="slide-body" style={{ fontSize: "clamp(0.65rem, 1.1vw, 0.8rem)", color: "rgba(248,249,250,0.4)" }}>
+								{content.contact.email}
+							</span>
 						</div>
 					)}
 				</div>

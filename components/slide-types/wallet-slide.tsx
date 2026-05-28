@@ -6,134 +6,180 @@ interface WalletContent {
 	notificationText?: string;
 }
 
+// Slide de wallet — fondo oscuro para mostrar el card correctamente.
 export function WalletSlide({ content }: { content: WalletContent }) {
-	const notification = content.notificationText ?? "Estás cerca — tienes 8 sellos 🌟";
+	const notification = content.notificationText ?? "Estás cerca — tienes 8 sellos 🌟 ¡Solo 2 más para tu recompensa!";
 
 	return (
 		<div
-			className="flex flex-col justify-center h-full px-16 py-12"
-			style={{ background: "var(--slide-bg)" }}
+			className="slide-root"
+			style={{
+				background: "#0D0B1A",
+				display: "grid",
+				gridTemplateColumns: "1.1fr 1fr",
+				gap: "0",
+			}}
 		>
-			{/* Header */}
+			{/* Left: texto */}
 			<div
-				className="text-xs font-semibold uppercase tracking-widest mb-4"
-				style={{ color: "var(--brand-cyan)" }}
+				style={{
+					display: "flex",
+					flexDirection: "column",
+					justifyContent: "center",
+					padding: "7% 6% 7% 8%",
+					borderRight: "1px solid rgba(255,255,255,0.06)",
+				}}
 			>
-				Apple Wallet · Google Wallet
-			</div>
+				<span className="slide-label" style={{ color: "#62E5FF", opacity: 0.7, marginBottom: "1.25rem" }}>
+					Apple Wallet · Google Wallet
+				</span>
+				<div className="slide-rule" style={{ marginBottom: "1.25rem" }} />
 
-			<h2
-				className="text-4xl md:text-5xl font-bold mb-4 leading-tight"
-				style={{ color: "var(--slide-text)" }}
-			>
-				{content.headline}
-			</h2>
-			<p
-				className="text-lg mb-10 max-w-xl leading-relaxed"
-				style={{ color: "var(--slide-text-secondary)" }}
-			>
-				{content.subheadline}
-			</p>
+				<h2
+					className="slide-display"
+					style={{
+						fontSize: "clamp(1.5rem, 3.5vw, 3rem)",
+						color: "#f8f9fa",
+						marginBottom: "1.25rem",
+					}}
+				>
+					{content.headline}
+				</h2>
+				<p
+					className="slide-body"
+					style={{
+						fontSize: "clamp(0.75rem, 1.3vw, 0.95rem)",
+						color: "rgba(248,249,250,0.55)",
+						marginBottom: "2rem",
+						maxWidth: "38ch",
+						lineHeight: 1.65,
+					}}
+				>
+					{content.subheadline}
+				</p>
 
-			<div className="flex gap-10 items-start">
-				{/* Benefits */}
-				<div className="flex-1 space-y-4">
-					{content.benefits.map((b, i) => (
-						<div key={i} className="flex items-start gap-3">
-							<div
-								className="w-5 h-5 rounded-full flex-shrink-0 mt-0.5 flex items-center justify-center"
-								style={{ background: "var(--brand-gradient)", fontSize: 10, color: "#f8f9fa", fontWeight: 700 }}
-							>
-								✓
-							</div>
-							<p className="text-base leading-snug" style={{ color: "var(--slide-text-secondary)" }}>
-								{b}
-							</p>
-						</div>
-					))}
-
-					{content.stat && (
+				{content.benefits.slice(0, 4).map((b, i) => (
+					<div key={i} style={{ display: "flex", alignItems: "flex-start", gap: "0.75rem", marginBottom: "0.85rem" }}>
 						<div
-							className="mt-6 rounded-2xl px-5 py-4 inline-block"
 							style={{
-								background: "var(--slide-cyan-subtle)",
-								border: "1px solid var(--slide-cyan-border)",
+								width: 5,
+								height: 5,
+								borderRadius: "50%",
+								background: "#7C5CFF",
+								flexShrink: 0,
+								marginTop: "0.45em",
 							}}
+						/>
+						<p
+							className="slide-body"
+							style={{ fontSize: "clamp(0.7rem, 1.2vw, 0.875rem)", color: "rgba(248,249,250,0.6)", lineHeight: 1.55 }}
 						>
-							<p className="text-sm font-medium" style={{ color: "var(--brand-cyan)" }}>
-								{content.stat}
-							</p>
-						</div>
-					)}
-				</div>
-
-				{/* Wallet card mockup */}
-				<div className="flex-shrink-0 flex flex-col items-center gap-4">
-					{/* Lock screen notification */}
-					<div
-						className="rounded-2xl px-4 py-3 w-64"
-						style={{
-							background: "rgba(30,30,30,0.85)",
-							backdropFilter: "blur(20px)",
-							border: "1px solid rgba(255,255,255,0.12)",
-						}}
-					>
-						<div className="flex items-center gap-2 mb-1">
-							<div
-								className="w-5 h-5 rounded-md flex items-center justify-center text-xs"
-								style={{ background: "var(--brand-gradient)" }}
-							>
-								★
-							</div>
-							<span className="text-xs font-medium" style={{ color: "rgba(255,255,255,0.6)" }}>
-								Xtarly Rewards
-							</span>
-						</div>
-						<p className="text-sm leading-snug" style={{ color: "#f8f9fa" }}>
-							{notification}
+							{b}
 						</p>
 					</div>
+				))}
+			</div>
 
-					{/* Wallet card */}
-					<div
-						className="rounded-2xl p-5 w-64"
-						style={{
-							background: "var(--brand-gradient-bg)",
-							border: "1px solid rgba(98,229,255,0.2)",
-							boxShadow: "0 12px 40px rgba(124,92,255,0.3)",
-						}}
-					>
-						<div className="flex items-center justify-between mb-6">
-							<div>
-								<p className="text-xs font-semibold uppercase tracking-widest" style={{ color: "var(--brand-cyan)", opacity: 0.8 }}>
-									Loyalty Card
-								</p>
-								<p className="text-sm font-bold mt-0.5" style={{ color: "#f8f9fa" }}>
-									Mi Negocio
-								</p>
+			{/* Right: mockup de notificación + wallet card */}
+			<div
+				style={{
+					display: "flex",
+					flexDirection: "column",
+					justifyContent: "center",
+					alignItems: "center",
+					padding: "7% 8% 7% 6%",
+					gap: "1rem",
+				}}
+			>
+				{/* Lock screen notification */}
+				<div
+					style={{
+						width: "min(260px, 90%)",
+						background: "rgba(28,28,30,0.92)",
+						border: "1px solid rgba(255,255,255,0.1)",
+						borderRadius: "16px",
+						padding: "12px 16px",
+					}}
+				>
+					<div style={{ display: "flex", alignItems: "center", gap: "8px", marginBottom: "6px" }}>
+						<div
+							style={{
+								width: 22,
+								height: 22,
+								borderRadius: "6px",
+								background: "linear-gradient(135deg, #62E5FF, #7C5CFF)",
+								display: "flex",
+								alignItems: "center",
+								justifyContent: "center",
+								fontSize: "10px",
+								color: "#fff",
+								fontWeight: 700,
+								flexShrink: 0,
+							}}
+						>
+							★
+						</div>
+						<span style={{ fontSize: "11px", fontWeight: 600, color: "rgba(255,255,255,0.5)" }}>
+							Xtarly Rewards · ahora
+						</span>
+					</div>
+					<p style={{ fontSize: "12px", color: "#f8f9fa", lineHeight: 1.45, margin: 0 }}>
+						{notification}
+					</p>
+				</div>
+
+				{/* Wallet card */}
+				<div
+					style={{
+						width: "min(260px, 90%)",
+						background: "linear-gradient(145deg, #1B1638, #2D1B69)",
+						border: "1px solid rgba(98,229,255,0.18)",
+						borderRadius: "20px",
+						padding: "20px",
+						boxShadow: "0 20px 50px rgba(124,92,255,0.25)",
+					}}
+				>
+					<div style={{ display: "flex", alignItems: "center", justifyContent: "space-between", marginBottom: "20px" }}>
+						<div>
+							<div style={{ fontSize: "9px", fontWeight: 600, letterSpacing: "0.1em", textTransform: "uppercase", color: "#62E5FF", opacity: 0.7, marginBottom: "3px" }}>
+								Loyalty Card
 							</div>
-							<div className="text-2xl">★</div>
+							<div style={{ fontSize: "13px", fontWeight: 700, color: "#f8f9fa" }}>
+								Mi Negocio
+							</div>
 						</div>
+						<span style={{ fontSize: "1.5rem" }}>★</span>
+					</div>
 
-						{/* Stamps row */}
-						<div className="flex gap-2 mb-4">
-							{Array.from({ length: 10 }).map((_, i) => (
-								<div
-									key={i}
-									className="w-5 h-5 rounded-full flex items-center justify-center text-xs"
-									style={{
-										background: i < 8 ? "var(--brand-gradient)" : "rgba(255,255,255,0.1)",
-										border: i < 8 ? "none" : "1px solid rgba(255,255,255,0.2)",
-									}}
-								>
-									{i < 8 ? "★" : ""}
-								</div>
-							))}
-						</div>
+					<div style={{ display: "flex", gap: "5px", marginBottom: "12px", flexWrap: "wrap" }}>
+						{Array.from({ length: 10 }).map((_, i) => (
+							<div
+								key={i}
+								style={{
+									width: 18,
+									height: 18,
+									borderRadius: "50%",
+									background: i < 8 ? "linear-gradient(135deg, #62E5FF, #7C5CFF)" : "rgba(255,255,255,0.08)",
+									border: i < 8 ? "none" : "1px solid rgba(255,255,255,0.15)",
+									display: "flex",
+									alignItems: "center",
+									justifyContent: "center",
+									fontSize: "8px",
+									color: i < 8 ? "#fff" : "transparent",
+								}}
+							>
+								{i < 8 ? "★" : ""}
+							</div>
+						))}
+					</div>
 
-						<p className="text-xs" style={{ color: "rgba(248,249,250,0.5)" }}>
-							Ana García · 8/10 sellos
+					<div style={{ display: "flex", alignItems: "center", justifyContent: "space-between" }}>
+						<p style={{ fontSize: "10px", color: "rgba(248,249,250,0.4)", margin: 0 }}>
+							Ana García · 8 de 10
 						</p>
+						<div style={{ fontSize: "9px", fontWeight: 600, color: "#62E5FF", letterSpacing: "0.06em", opacity: 0.6 }}>
+							WALLET
+						</div>
 					</div>
 				</div>
 			</div>

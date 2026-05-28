@@ -12,120 +12,148 @@ interface NotificationsContent {
 	stat?: string;
 }
 
-const TYPE_META: Record<PushNotification["type"], { emoji: string; label: string; color: string }> = {
-	winback: { emoji: "💌", label: "Reactivación", color: "#f59e0b" },
-	urgency: { emoji: "⏰", label: "Urgencia", color: "#ef4444" },
-	campaign: { emoji: "📣", label: "Campaña", color: "var(--brand-violet)" },
-	birthday: { emoji: "🎂", label: "Cumpleaños", color: "var(--brand-magenta)" },
-	proximity: { emoji: "📍", label: "Proximidad", color: "var(--brand-cyan)" },
+const TYPE_META: Record<PushNotification["type"], { label: string; color: string }> = {
+	winback: { label: "Reactivación", color: "#f59e0b" },
+	urgency: { label: "Urgencia", color: "#ef4444" },
+	campaign: { label: "Campaña", color: "#7C5CFF" },
+	birthday: { label: "Cumpleaños", color: "#E94FE6" },
+	proximity: { label: "Proximidad", color: "#62E5FF" },
 };
 
 const DEFAULT_NOTIFICATIONS: PushNotification[] = [
-	{
-		type: "proximity",
-		title: "Xtarly Rewards",
-		body: "Estás cerca — tienes 8 sellos 🌟 ¡Solo 2 más para tu recompensa!",
-		time: "ahora",
-	},
-	{
-		type: "birthday",
-		title: "Xtarly Rewards",
-		body: "🎂 ¡Feliz cumpleaños, Ana! Hoy tienes una sorpresa esperándote.",
-		time: "8:00 AM",
-	},
-	{
-		type: "winback",
-		title: "Xtarly Rewards",
-		body: "Hace 21 días que no te vemos 😢 Tienes 50 puntos listos para canjear.",
-		time: "ayer",
-	},
-	{
-		type: "campaign",
-		title: "Xtarly Rewards",
-		body: "☕ Lunes de puntos dobles — solo hoy. ¡Ven antes de las 2pm!",
-		time: "lun 9:00",
-	},
+	{ type: "proximity", title: "Xtarly Rewards", body: "Estás cerca — tienes 8 sellos 🌟 ¡Solo 2 más para tu recompensa!", time: "ahora" },
+	{ type: "birthday", title: "Xtarly Rewards", body: "🎂 ¡Feliz cumpleaños, Ana! Hoy tienes una sorpresa esperándote.", time: "8:00 AM" },
+	{ type: "winback", title: "Xtarly Rewards", body: "Hace 21 días que no te vemos 😢 Tienes 50 puntos listos para canjear.", time: "ayer" },
+	{ type: "campaign", title: "Xtarly Rewards", body: "☕ Lunes de puntos dobles — solo hoy. ¡Ven antes de las 2pm!", time: "lun 9:00" },
 ];
 
+// Notificaciones en dark — las notificaciones de iOS se ven mejor en oscuro
 export function NotificationsSlide({ content }: { content: NotificationsContent }) {
 	const notifications = content.notifications?.length ? content.notifications : DEFAULT_NOTIFICATIONS;
 
 	return (
 		<div
-			className="flex flex-col justify-center h-full px-16 py-12"
-			style={{ background: "var(--slide-bg)" }}
+			className="slide-root"
+			style={{
+				background: "#0D0B1A",
+				display: "grid",
+				gridTemplateColumns: "1fr 1.4fr",
+				gap: "0",
+			}}
 		>
-			<h2
-				className="text-4xl md:text-5xl font-bold mb-3 leading-tight"
-				style={{ color: "var(--slide-text)" }}
+			{/* Left: copy */}
+			<div
+				style={{
+					display: "flex",
+					flexDirection: "column",
+					justifyContent: "center",
+					padding: "7% 5% 7% 8%",
+					borderRight: "1px solid rgba(255,255,255,0.06)",
+				}}
 			>
-				{content.headline}
-			</h2>
-			{content.subheadline && (
-				<p className="text-lg mb-8" style={{ color: "var(--slide-text-secondary)" }}>
-					{content.subheadline}
-				</p>
-			)}
+				<div className="slide-rule" style={{ marginBottom: "1.25rem" }} />
+				<h2
+					className="slide-display"
+					style={{ fontSize: "clamp(1.5rem, 3.5vw, 2.75rem)", color: "#f8f9fa", marginBottom: "1rem" }}
+				>
+					{content.headline}
+				</h2>
+				{content.subheadline && (
+					<p
+						className="slide-body"
+						style={{ fontSize: "clamp(0.75rem, 1.3vw, 0.95rem)", color: "rgba(248,249,250,0.5)", marginBottom: "2rem", lineHeight: 1.65, maxWidth: "32ch" }}
+					>
+						{content.subheadline}
+					</p>
+				)}
 
-			<div className="grid grid-cols-2 gap-4">
+				{content.stat && (
+					<div style={{ borderTop: "1px solid rgba(255,255,255,0.07)", paddingTop: "1.5rem" }}>
+						<div className="slide-number-hero" style={{ fontSize: "clamp(2rem, 4vw, 3.5rem)", color: "#7C5CFF", lineHeight: 1 }}>
+							8.1%
+						</div>
+						<p
+							className="slide-body"
+							style={{ fontSize: "clamp(0.65rem, 1.1vw, 0.8rem)", color: "rgba(248,249,250,0.35)", marginTop: "0.4rem", maxWidth: "24ch" }}
+						>
+							CTR promedio en push loyalty — 8× más que email
+						</p>
+					</div>
+				)}
+			</div>
+
+			{/* Right: notifications */}
+			<div
+				style={{
+					display: "flex",
+					flexDirection: "column",
+					justifyContent: "center",
+					padding: "7% 8% 7% 5%",
+					gap: "0.6rem",
+				}}
+			>
 				{notifications.map((notif, i) => {
 					const meta = TYPE_META[notif.type];
 					return (
 						<div
 							key={i}
-							className="rounded-2xl p-5"
 							style={{
-								background: "var(--slide-surface)",
-								border: "1px solid var(--slide-border)",
+								background: "rgba(255,255,255,0.04)",
+								border: "1px solid rgba(255,255,255,0.07)",
+								borderRadius: "14px",
+								padding: "10px 14px",
 							}}
 						>
-							{/* iPhone notification header */}
-							<div className="flex items-center justify-between mb-3">
-								<div className="flex items-center gap-2">
+							<div style={{ display: "flex", alignItems: "center", justifyContent: "space-between", marginBottom: "5px" }}>
+								<div style={{ display: "flex", alignItems: "center", gap: "8px" }}>
 									<div
-										className="w-6 h-6 rounded-md flex items-center justify-center text-xs font-bold"
-										style={{ background: "var(--brand-gradient-bg)", color: "var(--brand-cyan)" }}
+										style={{
+											width: 20,
+											height: 20,
+											borderRadius: "5px",
+											background: "linear-gradient(135deg, #62E5FF, #7C5CFF)",
+											display: "flex",
+											alignItems: "center",
+											justifyContent: "center",
+											fontSize: "9px",
+											color: "#fff",
+											fontWeight: 700,
+											flexShrink: 0,
+										}}
 									>
 										★
 									</div>
-									<span className="text-xs font-semibold" style={{ color: "var(--slide-text-secondary)" }}>
+									<span style={{ fontSize: "11px", fontWeight: 600, color: "rgba(255,255,255,0.45)" }}>
 										{notif.title}
 									</span>
 								</div>
-								<div className="flex items-center gap-2">
+								<div style={{ display: "flex", alignItems: "center", gap: "6px" }}>
 									<span
-										className="text-xs px-2 py-0.5 rounded-full font-medium"
-										style={{ background: `${meta.color}18`, color: meta.color }}
+										style={{
+											fontSize: "9px",
+											fontWeight: 600,
+											padding: "2px 6px",
+											borderRadius: "99px",
+											background: `${meta.color}18`,
+											color: meta.color,
+											letterSpacing: "0.03em",
+										}}
 									>
 										{meta.label}
 									</span>
 									{notif.time && (
-										<span className="text-xs" style={{ color: "var(--slide-text-muted)" }}>
+										<span style={{ fontSize: "10px", color: "rgba(255,255,255,0.25)" }}>
 											{notif.time}
 										</span>
 									)}
 								</div>
 							</div>
-							<p className="text-sm leading-relaxed" style={{ color: "var(--slide-text)" }}>
+							<p style={{ fontSize: "12px", color: "rgba(248,249,250,0.8)", lineHeight: 1.4, margin: 0 }}>
 								{notif.body}
 							</p>
 						</div>
 					);
 				})}
-			</div>
-
-			{/* Stat */}
-			<div
-				className="mt-6 rounded-xl px-5 py-3 flex items-center gap-3 self-start"
-				style={{
-					background: "var(--slide-cyan-subtle)",
-					border: "1px solid var(--slide-cyan-border)",
-				}}
-			>
-				<span style={{ color: "var(--brand-cyan)" }}>📊</span>
-				<span className="text-sm" style={{ color: "var(--slide-text-secondary)" }}>
-					{content.stat ?? "CTR de push en loyalty: 8.1% — 8× más que email. Incluido en todos los planes."}
-				</span>
 			</div>
 		</div>
 	);

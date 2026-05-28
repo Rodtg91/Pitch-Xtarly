@@ -15,15 +15,15 @@ interface AnalyticsContent {
 const DEFAULT_KPIS: KpiCard[] = [
 	{ label: "Clientes activos", value: "342", delta: "+18 este mes", positive: true },
 	{ label: "Membership rate", value: "34%", delta: "+4% vs mes ant.", positive: true },
-	{ label: "Member lift", value: "+28%", delta: "vs clientes sin programa", positive: true },
+	{ label: "Member lift", value: "+28%", delta: "vs sin programa", positive: true },
 	{ label: "Ticket promedio", value: "$247", delta: "+$31 con loyalty", positive: true },
 ];
 
 const DEFAULT_SEGMENTS = [
 	{ label: "Champions", count: 47, color: "#22c55e" },
-	{ label: "Leales", count: 123, color: "var(--brand-cyan)" },
+	{ label: "Leales", count: 123, color: "#62E5FF" },
 	{ label: "En riesgo", count: 38, color: "#f59e0b" },
-	{ label: "Nuevos", count: 89, color: "var(--brand-violet)" },
+	{ label: "Nuevos", count: 89, color: "#7C5CFF" },
 	{ label: "Perdidos", count: 21, color: "#ef4444" },
 ];
 
@@ -34,109 +34,157 @@ export function AnalyticsSlide({ content }: { content: AnalyticsContent }) {
 
 	return (
 		<div
-			className="flex flex-col justify-center h-full px-16 py-12"
-			style={{ background: "var(--slide-bg)" }}
+			className="slide-root"
+			style={{
+				background: "var(--slide-bg)",
+				display: "grid",
+				gridTemplateColumns: "1fr 1fr",
+				gap: "0",
+			}}
 		>
-			<h2
-				className="text-4xl md:text-5xl font-bold mb-3 leading-tight"
-				style={{ color: "var(--slide-text)" }}
+			{/* Left: KPIs */}
+			<div
+				style={{
+					display: "flex",
+					flexDirection: "column",
+					justifyContent: "center",
+					padding: "7% 5% 7% 8%",
+					borderRight: "1px solid var(--slide-border)",
+				}}
 			>
-				{content.headline}
-			</h2>
-			{content.subheadline && (
-				<p className="text-lg mb-8" style={{ color: "var(--slide-text-secondary)" }}>
-					{content.subheadline}
-				</p>
-			)}
+				<div className="slide-rule" style={{ marginBottom: "1.25rem" }} />
+				<h2
+					className="slide-display"
+					style={{ fontSize: "clamp(1.25rem, 3vw, 2.5rem)", color: "var(--slide-text)", marginBottom: "0.6rem" }}
+				>
+					{content.headline}
+				</h2>
+				{content.subheadline && (
+					<p
+						className="slide-body"
+						style={{ fontSize: "clamp(0.7rem, 1.2vw, 0.875rem)", color: "var(--slide-text-muted)", marginBottom: "2rem" }}
+					>
+						{content.subheadline}
+					</p>
+				)}
 
-			<div className="grid grid-cols-2 gap-6">
-				{/* KPIs */}
-				<div className="grid grid-cols-2 gap-4">
+				<div
+					style={{
+						display: "grid",
+						gridTemplateColumns: "1fr 1fr",
+						gap: "1px",
+						background: "var(--slide-border)",
+						border: "1px solid var(--slide-border)",
+						borderRadius: "12px",
+						overflow: "hidden",
+					}}
+				>
 					{kpis.map((kpi, i) => (
 						<div
 							key={i}
-							className="rounded-2xl p-5"
 							style={{
-								background: "var(--slide-surface)",
-								border: "1px solid var(--slide-border)",
+								background: "var(--slide-bg)",
+								padding: "1rem 1.25rem",
 							}}
 						>
-							<p className="text-xs font-medium uppercase tracking-widest mb-2" style={{ color: "var(--slide-text-muted)" }}>
+							<span className="slide-label" style={{ color: "var(--slide-text-muted)", display: "block", marginBottom: "0.4rem" }}>
 								{kpi.label}
-							</p>
-							<p className="text-3xl font-bold leading-none mb-1" style={{ color: "var(--slide-text)" }}>
+							</span>
+							<div
+								className="slide-number-hero"
+								style={{
+									fontSize: "clamp(1.5rem, 3vw, 2.5rem)",
+									color: "var(--slide-text)",
+									marginBottom: "0.25rem",
+								}}
+							>
 								{kpi.value}
-							</p>
+							</div>
 							{kpi.delta && (
-								<p
-									className="text-xs font-medium"
-									style={{ color: kpi.positive ? "#22c55e" : "#ef4444" }}
+								<span
+									style={{
+										fontSize: "0.65rem",
+										fontWeight: 600,
+										color: kpi.positive ? "#22c55e" : "#ef4444",
+									}}
 								>
 									{kpi.positive ? "↑" : "↓"} {kpi.delta}
-								</p>
+								</span>
 							)}
 						</div>
 					))}
 				</div>
+			</div>
 
-				{/* RFM Segments */}
-				<div
-					className="rounded-2xl p-6"
-					style={{
-						background: "var(--slide-surface)",
-						border: "1px solid var(--slide-border)",
-					}}
-				>
-					<p
-						className="text-xs font-semibold uppercase tracking-widest mb-5"
-						style={{ color: "var(--slide-text-muted)" }}
-					>
-						Segmentos RFM — {total} clientes
-					</p>
+			{/* Right: RFM Segments */}
+			<div
+				style={{
+					display: "flex",
+					flexDirection: "column",
+					justifyContent: "center",
+					padding: "7% 8% 7% 5%",
+				}}
+			>
+				<span className="slide-label" style={{ color: "var(--slide-text-muted)", marginBottom: "1.5rem" }}>
+					Segmentos RFM — {total} clientes
+				</span>
 
-					{/* Stacked bar */}
-					<div className="flex rounded-full overflow-hidden h-3 mb-5">
-						{segments.map((s, i) => (
-							<div
-								key={i}
-								style={{
-									width: `${(s.count / total) * 100}%`,
-									background: s.color,
-									opacity: 0.85,
-								}}
-							/>
-						))}
-					</div>
+				{/* Stacked bar */}
+				<div style={{ display: "flex", borderRadius: "4px", overflow: "hidden", height: "8px", marginBottom: "1.75rem" }}>
+					{segments.map((s, i) => (
+						<div
+							key={i}
+							style={{
+								width: `${(s.count / total) * 100}%`,
+								background: s.color,
+								opacity: 0.9,
+							}}
+						/>
+					))}
+				</div>
 
-					<div className="space-y-3">
-						{segments.map((s, i) => (
-							<div key={i} className="flex items-center justify-between">
-								<div className="flex items-center gap-2">
-									<div
-										className="w-2.5 h-2.5 rounded-full flex-shrink-0"
-										style={{ background: s.color }}
-									/>
-									<span className="text-sm" style={{ color: "var(--slide-text-secondary)" }}>
-										{s.label}
-									</span>
-								</div>
-								<div className="flex items-center gap-3">
-									<div
-										className="h-1.5 rounded-full"
-										style={{
-											width: `${(s.count / total) * 80}px`,
-											background: s.color,
-											opacity: 0.4,
-											minWidth: 8,
-										}}
-									/>
-									<span className="text-sm font-bold w-8 text-right" style={{ color: "var(--slide-text)" }}>
-										{s.count}
-									</span>
-								</div>
+				{/* Segment rows */}
+				<div style={{ display: "flex", flexDirection: "column", gap: "0" }}>
+					{segments.map((s, i) => (
+						<div
+							key={i}
+							style={{
+								display: "flex",
+								alignItems: "center",
+								justifyContent: "space-between",
+								padding: "0.6rem 0",
+								borderBottom: i < segments.length - 1 ? "1px solid var(--slide-border)" : "none",
+							}}
+						>
+							<div style={{ display: "flex", alignItems: "center", gap: "0.6rem" }}>
+								<div style={{ width: "8px", height: "8px", borderRadius: "50%", background: s.color, flexShrink: 0 }} />
+								<span
+									className="slide-body"
+									style={{ fontSize: "clamp(0.7rem, 1.2vw, 0.875rem)", color: "var(--slide-text-secondary)" }}
+								>
+									{s.label}
+								</span>
 							</div>
-						))}
-					</div>
+							<div style={{ display: "flex", alignItems: "center", gap: "0.75rem" }}>
+								{/* Mini bar */}
+								<div
+									style={{
+										height: "3px",
+										borderRadius: "2px",
+										width: `${Math.max(16, (s.count / total) * 80)}px`,
+										background: s.color,
+										opacity: 0.35,
+									}}
+								/>
+								<span
+									className="slide-number-hero"
+									style={{ fontSize: "clamp(0.75rem, 1.3vw, 1rem)", color: "var(--slide-text)", minWidth: "2rem", textAlign: "right" }}
+								>
+									{s.count}
+								</span>
+							</div>
+						</div>
+					))}
 				</div>
 			</div>
 		</div>

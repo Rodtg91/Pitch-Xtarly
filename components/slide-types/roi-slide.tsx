@@ -27,115 +27,142 @@ export function RoiSlide({ content }: { content: RoiContent }) {
 
 	return (
 		<div
-			className="flex flex-col justify-center h-full px-16 py-12"
-			style={{ background: "var(--slide-bg)" }}
+			className="slide-root"
+			style={{
+				background: "var(--slide-bg)",
+				display: "grid",
+				gridTemplateColumns: "1fr 1fr",
+				gap: "0",
+			}}
 		>
-			<h2
-				className="text-4xl md:text-5xl font-bold mb-3 leading-tight"
-				style={{ color: "var(--slide-text)" }}
+			{/* Left: ROI hero */}
+			<div
+				style={{
+					display: "flex",
+					flexDirection: "column",
+					justifyContent: "center",
+					padding: "7% 5% 7% 8%",
+					borderRight: "1px solid var(--slide-border)",
+				}}
 			>
-				{content.headline}
-			</h2>
-			{content.subheadline && (
-				<p className="text-lg mb-10" style={{ color: "var(--slide-text-secondary)" }}>
-					{content.subheadline}
-				</p>
-			)}
-
-			<div className="grid grid-cols-3 gap-5">
-				{/* Inputs */}
-				<div
-					className="rounded-2xl p-6 flex flex-col gap-4"
-					style={{ background: "var(--slide-surface)", border: "1px solid var(--slide-border)" }}
+				<div className="slide-rule" style={{ marginBottom: "1.25rem" }} />
+				<h2
+					className="slide-display"
+					style={{ fontSize: "clamp(1.25rem, 3vw, 2.5rem)", color: "var(--slide-text)", marginBottom: "0.5rem" }}
 				>
-					<p className="text-xs font-semibold uppercase tracking-widest" style={{ color: "var(--slide-text-muted)" }}>
-						Tu negocio
-					</p>
-					<Stat label="Visitas/día" value={`${visits}`} />
-					<Stat label="Ticket promedio" value={formatMXN(ticket)} />
-					<Stat label="Clientes identificados" value={`${Math.round(enrollRate * 100)}%`} />
-					<Stat label="Aumento en frecuencia" value={`+${Math.round(lift * 100)}%`} />
-				</div>
-
-				{/* Arrow + middle calc */}
-				<div className="flex flex-col items-center justify-center gap-3">
-					<div
-						className="text-3xl font-bold text-center"
-						style={{ color: "var(--slide-text-muted)" }}
-					>
-						→
-					</div>
-					<div
-						className="rounded-2xl p-5 text-center w-full"
-						style={{
-							background: "var(--slide-accent-subtle)",
-							border: "1px solid var(--slide-accent-border)",
-						}}
-					>
-						<p className="text-xs font-semibold uppercase tracking-widest mb-2" style={{ color: "var(--slide-text-muted)" }}>
-							Ingreso extra/mes
-						</p>
-						<p className="text-3xl font-bold" style={{ color: "var(--slide-text)" }}>
-							{formatMXN(extraMonthly)}
-						</p>
-					</div>
-					<div
-						className="rounded-2xl p-4 text-center w-full"
-						style={{
-							background: "var(--slide-surface)",
-							border: "1px solid var(--slide-border)",
-						}}
-					>
-						<p className="text-xs font-semibold uppercase tracking-widest mb-1" style={{ color: "var(--slide-text-muted)" }}>
-							Costo del plan
-						</p>
-						<p className="text-xl font-bold" style={{ color: "var(--slide-text-secondary)" }}>
-							{formatMXN(planCost)}<span className="text-sm font-normal">/mes</span>
-						</p>
-					</div>
-				</div>
-
-				{/* ROI result */}
-				<div
-					className="rounded-2xl p-6 flex flex-col items-center justify-center text-center"
-					style={{
-						background: "var(--brand-gradient-bg)",
-						border: "1px solid rgba(98,229,255,0.25)",
-						boxShadow: "0 8px 40px rgba(124,92,255,0.25)",
-					}}
-				>
-					<p className="text-xs font-semibold uppercase tracking-widest mb-3" style={{ color: "var(--brand-cyan)", opacity: 0.8 }}>
-						ROI estimado
-					</p>
+					{content.headline}
+				</h2>
+				{content.subheadline && (
 					<p
-						className="text-5xl font-bold leading-none mb-2"
+						className="slide-body"
+						style={{ fontSize: "clamp(0.7rem, 1.2vw, 0.875rem)", color: "var(--slide-text-muted)", marginBottom: "2.5rem" }}
+					>
+						{content.subheadline}
+					</p>
+				)}
+
+				{/* The ROI number — dominant visual element */}
+				<div>
+					<span className="slide-label" style={{ color: "var(--slide-text-muted)", display: "block", marginBottom: "0.5rem" }}>
+						ROI estimado
+					</span>
+					<div
+						className="slide-number-hero"
 						style={{
-							background: "var(--brand-gradient)",
-							WebkitBackgroundClip: "text",
-							WebkitTextFillColor: "transparent",
+							fontSize: "clamp(4rem, 9vw, 8rem)",
+							color: "#7C5CFF",
+							lineHeight: 0.9,
 						}}
 					>
 						{roi.toLocaleString("es-MX")}%
-					</p>
-					<p className="text-sm mt-3 leading-relaxed" style={{ color: "rgba(248,249,250,0.6)" }}>
+					</div>
+					<p
+						className="slide-body"
+						style={{
+							fontSize: "clamp(0.7rem, 1.1vw, 0.8rem)",
+							color: "var(--slide-text-muted)",
+							marginTop: "0.75rem",
+							maxWidth: "28ch",
+						}}
+					>
 						El plan se paga con menos del 1% del ingreso extra generado.
 					</p>
-					<div className="mt-4 pt-4 w-full" style={{ borderTop: "1px solid rgba(98,229,255,0.15)" }}>
-						<p className="text-xs" style={{ color: "rgba(248,249,250,0.45)" }}>
+				</div>
+			</div>
+
+			{/* Right: breakdown de inputs + resultado */}
+			<div
+				style={{
+					display: "flex",
+					flexDirection: "column",
+					justifyContent: "center",
+					padding: "7% 8% 7% 5%",
+				}}
+			>
+				<span className="slide-label" style={{ color: "var(--slide-text-muted)", marginBottom: "1.5rem" }}>
+					El cálculo
+				</span>
+
+				{/* Input stats */}
+				{[
+					{ label: "Visitas/día", value: `${visits}` },
+					{ label: "Ticket promedio", value: formatMXN(ticket) },
+					{ label: "Clientes identificados", value: `${Math.round(enrollRate * 100)}%` },
+					{ label: "Aumento en frecuencia", value: `+${Math.round(lift * 100)}%` },
+				].map((row, i) => (
+					<div
+						key={i}
+						style={{
+							display: "flex",
+							alignItems: "center",
+							justifyContent: "space-between",
+							padding: "0.65rem 0",
+							borderBottom: "1px solid var(--slide-border)",
+						}}
+					>
+						<span className="slide-body" style={{ fontSize: "clamp(0.7rem, 1.2vw, 0.875rem)", color: "var(--slide-text-secondary)" }}>
+							{row.label}
+						</span>
+						<span
+							className="slide-number-hero"
+							style={{ fontSize: "clamp(0.85rem, 1.5vw, 1.1rem)", color: "var(--slide-text)" }}
+						>
+							{row.value}
+						</span>
+					</div>
+				))}
+
+				{/* Result rows */}
+				<div style={{ marginTop: "1.25rem", display: "flex", flexDirection: "column", gap: "0.6rem" }}>
+					<div style={{ display: "flex", alignItems: "center", justifyContent: "space-between" }}>
+						<span className="slide-body" style={{ fontSize: "clamp(0.7rem, 1.2vw, 0.875rem)", color: "var(--slide-text-secondary)" }}>
+							Ingreso extra/mes
+						</span>
+						<span
+							className="slide-number-hero"
+							style={{ fontSize: "clamp(1rem, 1.8vw, 1.4rem)", color: "#22c55e" }}
+						>
+							{formatMXN(extraMonthly)}
+						</span>
+					</div>
+					<div style={{ display: "flex", alignItems: "center", justifyContent: "space-between" }}>
+						<span className="slide-body" style={{ fontSize: "clamp(0.7rem, 1.2vw, 0.875rem)", color: "var(--slide-text-muted)" }}>
+							Costo del plan
+						</span>
+						<span
+							className="slide-body"
+							style={{ fontSize: "clamp(0.75rem, 1.2vw, 0.875rem)", color: "var(--slide-text-muted)" }}
+						>
+							{formatMXN(planCost)}/mes
+						</span>
+					</div>
+					<div style={{ paddingTop: "0.6rem", borderTop: "1px solid var(--slide-border)" }}>
+						<span className="slide-body" style={{ fontSize: "clamp(0.65rem, 1vw, 0.75rem)", color: "var(--slide-text-muted)" }}>
 							Ingresos actuales: {formatMXN(baseMonthly)}/mes
-						</p>
+						</span>
 					</div>
 				</div>
 			</div>
-		</div>
-	);
-}
-
-function Stat({ label, value }: { label: string; value: string }) {
-	return (
-		<div className="flex items-center justify-between">
-			<span className="text-sm" style={{ color: "var(--slide-text-secondary)" }}>{label}</span>
-			<span className="text-sm font-bold" style={{ color: "var(--slide-text)" }}>{value}</span>
 		</div>
 	);
 }

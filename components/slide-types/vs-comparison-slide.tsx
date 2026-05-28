@@ -31,12 +31,15 @@ const COMPETITION_ROWS: ComparisonRow[] = [
 	{ criterion: "Multi-nicho configurable", old: "Limitado", xtarly: true },
 ];
 
-function Cell({ value, highlight }: { value: string | boolean; highlight?: boolean }) {
+function Cell({ value, positive }: { value: string | boolean; positive?: boolean }) {
 	if (typeof value === "boolean") {
 		return (
 			<span
-				className="text-lg font-bold"
-				style={{ color: value ? (highlight ? "var(--brand-cyan)" : "#22c55e") : "#ef4444" }}
+				style={{
+					fontSize: "1rem",
+					fontWeight: 700,
+					color: value ? (positive ? "#7C5CFF" : "#6b7280") : "#ef444488",
+				}}
 			>
 				{value ? "✓" : "✗"}
 			</span>
@@ -44,8 +47,11 @@ function Cell({ value, highlight }: { value: string | boolean; highlight?: boole
 	}
 	return (
 		<span
-			className="text-sm"
-			style={{ color: highlight ? "var(--brand-cyan)" : "var(--slide-text-secondary)" }}
+			className="slide-body"
+			style={{
+				fontSize: "clamp(0.65rem, 1.1vw, 0.8rem)",
+				color: positive ? "var(--slide-text)" : "var(--slide-text-muted)",
+			}}
 		>
 			{value}
 		</span>
@@ -59,61 +65,87 @@ export function VsComparisonSlide({ content }: { content: VsComparisonContent })
 
 	return (
 		<div
-			className="flex flex-col justify-center h-full px-16 py-12"
-			style={{ background: "var(--slide-bg)" }}
+			className="slide-root"
+			style={{
+				background: "var(--slide-bg)",
+				display: "grid",
+				gridTemplateColumns: "1fr 1.8fr",
+				gap: "0",
+			}}
 		>
-			<h2
-				className="text-4xl md:text-5xl font-bold mb-3 leading-tight"
-				style={{ color: "var(--slide-text)" }}
-			>
-				{content.headline}
-			</h2>
-			{content.subheadline && (
-				<p className="text-lg mb-8" style={{ color: "var(--slide-text-secondary)" }}>
-					{content.subheadline}
-				</p>
-			)}
-
+			{/* Left: headline */}
 			<div
-				className="rounded-2xl overflow-hidden"
-				style={{ border: "1px solid var(--slide-border)" }}
+				style={{
+					display: "flex",
+					flexDirection: "column",
+					justifyContent: "center",
+					padding: "8% 5% 8% 8%",
+					borderRight: "1px solid var(--slide-border)",
+				}}
 			>
-				{/* Table header */}
-				<div
-					className="grid grid-cols-3 px-6 py-3 text-xs font-semibold uppercase tracking-widest"
-					style={{ background: "var(--slide-surface-2)", borderBottom: "1px solid var(--slide-border)" }}
+				<div className="slide-rule" style={{ marginBottom: "1.5rem" }} />
+				<h2
+					className="slide-display"
+					style={{ fontSize: "clamp(1.5rem, 3.5vw, 3rem)", color: "var(--slide-text)", maxWidth: "14ch" }}
 				>
-					<span style={{ color: "var(--slide-text-muted)" }}>Característica</span>
-					<span className="text-center" style={{ color: "var(--slide-text-muted)" }}>{oldLabel}</span>
-					<span
-						className="text-center"
-						style={{ color: "var(--brand-cyan)" }}
+					{content.headline}
+				</h2>
+				{content.subheadline && (
+					<p
+						className="slide-body"
+						style={{ fontSize: "clamp(0.7rem, 1.2vw, 0.875rem)", color: "var(--slide-text-muted)", marginTop: "1rem", maxWidth: "26ch" }}
 					>
-						Xtarly Rewards
-					</span>
+						{content.subheadline}
+					</p>
+				)}
+			</div>
+
+			{/* Right: table */}
+			<div
+				style={{
+					display: "flex",
+					flexDirection: "column",
+					justifyContent: "center",
+					padding: "5% 8% 5% 5%",
+				}}
+			>
+				{/* Header */}
+				<div
+					style={{
+						display: "grid",
+						gridTemplateColumns: "1fr 0.7fr 0.7fr",
+						padding: "0 0 0.6rem",
+						borderBottom: "2px solid var(--slide-border)",
+						marginBottom: "0",
+					}}
+				>
+					<span className="slide-label" style={{ color: "var(--slide-text-muted)" }}>Característica</span>
+					<span className="slide-label" style={{ color: "var(--slide-text-muted)", textAlign: "center" }}>{oldLabel}</span>
+					<span className="slide-label" style={{ color: "#7C5CFF", textAlign: "center" }}>Xtarly</span>
 				</div>
 
-				{/* Rows */}
 				{rows.map((row, i) => (
 					<div
 						key={i}
-						className="grid grid-cols-3 px-6 py-3.5 items-center"
 						style={{
+							display: "grid",
+							gridTemplateColumns: "1fr 0.7fr 0.7fr",
+							padding: "0.6rem 0",
 							borderBottom: i < rows.length - 1 ? "1px solid var(--slide-border)" : "none",
-							background: i % 2 === 0 ? "transparent" : "var(--slide-surface)",
+							alignItems: "center",
 						}}
 					>
-						<span className="text-sm" style={{ color: "var(--slide-text)" }}>
+						<span
+							className="slide-body"
+							style={{ fontSize: "clamp(0.65rem, 1.1vw, 0.8rem)", color: "var(--slide-text-secondary)" }}
+						>
 							{row.criterion}
 						</span>
-						<div className="flex justify-center">
+						<div style={{ display: "flex", justifyContent: "center" }}>
 							<Cell value={row.old} />
 						</div>
-						<div
-							className="flex justify-center rounded-lg py-1 px-2"
-							style={{ background: "var(--slide-cyan-subtle)" }}
-						>
-							<Cell value={row.xtarly} highlight />
+						<div style={{ display: "flex", justifyContent: "center" }}>
+							<Cell value={row.xtarly} positive />
 						</div>
 					</div>
 				))}
