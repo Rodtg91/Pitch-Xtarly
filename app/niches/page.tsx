@@ -13,50 +13,25 @@ export default async function NichesPage() {
 
 	return (
 		<div
-			style={{
-				minHeight: "100dvh",
-				background: "var(--bg-base)",
-				display: "flex",
-				alignItems: "center",
-				justifyContent: "center",
-				padding: "52px 12px 12px",
-				position: "relative",
-			}}
+			className="relative min-h-dvh"
+			style={{ background: "var(--bg-base)", padding: "52px 12px 12px" }}
 		>
 			{/* Back button */}
 			<Link
 				href="/"
+				className="fixed left-4 top-4 z-10 flex h-9 w-9 items-center justify-center rounded-full transition-colors hover:opacity-80"
 				style={{
-					position: "fixed",
-					top: "16px",
-					left: "16px",
-					zIndex: 10,
-					display: "flex",
-					alignItems: "center",
-					justifyContent: "center",
-					width: "36px",
-					height: "36px",
-					borderRadius: "50%",
 					background: "var(--bg-surface)",
 					border: "1px solid var(--border)",
 					color: "var(--text-secondary)",
-					textDecoration: "none",
-					transition: "background 0.2s",
 				}}
 				aria-label="Regresar"
 			>
 				<ArrowLeft size={16} />
 			</Link>
 
-			{/* Grid */}
-			<div
-				style={{
-					width: "100%",
-					display: "grid",
-					gridTemplateColumns: "repeat(5, 1fr)",
-					gap: "12px",
-				}}
-			>
+			{/* Responsive grid: 2 cols mobile → 3 tablet → 4 md → 5 desktop */}
+			<div className="grid grid-cols-2 gap-3 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 lg:gap-3">
 				{niches.map((n) => (
 					<NicheCard
 						key={n.id}
