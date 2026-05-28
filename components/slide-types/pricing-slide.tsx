@@ -90,7 +90,7 @@ export function PricingSlide({ content }: { content: PricingContent }) {
 									marginLeft: "0.3rem",
 								}}
 							>
-								/{plan.period}
+								USD/{plan.period}
 							</span>
 						</div>
 
