@@ -23,9 +23,10 @@ export default async function NichePage({ params }: { params: Promise<{ id: stri
 
 	const pitch = niche.pitches[0];
 
+	// Sin presentación → ir a crear una nueva para este nicho
 	if (!pitch) {
-		redirect("/niches");
+		redirect(`/presentations/new?nicheId=${id}`);
 	}
 
-	redirect(`/presentations/${pitch.id}/present`);
+	redirect(`/presentations/${pitch.id}`);
 }
