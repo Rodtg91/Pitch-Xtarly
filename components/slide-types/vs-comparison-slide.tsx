@@ -79,7 +79,7 @@ export function VsComparisonSlide({ content }: { content: VsComparisonContent })
 					display: "flex",
 					flexDirection: "column",
 					justifyContent: "center",
-					padding: "8% 5% 8% 8%",
+					padding: "10% 5% 10% 11%",
 					borderRight: "1px solid var(--slide-border)",
 				}}
 			>
@@ -106,7 +106,7 @@ export function VsComparisonSlide({ content }: { content: VsComparisonContent })
 					display: "flex",
 					flexDirection: "column",
 					justifyContent: "center",
-					padding: "5% 8% 5% 5%",
+					padding: "8% 11% 8% 5%",
 				}}
 			>
 				{/* Header */}

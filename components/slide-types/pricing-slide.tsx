@@ -20,7 +20,7 @@ export function PricingSlide({ content }: { content: PricingContent }) {
 				display: "flex",
 				flexDirection: "column",
 				justifyContent: "center",
-				padding: "6% 8%",
+				padding: "10% 11%",
 			}}
 		>
 			<div style={{ marginBottom: "4%" }}>

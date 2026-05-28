@@ -28,7 +28,7 @@ export function HowItWorksSlide({ content }: { content: HowItWorksContent }) {
 				display: "flex",
 				flexDirection: "column",
 				justifyContent: "center",
-				padding: "6% 8%",
+				padding: "10% 11%",
 			}}
 		>
 			{/* Header */}

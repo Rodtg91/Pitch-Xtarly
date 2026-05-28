@@ -47,7 +47,7 @@ export function NotificationsSlide({ content }: { content: NotificationsContent 
 					display: "flex",
 					flexDirection: "column",
 					justifyContent: "center",
-					padding: "7% 5% 7% 8%",
+					padding: "10% 5% 10% 11%",
 					borderRight: "1px solid rgba(255,255,255,0.06)",
 				}}
 			>
@@ -117,7 +117,7 @@ export function NotificationsSlide({ content }: { content: NotificationsContent 
 					display: "flex",
 					flexDirection: "column",
 					justifyContent: "center",
-					padding: "7% 8% 7% 5%",
+					padding: "10% 11% 10% 5%",
 					gap: "0.6rem",
 				}}
 			>

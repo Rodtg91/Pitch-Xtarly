@@ -14,7 +14,7 @@ export function CoverSlide({ content }: { content: CoverContent }) {
 				display: "flex",
 				flexDirection: "column",
 				justifyContent: "center",
-				padding: "6% 42% 6% 8%",
+				padding: "10% 42% 10% 11%",
 			}}
 		>
 			{/* eslint-disable-next-line @next/next/no-img-element */}

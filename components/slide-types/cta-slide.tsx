@@ -19,7 +19,7 @@ export function CtaSlide({ content }: { content: CtaContent }) {
 				display: "flex",
 				flexDirection: "column",
 				justifyContent: "center",
-				padding: "7% 10% 7% 8%",
+				padding: "10% 12% 10% 11%",
 			}}
 		>
 			{/* eslint-disable-next-line @next/next/no-img-element */}

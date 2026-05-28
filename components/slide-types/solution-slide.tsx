@@ -21,7 +21,7 @@ export function SolutionSlide({ content }: { content: SolutionContent }) {
 					display: "flex",
 					flexDirection: "column",
 					justifyContent: "center",
-					padding: "8% 6% 8% 8%",
+					padding: "10% 6% 10% 11%",
 					borderRight: "1px solid var(--slide-border)",
 				}}
 			>
@@ -55,7 +55,7 @@ export function SolutionSlide({ content }: { content: SolutionContent }) {
 					display: "flex",
 					flexDirection: "column",
 					justifyContent: "center",
-					padding: "8% 8% 8% 6%",
+					padding: "10% 11% 10% 6%",
 					gap: "0",
 				}}
 			>

@@ -32,7 +32,7 @@ export function TestimonialSlide({ content }: { content: TestimonialContent }) {
 					display: "flex",
 					flexDirection: "column",
 					justifyContent: "center",
-					padding: "7% 5% 7% 6%",
+					padding: "10% 5% 10% 9%",
 				}}
 			>
 				<span
@@ -86,7 +86,7 @@ export function TestimonialSlide({ content }: { content: TestimonialContent }) {
 					display: "flex",
 					flexDirection: "column",
 					justifyContent: "center",
-					padding: "7% 6% 7% 2%",
+					padding: "10% 9% 10% 2%",
 				}}
 			>
 				<div

@@ -24,7 +24,7 @@ export function FeaturesSlide({ content }: { content: FeaturesContent }) {
 					display: "flex",
 					flexDirection: "column",
 					justifyContent: "center",
-					padding: "8% 5% 8% 8%",
+					padding: "10% 5% 10% 11%",
 					borderRight: "1px solid var(--slide-border)",
 				}}
 			>
@@ -42,7 +42,7 @@ export function FeaturesSlide({ content }: { content: FeaturesContent }) {
 				style={{
 					display: "grid",
 					gridTemplateColumns: "1fr 1fr",
-					padding: "8% 8% 8% 5%",
+					padding: "10% 11% 10% 5%",
 					gap: "0",
 					alignContent: "center",
 				}}

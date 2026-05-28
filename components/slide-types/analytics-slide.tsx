@@ -48,7 +48,7 @@ export function AnalyticsSlide({ content }: { content: AnalyticsContent }) {
 					display: "flex",
 					flexDirection: "column",
 					justifyContent: "center",
-					padding: "7% 5% 7% 8%",
+					padding: "10% 5% 10% 11%",
 					borderRight: "1px solid var(--slide-border)",
 				}}
 			>
@@ -122,7 +122,7 @@ export function AnalyticsSlide({ content }: { content: AnalyticsContent }) {
 					display: "flex",
 					flexDirection: "column",
 					justifyContent: "center",
-					padding: "7% 8% 7% 5%",
+					padding: "10% 11% 10% 5%",
 				}}
 			>
 				<span className="slide-label" style={{ color: "var(--slide-text-muted)", marginBottom: "1.5rem" }}>

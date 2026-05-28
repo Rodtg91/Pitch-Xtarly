@@ -26,7 +26,7 @@ export function WalletSlide({ content }: { content: WalletContent }) {
 					display: "flex",
 					flexDirection: "column",
 					justifyContent: "center",
-					padding: "7% 6% 7% 8%",
+					padding: "10% 6% 10% 11%",
 					borderRight: "1px solid rgba(255,255,255,0.06)",
 				}}
 			>
@@ -87,7 +87,7 @@ export function WalletSlide({ content }: { content: WalletContent }) {
 					flexDirection: "column",
 					justifyContent: "center",
 					alignItems: "center",
-					padding: "7% 8% 7% 6%",
+					padding: "10% 11% 10% 6%",
 					gap: "1rem",
 				}}
 			>
