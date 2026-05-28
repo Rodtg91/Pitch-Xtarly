@@ -1,4 +1,4 @@
-import { db } from "@repo/database";
+import { prisma as db } from "../lib/db";
 
 const niches = [
 	{ name: "Cafeterías", icon: "☕", color: "#92400e", description: "Cafeterías, coffee shops y barras de espresso" },

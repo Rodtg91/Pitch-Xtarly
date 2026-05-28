@@ -1,4 +1,4 @@
-import { db } from "@repo/database";
+import { prisma as db } from "../lib/db";
 
 const nicheImages: Record<string, string> = {
 	"Cafeterías": "/images/niches/cafeterias.webp",
