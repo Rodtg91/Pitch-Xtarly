@@ -12,9 +12,9 @@ interface HowItWorksContent {
 }
 
 const DEFAULT_STEPS: Step[] = [
-	{ number: 1, icon: "⬛", title: "El cajero muestra el QR", description: "En tablet o impreso en caja. Sin hardware extra." },
-	{ number: 2, icon: "📱", title: "El cliente escanea", description: "Con la cámara de su teléfono. Los puntos suman al instante." },
-	{ number: 3, icon: "★", title: "Aparece en su Wallet", description: "Apple Wallet y Google Wallet. Actualización automática." },
+	{ number: 1, icon: "📲", title: "El cliente muestra su QR", description: "Abre su app o Wallet y muestra su código al cajero. Sin tarjetas físicas." },
+	{ number: 2, icon: "📷", title: "El cajero escanea y registra", description: "Xtarly Cashier en iOS o Android. Ingresa el monto y confirma en 5 segundos." },
+	{ number: 3, icon: "⭐", title: "Puntos sumados al instante", description: "Push al cliente. Su Wallet se actualiza automáticamente." },
 ];
 
 export function HowItWorksSlide({ content }: { content: HowItWorksContent }) {

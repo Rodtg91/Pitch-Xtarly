@@ -13,9 +13,9 @@ interface JourneyContent {
 
 const DEFAULT_MOMENTS: JourneyMoment[] = [
 	{ number: 1, icon: "📲", title: "Primera visita", description: "Escanea el QR y agrega su tarjeta a Wallet en 10 segundos." },
-	{ number: 2, icon: "⭐", title: "Acumula", description: "Suma sellos o puntos en cada visita. Ve su progreso en tiempo real." },
+	{ number: 2, icon: "⭐", title: "Acumula en cada visita", description: "Muestra su QR al cajero. El cajero escanea con Xtarly Cashier y suma puntos al instante." },
 	{ number: 3, icon: "🔔", title: "Notificaciones", description: "Push cuando está cerca, cuando casi completa y en su cumpleaños." },
-	{ number: 4, icon: "🎁", title: "Canjea", description: "Muestra el QR en caja. Confirmado en 3 segundos." },
+	{ number: 4, icon: "🎁", title: "Canjea su recompensa", description: "Genera un QR de canje desde la app y lo muestra al cajero. Confirmado en segundos." },
 	{ number: 5, icon: "💛", title: "Regresa", description: "Ya no es un cliente anónimo — es una relación con historial." },
 ];
 

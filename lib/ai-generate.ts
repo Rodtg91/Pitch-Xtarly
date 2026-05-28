@@ -33,14 +33,20 @@ Conoces profundamente la psicología de retención de clientes, los programas de
 
 SOBRE XTARLY REWARDS:
 - Programa de puntos, sellos (stamps) o niveles VIP totalmente configurable
-- App móvil compartida (Xtarly Shared) y app white-label por marca (Branded)
+- App móvil compartida (Xtarly Rewards) y app white-label por marca (Branded)
 - Apple Wallet + Google Wallet: la tarjeta aparece en el lock screen del cliente cuando está cerca del negocio
 - Panel web con analytics completo: segmentos RFM, Membership Rate, Member Lift, ticket promedio, frecuencia
 - Campañas de push notifications: winback, cumpleaños, urgencia de puntos, campañas manuales por segmento
-- Panel cashier: solo un QR en caja — sin hardware adicional, sin app para el cajero
+- Xtarly Cashier: app móvil iOS/Android que el cajero usa para escanear el QR del cliente, ingresar el monto y confirmar en 5 segundos. Sin hardware adicional.
 - Multi-sucursal: un programa para todas las sucursales, un solo dashboard
-- Precios en MXN y USD, sin contrato anual, empieza gratis
-- Planes: Gratis ($0, hasta 200 clientes), Shared ($499/mes), Branded ($1,999/mes)
+- Precios en MXN y USD, sin contrato anual, prueba gratis 14 días
+- Planes: Wallet ($19 USD/mes), Shared ($29 USD/mes), Branded ($99 USD/mes), Premium ($299 USD/mes)
+
+FLUJO CORRECTO (CRÍTICO — nunca invertir los roles):
+1. INSCRIPCIÓN (una vez): el cliente escanea el QR de inscripción del negocio (impreso en caja o mesa) → llena el formulario → agrega su tarjeta a Apple/Google Wallet o descarga la app Xtarly Rewards.
+2. CADA COMPRA: el cliente abre su Wallet o app → muestra su QR personal al cajero → el CAJERO escanea el QR con Xtarly Cashier → ingresa el monto → confirma → puntos/sellos sumados al instante → el cliente recibe push y su Wallet se actualiza.
+3. CANJE: el cliente selecciona una recompensa en su app → la app genera un QR de canje temporal → lo muestra al cajero → el cajero lo escanea con Xtarly Cashier → confirma → puntos deducidos.
+REGLA DE ORO: es el CAJERO quien escanea el QR del cliente con Xtarly Cashier, NO al revés. El cliente solo muestra su código.
 
 FLUJO PSICOLÓGICO (respetar este orden):
 Hook → Dolor → Solución → Simplicidad → Diferenciador (Wallet) → Validación (Journey) →
@@ -98,11 +104,11 @@ Genera exactamente 14 slides en este orden y con esta estructura JSON:
       "order": 4,
       "content": {
         "headline": "Tan simple que tu cajero lo aprende en 2 minutos.",
-        "subheadline": "Sin hardware. Sin instalaciones. Solo un QR.",
+        "subheadline": "Sin hardware extra. Solo la app Xtarly Cashier en el teléfono del cajero.",
         "steps": [
-          { "number": 1, "icon": "⬛", "title": "El cajero muestra el QR", "description": "Impreso o en tablet. Sin app adicional para el cajero." },
-          { "number": 2, "icon": "📱", "title": "El cliente escanea", "description": "Con la cámara de su teléfono. Los puntos se suman al instante." },
-          { "number": 3, "icon": "★", "title": "Aparece en su Wallet", "description": "Apple Wallet y Google Wallet. Se actualiza automáticamente." }
+          { "number": 1, "icon": "📲", "title": "El cliente muestra su QR", "description": "Abre su app o Wallet y muestra su código al cajero. Sin tarjetas físicas." },
+          { "number": 2, "icon": "📷", "title": "El cajero escanea y registra", "description": "Xtarly Cashier en iOS o Android. Ingresa el monto y confirma en 5 segundos." },
+          { "number": 3, "icon": "⭐", "title": "Puntos sumados al instante", "description": "Notificación push al cliente. Su Wallet se actualiza automáticamente." }
         ]
       }
     },
@@ -129,10 +135,10 @@ Genera exactamente 14 slides en este orden y con esta estructura JSON:
         "headline": "La experiencia que tus clientes van a amar.",
         "subheadline": "De desconocido a cliente fiel — en 5 momentos.",
         "moments": [
-          { "number": 1, "icon": "📲", "title": "Primera visita", "description": "Escanea el QR y agrega su tarjeta a Wallet en 10 segundos." },
-          { "number": 2, "icon": "⭐", "title": "Acumula [sellos/puntos]", "description": "Descripción específica al nicho de cómo y qué acumula." },
-          { "number": 3, "icon": "🔔", "title": "Recibe notificaciones", "description": "Ejemplo de push específico al nicho." },
-          { "number": 4, "icon": "🎁", "title": "Canjea", "description": "Recompensa específica al nicho que recibe el cliente." },
+          { "number": 1, "icon": "📲", "title": "Primera visita", "description": "Escanea el QR de inscripción del negocio → agrega su tarjeta a Wallet o descarga la app. 10 segundos." },
+          { "number": 2, "icon": "⭐", "title": "Acumula en cada visita", "description": "Muestra su QR al cajero. El cajero escanea con Xtarly Cashier y suma [sellos/puntos] al instante." },
+          { "number": 3, "icon": "🔔", "title": "Recibe notificaciones", "description": "Ejemplo de push específico al nicho y al momento (proximidad, cumpleaños, winback)." },
+          { "number": 4, "icon": "🎁", "title": "Canjea su recompensa", "description": "Genera un QR de canje desde la app y lo muestra al cajero. Confirmado en segundos." },
           { "number": 5, "icon": "💛", "title": "Regresa más seguido", "description": "Mensaje emocional específico al nicho." }
         ]
       }
