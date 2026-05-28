@@ -20,8 +20,11 @@ export const metadata: Metadata = {
 	description: "Presentaciones de ventas Xtarly Rewards",
 	manifest: "/manifest.json",
 	icons: {
-		icon: "/favicon.ico",
-		apple: "/icons/icon-192.png",
+		icon: [
+			{ url: "/favicon.ico", sizes: "any" },
+			{ url: "/icons/icon-192.png", sizes: "192x192", type: "image/png" },
+		],
+		apple: [{ url: "/icons/icon-180.png", sizes: "180x180", type: "image/png" }],
 	},
 	appleWebApp: {
 		capable: true,
