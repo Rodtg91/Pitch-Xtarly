@@ -2,6 +2,7 @@ interface CoverContent {
 	headline: string;
 	subheadline: string;
 	tagline?: string;
+	imageUrl?: string;
 }
 
 export function CoverSlide({ content }: { content: CoverContent }) {
@@ -74,23 +75,40 @@ export function CoverSlide({ content }: { content: CoverContent }) {
 				xtarly.com
 			</span>
 
-			{/* Right column — lifestyle photo placeholder */}
-			<div
-				className="img-placeholder"
-				style={{
-					position: "absolute",
-					top: "8%",
-					right: "5%",
-					bottom: "12%",
-					width: "31%",
-				}}
-			>
-				<span style={{ fontSize: "1.5rem", opacity: 0.3 }}>📸</span>
-				<span className="img-placeholder-label">Foto lifestyle</span>
-				<p className="img-placeholder-prompt">
-					Overhead flat-lay on dark espresso-stained wood. Smartphone showing rewards wallet card in Apple Wallet, artisan coffee cup with latte art, small succulent. Deep purples and cyans with warm amber. Studio lighting, f/2.8 bokeh. Vertical 2:3, no text.
-				</p>
-			</div>
+			{/* Right column — lifestyle photo */}
+			{content.imageUrl ? (
+				/* eslint-disable-next-line @next/next/no-img-element */
+				<img
+					src={content.imageUrl}
+					alt=""
+					style={{
+						position: "absolute",
+						top: "0",
+						right: "0",
+						bottom: "0",
+						width: "38%",
+						objectFit: "cover",
+						objectPosition: "center center",
+					}}
+				/>
+			) : (
+				<div
+					className="img-placeholder"
+					style={{
+						position: "absolute",
+						top: "8%",
+						right: "5%",
+						bottom: "12%",
+						width: "31%",
+					}}
+				>
+					<span style={{ fontSize: "1.5rem", opacity: 0.3 }}>📸</span>
+					<span className="img-placeholder-label">Foto lifestyle</span>
+					<p className="img-placeholder-prompt">
+						Overhead flat-lay on dark espresso-stained wood. Smartphone showing rewards wallet card in Apple Wallet, artisan coffee cup with latte art, small succulent. Deep purples and cyans with warm amber. Studio lighting, f/2.8 bokeh. Vertical 2:3, no text.
+					</p>
+				</div>
+			)}
 		</div>
 	);
 }
