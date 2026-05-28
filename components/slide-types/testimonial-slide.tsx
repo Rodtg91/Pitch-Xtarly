@@ -2,6 +2,7 @@ interface TestimonialContent {
 	quote: string;
 	author: string;
 	business: string;
+	imageUrl?: string;
 }
 
 // Left-aligned pull-quote editorial con columna de imagen a la derecha.
@@ -81,24 +82,27 @@ export function TestimonialSlide({ content }: { content: TestimonialContent }) {
 			</div>
 
 			{/* Right: foto del dueño de negocio */}
-			<div
-				style={{
-					display: "flex",
-					flexDirection: "column",
-					justifyContent: "center",
-					padding: "10% 9% 10% 2%",
-				}}
-			>
-				<div
-					className="img-placeholder"
-					style={{ aspectRatio: "3/4", width: "100%" }}
-				>
-					<span style={{ fontSize: "1.25rem", opacity: 0.3 }}>📸</span>
-					<span className="img-placeholder-label">Foto propietario</span>
-					<p className="img-placeholder-prompt">
-						Portrait of a proud Mexican business owner in their shop. Warm editorial lighting, shallow DOF, magazine style. Relaxed, confident expression. Business-relevant background (cafe, bakery, salon). 3:4 vertical, no text.
-					</p>
-				</div>
+			<div style={{ position: "relative", overflow: "hidden" }}>
+				{content.imageUrl ? (
+					// eslint-disable-next-line @next/next/no-img-element
+					<img
+						src={content.imageUrl}
+						alt=""
+						style={{ width: "100%", height: "100%", objectFit: "cover", objectPosition: "center top", display: "block" }}
+					/>
+				) : (
+					<div
+						style={{ display: "flex", flexDirection: "column", justifyContent: "center", padding: "10% 9% 10% 2%", height: "100%" }}
+					>
+						<div className="img-placeholder" style={{ aspectRatio: "3/4", width: "100%" }}>
+							<span style={{ fontSize: "1.25rem", opacity: 0.3 }}>📸</span>
+							<span className="img-placeholder-label">Foto propietario</span>
+							<p className="img-placeholder-prompt">
+								Portrait of a proud Mexican business owner in their shop. Warm editorial lighting, shallow DOF, magazine style. Relaxed, confident expression. Business-relevant background (cafe, bakery, salon). 3:4 vertical, no text.
+							</p>
+						</div>
+					</div>
+				)}
 			</div>
 		</div>
 	);
