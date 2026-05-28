@@ -1,4 +1,3 @@
-import { ArrowUpRight } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
 
@@ -8,98 +7,91 @@ interface NicheCardProps {
 	icon?: string | null;
 	color?: string | null;
 	imageUrl?: string | null;
-	pitchCount: number;
 }
 
-export function NicheCard({ id, name, icon, color, imageUrl, pitchCount }: NicheCardProps) {
+export function NicheCard({ id, name, icon, color, imageUrl }: NicheCardProps) {
 	const accent = color ?? "#6366f1";
 
 	return (
 		<Link
 			href={`/niches/${id}`}
-			className="group relative flex flex-col overflow-hidden rounded-2xl border transition-all duration-300 hover:-translate-y-1 hover:shadow-2xl"
-			style={{ borderColor: `${accent}30`, boxShadow: `0 0 0 1px ${accent}10` }}
+			style={{ position: "relative", overflow: "hidden", display: "block" }}
+			className="group"
 		>
-			{/* Image container — explicit dimensions required for next/image fill */}
-			<div style={{ position: "relative", height: "144px", overflow: "hidden" }}>
-				{imageUrl ? (
-					<Image
-						src={imageUrl}
-						alt={name}
-						fill
-						sizes="(max-width: 640px) 50vw, (max-width: 1024px) 33vw, 20vw"
-						className="object-cover transition-transform duration-500 group-hover:scale-105"
-						priority={false}
-					/>
-				) : (
-					<div
-						style={{
-							position: "absolute",
-							inset: 0,
-							background: `linear-gradient(145deg, ${accent}30, ${accent}10)`,
-						}}
-					/>
-				)}
-
-				{/* Gradient overlay */}
+			{/* Image */}
+			{imageUrl ? (
+				<Image
+					src={imageUrl}
+					alt={name}
+					fill
+					sizes="(max-width: 640px) 50vw, 20vw"
+					className="object-cover transition-transform duration-700 group-hover:scale-105"
+					priority
+				/>
+			) : (
 				<div
 					style={{
 						position: "absolute",
 						inset: 0,
-						background: `linear-gradient(to bottom, ${accent}10 0%, rgba(8,9,14,0.75) 100%)`,
-						zIndex: 1,
+						background: `linear-gradient(145deg, ${accent}50, ${accent}20)`,
 					}}
 				/>
+			)}
 
-				{/* Hover arrow */}
-				<div
-					className="absolute right-3 top-3 opacity-0 transition-opacity duration-200 group-hover:opacity-100"
-					style={{
-						zIndex: 2,
-						display: "flex",
-						height: "28px",
-						width: "28px",
-						alignItems: "center",
-						justifyContent: "center",
-						borderRadius: "50%",
-						backgroundColor: "rgba(0,0,0,0.45)",
-						backdropFilter: "blur(4px)",
-					}}
-				>
-					<ArrowUpRight size={14} className="text-white" />
-				</div>
-			</div>
-
-			{/* Footer */}
+			{/* Persistent dark gradient at bottom */}
 			<div
 				style={{
-					display: "flex",
-					alignItems: "center",
-					gap: "12px",
-					padding: "12px 16px",
-					background: "var(--bg-surface)",
-					borderTop: `1px solid ${accent}20`,
+					position: "absolute",
+					inset: 0,
+					background: "linear-gradient(to top, rgba(0,0,0,0.78) 0%, rgba(0,0,0,0.18) 45%, transparent 100%)",
+					zIndex: 1,
+				}}
+			/>
+
+			{/* Hover overlay */}
+			<div
+				className="absolute inset-0 opacity-0 transition-opacity duration-300 group-hover:opacity-100"
+				style={{
+					background: `linear-gradient(to top, ${accent}55 0%, transparent 60%)`,
+					zIndex: 2,
+				}}
+			/>
+
+			{/* Thin border on hover */}
+			<div
+				className="absolute inset-0 opacity-0 transition-opacity duration-300 group-hover:opacity-100"
+				style={{
+					boxShadow: `inset 0 0 0 2px ${accent}80`,
+					zIndex: 3,
+				}}
+			/>
+
+			{/* Title */}
+			<div
+				style={{
+					position: "absolute",
+					bottom: 0,
+					left: 0,
+					right: 0,
+					padding: "16px 18px",
+					zIndex: 4,
 				}}
 			>
-				<span style={{ fontSize: "20px", lineHeight: 1 }}>{icon ?? "📊"}</span>
-				<div style={{ flex: 1, minWidth: 0 }}>
+				<div style={{ display: "flex", alignItems: "center", gap: "8px" }}>
+					<span style={{ fontSize: "20px", lineHeight: 1 }}>{icon ?? "📊"}</span>
 					<p
 						className="font-heading"
 						style={{
-							fontSize: "14px",
-							color: "white",
+							fontSize: "15px",
+							color: "#ffffff",
+							margin: 0,
+							textShadow: "0 1px 4px rgba(0,0,0,0.6)",
 							overflow: "hidden",
 							textOverflow: "ellipsis",
 							whiteSpace: "nowrap",
-							margin: 0,
 						}}
 					>
 						{name}
-					</p>
-					<p style={{ fontSize: "12px", color: `${accent}99`, marginTop: "2px", margin: 0 }}>
-						{pitchCount === 0
-							? "Sin presentaciones"
-							: `${pitchCount} ${pitchCount === 1 ? "presentación" : "presentaciones"}`}
 					</p>
 				</div>
 			</div>
