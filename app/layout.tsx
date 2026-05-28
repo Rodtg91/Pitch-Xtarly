@@ -19,6 +19,10 @@ export const metadata: Metadata = {
 	title: "Xtarly Pitch",
 	description: "Presentaciones de ventas Xtarly Rewards",
 	manifest: "/manifest.json",
+	icons: {
+		icon: "/favicon.ico",
+		apple: "/icons/icon-192.png",
+	},
 	appleWebApp: {
 		capable: true,
 		statusBarStyle: "black-translucent",
@@ -36,9 +40,6 @@ export const viewport: Viewport = {
 export default function RootLayout({ children }: { children: React.ReactNode }) {
 	return (
 		<html lang="es" className={`${geistFont.variable} ${nunitoFont.variable}`}>
-			<head>
-				<link rel="apple-touch-icon" href="/icons/icon-192.png" />
-			</head>
 			<body className="min-h-screen" suppressHydrationWarning>{children}</body>
 		</html>
 	);
