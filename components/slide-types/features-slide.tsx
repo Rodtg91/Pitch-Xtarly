@@ -1,6 +1,8 @@
+import { SlideIcon } from "../slide-icons";
+
 interface FeaturesContent {
 	title: string;
-	features: { emoji: string; title: string; description: string }[];
+	features: { emoji?: string; icon?: string; title: string; description: string }[];
 }
 
 // Layout editorial 2-columnas — sin card grid genérico
@@ -69,8 +71,8 @@ export function FeaturesSlide({ content }: { content: FeaturesContent }) {
 								}}
 							>
 								<div style={{ display: "flex", alignItems: "flex-start", gap: "0.75rem" }}>
-									<span style={{ fontSize: "1.25rem", lineHeight: 1.2, flexShrink: 0, marginTop: "0.1em" }}>
-										{f.emoji}
+									<span style={{ flexShrink: 0, marginTop: "0.15em", color: "var(--brand-cyan)" }}>
+										<SlideIcon name={f.icon ?? ""} fallback={f.emoji} size={20} strokeWidth={1.5} />
 									</span>
 									<div>
 										<h3

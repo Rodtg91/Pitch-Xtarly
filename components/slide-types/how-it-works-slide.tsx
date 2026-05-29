@@ -18,6 +18,8 @@ const DEFAULT_STEPS: Step[] = [
 	{ number: 3, icon: "⭐", title: "Puntos sumados al instante", description: "Push al cliente. Su Wallet se actualiza automáticamente." },
 ];
 
+import { SlideIcon } from "../slide-icons";
+
 export function HowItWorksSlide({ content }: { content: HowItWorksContent }) {
 	const steps = content.steps?.length ? content.steps : DEFAULT_STEPS;
 
@@ -64,18 +66,30 @@ export function HowItWorksSlide({ content }: { content: HowItWorksContent }) {
 							position: "relative",
 						}}
 					>
-						{/* Large number */}
-						<div
-							className="slide-number-hero"
-							style={{
-								fontSize: "clamp(3rem, 7vw, 6.5rem)",
-								color: "#7C5CFF",
-								opacity: 0.28,
-								lineHeight: 1,
-								marginBottom: "0.5rem",
-							}}
-						>
-							{step.number}
+						{/* Step icon + number */}
+						<div style={{ display: "flex", alignItems: "center", gap: "0.75rem", marginBottom: "0.5rem" }}>
+							<div
+								style={{
+									width: 36,
+									height: 36,
+									borderRadius: "10px",
+									background: "rgba(124,92,255,0.12)",
+									border: "1px solid rgba(124,92,255,0.2)",
+									display: "flex",
+									alignItems: "center",
+									justifyContent: "center",
+									color: "#7C5CFF",
+									flexShrink: 0,
+								}}
+							>
+								<SlideIcon name={step.icon} fallback={step.icon} size={18} strokeWidth={1.5} />
+							</div>
+							<span
+								className="slide-number-hero"
+								style={{ fontSize: "clamp(2rem, 4vw, 4rem)", color: "#7C5CFF", opacity: 0.28, lineHeight: 1 }}
+							>
+								{step.number}
+							</span>
 						</div>
 
 						{/* Step photo */}

@@ -1,3 +1,5 @@
+import { SlideIcon } from "../slide-icons";
+
 interface JourneyMoment {
 	number: number;
 	icon: string;
@@ -107,7 +109,7 @@ export function JourneySlide({ content }: { content: JourneyContent }) {
 									flexShrink: 0,
 								}}
 							>
-								{m.icon}
+								<SlideIcon name={m.icon} fallback={m.icon} size={18} strokeWidth={1.5} style={{ color: isHighlight ? "#fff" : "var(--slide-text-muted)" }} />
 							</div>
 
 							<span
