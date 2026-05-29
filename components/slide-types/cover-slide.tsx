@@ -1,3 +1,6 @@
+"use client";
+import { useEffect, useState } from "react";
+
 interface CoverContent {
 	headline: string;
 	subheadline: string;
@@ -6,6 +9,14 @@ interface CoverContent {
 }
 
 export function CoverSlide({ content }: { content: CoverContent }) {
+	const [isLight, setIsLight] = useState(false);
+	useEffect(() => {
+		const check = () => setIsLight(document.documentElement.classList.contains("light"));
+		check();
+		const obs = new MutationObserver(check);
+		obs.observe(document.documentElement, { attributes: true, attributeFilter: ["class"] });
+		return () => obs.disconnect();
+	}, []);
 	return (
 		<div
 			className="slide-root"
@@ -19,7 +30,7 @@ export function CoverSlide({ content }: { content: CoverContent }) {
 		>
 			{/* eslint-disable-next-line @next/next/no-img-element */}
 			<img
-				src="/icons/logo-dark.webp"
+				src={isLight ? "/icons/logo-light.webp" : "/icons/logo-dark.webp"}
 				alt="Xtarly"
 				style={{
 					height: "clamp(26px, 3.5vw, 42px)",

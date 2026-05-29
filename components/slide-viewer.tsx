@@ -1,3 +1,6 @@
+"use client";
+
+import { useEffect, useState } from "react";
 import type React from "react";
 import { AnalyticsSlide } from "./slide-types/analytics-slide";
 import { CoverSlide } from "./slide-types/cover-slide";
@@ -28,10 +31,20 @@ type SlideContent = any;
 // El resto lo muestra en top-right a opacidad visible.
 function SlideLogo({ type }: { type: string }) {
 	const prominent = type === "cover" || type === "cta";
+	const [isLight, setIsLight] = useState(false);
+
+	useEffect(() => {
+		const check = () => setIsLight(document.documentElement.classList.contains("light"));
+		check();
+		const obs = new MutationObserver(check);
+		obs.observe(document.documentElement, { attributes: true, attributeFilter: ["class"] });
+		return () => obs.disconnect();
+	}, []);
+
 	return (
 		// eslint-disable-next-line @next/next/no-img-element
 		<img
-			src="/icons/logo-dark.webp"
+			src={isLight ? "/icons/logo-light.webp" : "/icons/logo-dark.webp"}
 			alt="Xtarly"
 			style={{
 				position: "absolute",

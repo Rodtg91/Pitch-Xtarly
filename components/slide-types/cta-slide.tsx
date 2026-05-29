@@ -1,3 +1,6 @@
+"use client";
+import { useEffect, useState } from "react";
+
 interface CtaContent {
 	title: string;
 	subtitle: string;
@@ -12,6 +15,14 @@ interface CtaContent {
 }
 
 export function CtaSlide({ content }: { content: CtaContent }) {
+	const [isLight, setIsLight] = useState(false);
+	useEffect(() => {
+		const check = () => setIsLight(document.documentElement.classList.contains("light"));
+		check();
+		const obs = new MutationObserver(check);
+		obs.observe(document.documentElement, { attributes: true, attributeFilter: ["class"] });
+		return () => obs.disconnect();
+	}, []);
 	return (
 		<div
 			className="slide-root"
@@ -34,7 +45,7 @@ export function CtaSlide({ content }: { content: CtaContent }) {
 			)}
 			{/* eslint-disable-next-line @next/next/no-img-element */}
 			<img
-				src="/icons/logo-dark.webp"
+				src={isLight ? "/icons/logo-light.webp" : "/icons/logo-dark.webp"}
 				alt="Xtarly"
 				style={{
 					position: "absolute",

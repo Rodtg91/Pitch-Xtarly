@@ -198,12 +198,18 @@ export default function PublicPitchPage({ params }: { params: Promise<{ slug: st
 						</div>
 					)}
 					<div
-						className="text-xs px-4 py-2 rounded-xl font-medium tracking-wide"
+						className="text-xs font-medium tracking-wide"
 						style={{
 							background: "rgba(15,15,20,0.7)",
 							backdropFilter: "blur(12px)",
 							border: "1px solid rgba(255,255,255,0.08)",
 							color: "rgba(248,249,250,0.55)",
+							padding: "0.45rem 1.1rem",
+							borderRadius: "999px",
+							whiteSpace: "nowrap",
+							maxWidth: "40vw",
+							overflow: "hidden",
+							textOverflow: "ellipsis",
 						}}
 					>
 						{pitchTitle}
