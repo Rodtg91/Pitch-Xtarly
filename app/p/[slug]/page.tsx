@@ -125,21 +125,28 @@ export default function PublicPitchPage({ params }: { params: Promise<{ slug: st
 
 	return (
 		<div className="fixed inset-0 flex flex-col" style={{ background: "#000" }}>
-			{/* Slide content — 16:9 centrado, ocupa todo el espacio disponible */}
+			{/* Slide content */}
 			{slide && (
-				<div className="flex-1 flex items-center justify-center min-h-0 overflow-hidden">
-					<div
-						className="w-full"
-						style={{
-							aspectRatio: "16/9",
-							maxHeight: "100%",
-							maxWidth: "calc(100vh * 16 / 9)",
-							position: "relative",
-						}}
-					>
+				<>
+					{/* Móvil: slide llena todo el ancho, altura libre — sin letterbox */}
+					<div className="flex-1 relative md:hidden overflow-hidden">
 						<SlideViewer slide={slide} />
 					</div>
-				</div>
+					{/* Desktop: mantiene ratio 16:9, letterbox */}
+					<div className="hidden md:flex flex-1 items-center justify-center min-h-0 overflow-hidden">
+						<div
+							className="w-full"
+							style={{
+								aspectRatio: "16/9",
+								maxHeight: "100%",
+								maxWidth: "calc(100vh * 16 / 9)",
+								position: "relative",
+							}}
+						>
+							<SlideViewer slide={slide} />
+						</div>
+					</div>
+				</>
 			)}
 
 			{/* Click-to-advance overlay — behind controls (z-10), above slide */}

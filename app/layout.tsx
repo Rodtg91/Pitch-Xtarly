@@ -43,7 +43,7 @@ export const viewport: Viewport = {
 export default function RootLayout({ children }: { children: React.ReactNode }) {
 	return (
 		<html lang="es" className={`${geistFont.variable} ${nunitoFont.variable}`}>
-			<body style={{ margin: 0, padding: 0, overflow: "hidden" }} suppressHydrationWarning>{children}</body>
+			<body style={{ margin: 0, padding: 0 }} suppressHydrationWarning>{children}</body>
 		</html>
 	);
 }

@@ -108,29 +108,35 @@ body {
 }
 
 /* ── Responsive: móvil ──────────────────────────────────────────────────── */
-@media (max-width: 600px) {
-  /* Splits de 2 columnas → apilados verticalmente */
+@media (max-width: 767px) {
+  /* Slides fills full flex area on mobile — no scroll dentro del slide */
+  .slide-root {
+    overflow-y: auto !important;
+  }
+
+  /* Splits de 2 columnas → columna única */
   .slide-split {
     grid-template-columns: 1fr !important;
-    overflow-y: auto !important;
-    height: auto !important;
-    min-height: 100% !important;
   }
-  /* Ocultar columna decorativa derecha (imágenes de fondo, mockups) en split */
+
+  /* Ocultar columna decorativa derecha (imagen, mockup) en split — solo muestra el contenido */
   .slide-split > *:last-child:not(:first-child) {
     display: none !important;
   }
-  /* Pasos: de 3 columnas a 1 */
-  .slide-steps .slide-root > div,
+
+  /* Pasos: de 3 columnas → 1 columna */
   .slide-steps > div:last-child {
     grid-template-columns: 1fr !important;
+    gap: 1.5rem !important;
   }
-  /* Cover: quitar padding derecho para imagen */
-  .slide-root[style*="42%"] {
+
+  /* Cover: quitar el padding de la columna derecha reservada para imagen */
+  .slide-root {
     padding-right: 11% !important;
   }
-  /* Regla del logo top-right: empujar para no solapar */
-  .slide-root img[style*="top"] {
+
+  /* Ocultar logo flotante para no solapar contenido */
+  .slide-root > img {
     display: none !important;
   }
 }
