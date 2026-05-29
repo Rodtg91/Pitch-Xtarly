@@ -107,6 +107,34 @@ body {
   position: relative;
 }
 
+/* ── Responsive: móvil ──────────────────────────────────────────────────── */
+@media (max-width: 600px) {
+  /* Splits de 2 columnas → apilados verticalmente */
+  .slide-split {
+    grid-template-columns: 1fr !important;
+    overflow-y: auto !important;
+    height: auto !important;
+    min-height: 100% !important;
+  }
+  /* Ocultar columna decorativa derecha (imágenes de fondo, mockups) en split */
+  .slide-split > *:last-child:not(:first-child) {
+    display: none !important;
+  }
+  /* Pasos: de 3 columnas a 1 */
+  .slide-steps .slide-root > div,
+  .slide-steps > div:last-child {
+    grid-template-columns: 1fr !important;
+  }
+  /* Cover: quitar padding derecho para imagen */
+  .slide-root[style*="42%"] {
+    padding-right: 11% !important;
+  }
+  /* Regla del logo top-right: empujar para no solapar */
+  .slide-root img[style*="top"] {
+    display: none !important;
+  }
+}
+
 /* Slide typography scale */
 .slide-display {
   font-family: var(--font-nunito), var(--font-geist), sans-serif;

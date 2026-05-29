@@ -10,7 +10,7 @@ export function FeaturesSlide({ content }: { content: FeaturesContent }) {
 
 	return (
 		<div
-			className="slide-root"
+			className="slide-root slide-split"
 			style={{
 				background: "var(--slide-bg)",
 				display: "grid",

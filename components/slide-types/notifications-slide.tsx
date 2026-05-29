@@ -33,7 +33,7 @@ export function NotificationsSlide({ content }: { content: NotificationsContent 
 
 	return (
 		<div
-			className="slide-root"
+			className="slide-root slide-split"
 			style={{
 				background: "#0D0B1A",
 				display: "grid",

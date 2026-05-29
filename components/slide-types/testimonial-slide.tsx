@@ -9,7 +9,7 @@ interface TestimonialContent {
 export function TestimonialSlide({ content }: { content: TestimonialContent }) {
 	return (
 		<div
-			className="slide-root"
+			className="slide-root slide-split"
 			style={{
 				background: "var(--brand-gradient-bg)",
 				display: "grid",

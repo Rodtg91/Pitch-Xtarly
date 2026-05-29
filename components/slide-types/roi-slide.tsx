@@ -27,7 +27,7 @@ export function RoiSlide({ content }: { content: RoiContent }) {
 
 	return (
 		<div
-			className="slide-root"
+			className="slide-root slide-split"
 			style={{
 				background: "var(--slide-bg)",
 				display: "grid",

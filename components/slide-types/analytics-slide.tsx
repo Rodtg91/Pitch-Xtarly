@@ -34,7 +34,7 @@ export function AnalyticsSlide({ content }: { content: AnalyticsContent }) {
 
 	return (
 		<div
-			className="slide-root"
+			className="slide-root slide-split"
 			style={{
 				background: "var(--slide-bg)",
 				display: "grid",

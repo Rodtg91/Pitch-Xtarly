@@ -13,7 +13,7 @@ export function WalletSlide({ content }: { content: WalletContent }) {
 
 	return (
 		<div
-			className="slide-root"
+			className="slide-root slide-split"
 			style={{
 				background: "#0D0B1A",
 				display: "grid",

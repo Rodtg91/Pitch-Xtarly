@@ -23,7 +23,7 @@ export function HowItWorksSlide({ content }: { content: HowItWorksContent }) {
 
 	return (
 		<div
-			className="slide-root"
+			className="slide-root slide-steps"
 			style={{
 				background: "var(--slide-bg)",
 				display: "flex",

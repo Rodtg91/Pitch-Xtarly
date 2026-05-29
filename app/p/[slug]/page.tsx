@@ -124,11 +124,21 @@ export default function PublicPitchPage({ params }: { params: Promise<{ slug: st
 	const slide = slides[current];
 
 	return (
-		<div className="fixed inset-0" style={{ background: "#000" }}>
-			{/* Slide content — pantalla completa */}
+		<div className="fixed inset-0 flex flex-col" style={{ background: "#000" }}>
+			{/* Slide content — 16:9 centrado, ocupa todo el espacio disponible */}
 			{slide && (
-				<div className="w-full h-full">
-					<SlideViewer slide={slide} />
+				<div className="flex-1 flex items-center justify-center min-h-0 overflow-hidden">
+					<div
+						className="w-full"
+						style={{
+							aspectRatio: "16/9",
+							maxHeight: "100%",
+							maxWidth: "calc(100vh * 16 / 9)",
+							position: "relative",
+						}}
+					>
+						<SlideViewer slide={slide} />
+					</div>
 				</div>
 			)}
 
@@ -207,8 +217,8 @@ export default function PublicPitchPage({ params }: { params: Promise<{ slug: st
 				</div>
 			</div>
 
-			{/* ── Navigation dots ───────────────────────────────────────────────── */}
-			<div className="absolute bottom-7 left-1/2 -translate-x-1/2 flex items-center gap-2 z-50">
+			{/* ── Dots desktop (sobre el slide) ────────────────────────────────── */}
+			<div className="absolute bottom-7 left-1/2 -translate-x-1/2 items-center gap-2 z-50 hidden md:flex">
 				{slides.map((_, i) => (
 					<button
 						key={i}
@@ -225,21 +235,13 @@ export default function PublicPitchPage({ params }: { params: Promise<{ slug: st
 				))}
 			</div>
 
-			{/* ── Left / Right arrows ───────────────────────────────────────────── */}
+			{/* ── Flechas desktop (sobre el slide) ─────────────────────────────── */}
 			<button
 				type="button"
 				onClick={goPrev}
 				disabled={current === 0}
 				className="absolute left-5 top-1/2 -translate-y-1/2 z-50 hidden md:flex items-center justify-center rounded-2xl transition-all hover:scale-105 active:scale-95 disabled:opacity-0 disabled:pointer-events-none"
-				style={{
-					width: 52,
-					height: 52,
-					background: "rgba(15,15,20,0.7)",
-					backdropFilter: "blur(12px)",
-					border: "1px solid rgba(255,255,255,0.1)",
-					color: "rgba(248,249,250,0.85)",
-					boxShadow: "0 4px 20px rgba(0,0,0,0.4)",
-				}}
+				style={{ width: 52, height: 52, background: "rgba(15,15,20,0.7)", backdropFilter: "blur(12px)", border: "1px solid rgba(255,255,255,0.1)", color: "rgba(248,249,250,0.85)", boxShadow: "0 4px 20px rgba(0,0,0,0.4)" }}
 				aria-label="Anterior"
 			>
 				<ChevronLeft size={26} strokeWidth={1.75} />
@@ -249,19 +251,54 @@ export default function PublicPitchPage({ params }: { params: Promise<{ slug: st
 				onClick={goNext}
 				disabled={current === slides.length - 1}
 				className="absolute right-5 top-1/2 -translate-y-1/2 z-50 hidden md:flex items-center justify-center rounded-2xl transition-all hover:scale-105 active:scale-95 disabled:opacity-0 disabled:pointer-events-none"
-				style={{
-					width: 52,
-					height: 52,
-					background: "rgba(15,15,20,0.7)",
-					backdropFilter: "blur(12px)",
-					border: "1px solid rgba(255,255,255,0.1)",
-					color: "rgba(248,249,250,0.85)",
-					boxShadow: "0 4px 20px rgba(0,0,0,0.4)",
-				}}
+				style={{ width: 52, height: 52, background: "rgba(15,15,20,0.7)", backdropFilter: "blur(12px)", border: "1px solid rgba(255,255,255,0.1)", color: "rgba(248,249,250,0.85)", boxShadow: "0 4px 20px rgba(0,0,0,0.4)" }}
 				aria-label="Siguiente"
 			>
 				<ChevronRight size={26} strokeWidth={1.75} />
 			</button>
+
+			{/* ── Barra inferior móvil (fuera del slide) ───────────────────────── */}
+			<div
+				className="flex md:hidden items-center justify-between px-4 py-3 flex-shrink-0"
+				style={{ background: "rgba(10,10,15,0.95)", borderTop: "1px solid rgba(255,255,255,0.07)" }}
+			>
+				<button
+					type="button"
+					onClick={goPrev}
+					disabled={current === 0}
+					className="flex items-center justify-center rounded-xl transition-all active:scale-95 disabled:opacity-25"
+					style={{ width: 44, height: 44, background: "rgba(255,255,255,0.07)", color: "#f8f9fa" }}
+				>
+					<ChevronLeft size={22} />
+				</button>
+
+				<div className="flex items-center gap-1.5 flex-wrap justify-center" style={{ maxWidth: "60%" }}>
+					{slides.map((_, i) => (
+						<button
+							key={i}
+							type="button"
+							onClick={() => setCurrent(i)}
+							className="rounded-full transition-all"
+							style={{
+								width: i === current ? 20 : 6,
+								height: 6,
+								background: i === current ? "var(--brand-cyan)" : "rgba(255,255,255,0.2)",
+								boxShadow: i === current ? "0 0 8px rgba(98,229,255,0.5)" : "none",
+							}}
+						/>
+					))}
+				</div>
+
+				<button
+					type="button"
+					onClick={goNext}
+					disabled={current === slides.length - 1}
+					className="flex items-center justify-center rounded-xl transition-all active:scale-95 disabled:opacity-25"
+					style={{ width: 44, height: 44, background: "rgba(255,255,255,0.07)", color: "#f8f9fa" }}
+				>
+					<ChevronRight size={22} />
+				</button>
+			</div>
 		</div>
 	);
 }
