@@ -99,8 +99,8 @@ export function JourneySlide({ content }: { content: JourneyContent }) {
 									width: "2.5rem",
 									height: "2.5rem",
 									borderRadius: "50%",
-									background: isHighlight ? "#7C5CFF" : "var(--slide-surface)",
-									border: isHighlight ? "none" : "1px solid var(--slide-border)",
+									background: "#7C5CFF",
+									border: "none",
 									display: "flex",
 									alignItems: "center",
 									justifyContent: "center",
@@ -109,7 +109,7 @@ export function JourneySlide({ content }: { content: JourneyContent }) {
 									flexShrink: 0,
 								}}
 							>
-								<SlideIcon name={m.icon} fallback={m.icon} size={18} strokeWidth={1.5} style={{ color: isHighlight ? "#fff" : "var(--slide-text-muted)" }} />
+								<SlideIcon name={m.icon} fallback={m.icon} size={18} strokeWidth={1.5} style={{ color: "#fff" }} />
 							</div>
 
 							<span
