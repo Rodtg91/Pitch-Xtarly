@@ -4,6 +4,7 @@ interface WalletContent {
 	benefits: string[];
 	stat?: string;
 	notificationText?: string;
+	label?: string;
 }
 
 // Slide de wallet — fondo oscuro para mostrar el card correctamente.
@@ -31,7 +32,7 @@ export function WalletSlide({ content }: { content: WalletContent }) {
 				}}
 			>
 				<span className="slide-label" style={{ color: "#62E5FF", marginBottom: "1.25rem" }}>
-					Apple Wallet · Google Wallet
+					{content.label ?? "Apple Wallet · Google Wallet"}
 				</span>
 				<div className="slide-rule" style={{ marginBottom: "1.25rem" }} />
 
