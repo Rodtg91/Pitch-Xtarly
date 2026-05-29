@@ -37,6 +37,20 @@ const PLANS = [
 
 const PROGRAMS_FEATURE = { emoji: "🎯", title: "3 programas a tu medida", description: "Sellos por visita, Puntos por monto de compra o Niveles VIP Bronze→Gold. Tú decides cuál encaja con tu negocio." };
 
+const SLIDE_PROGRAMAS = { type: "features", order: 4, content: { title: "Un programa para cada negocio", features: [
+	{ emoji: "🎟️", title: "Sellos por visita", description: "10 visitas = 1 recompensa gratis. Simple, visual y adictivo. Perfecto para cafeterías, autolavados y negocios de visita frecuente." },
+	{ emoji: "💰", title: "Puntos por monto", description: "Cada peso gastado genera puntos canjeables. Tus clientes los acumulan y eligen su premio. Ideal para restaurantes, boutiques y farmacias." },
+	{ emoji: "👑", title: "Niveles VIP", description: "Bronze → Silver → Gold. Cada nivel desbloquea beneficios exclusivos. Perfecto para spas, gyms y salones donde el estatus importa." },
+	{ emoji: "🎫", title: "Cupones para todos los planes", description: "Además de las recompensas del programa, puedes emitir cupones de descuento adicionales para campañas, temporadas o clientes especiales." },
+] } };
+
+const SLIDE_APPS = { type: "features", order: 5, content: { title: "Elige la experiencia de tu marca", features: [
+	{ emoji: "💳", title: "Solo Wallet — $19 USD/mes", description: "Tarjetas digitales en Apple y Google Wallet. Sin app móvil. El punto de entrada más accesible para empezar hoy." },
+	{ emoji: "📱", title: "App Shared — $29 USD/mes", description: "Tus clientes usan la app Xtarly Rewards. Más visibilidad, más publicidad, todos sus puntos en un solo lugar." },
+	{ emoji: "⭐", title: "App Branded — $99 USD/mes", description: "Tu propia app con tu nombre y logo en App Store y Google Play. Máxima exclusividad y profesionalismo de marca." },
+	{ emoji: "🏆", title: "App Premium — $299 USD/mes", description: "App completamente personalizada a tu diseño, con REST API, webhooks y soporte prioritario." },
+] } };
+
 const CTA_CONTACT = {
 	whatsapp: "+52 55 0000 0000",
 	email: "hola@xtarly.com",
