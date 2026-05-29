@@ -272,6 +272,32 @@ Genera exactamente 14 slides en este orden y con esta estructura JSON:
 }`;
 }
 
+const NICHE_SOLUTION_IMAGES: Record<string, string> = {
+	"Cafeterías": "/images/presentation/SolutionCafeteria.webp",
+	"Restaurantes": "/images/presentation/SolutionRestaurantes.webp",
+	"Pastelerías": "/images/presentation/SolutionPastelerias.webp",
+	"Autolavados": "/images/presentation/SolutionAutolavados.webp",
+	"Spas y Bienestar": "/images/presentation/SolutionSpa.webp",
+	"Gyms y Fitness": "/images/presentation/SolutionGym.webp",
+	"Salones de Belleza": "/images/presentation/SolutionSalonBelleza.webp",
+	"Tiendas de Ropa": "/images/presentation/SolutionBoutique.webp",
+	"Farmacias y Salud": "/images/presentation/SolutionFarmacia.webp",
+	"Clínicas Veterinarias": "/images/presentation/SolutionVeterinaria.webp",
+};
+
+const NICHE_PROBLEM_IMAGES: Record<string, string> = {
+	"Cafeterías": "/images/presentation/ProblemCafeteria.webp",
+	"Restaurantes": "/images/presentation/ProblemRestaurantes.webp",
+	"Pastelerías": "/images/presentation/ProblemPastelerias.webp",
+	"Autolavados": "/images/presentation/ProblemAutolavados.webp",
+	"Spas y Bienestar": "/images/presentation/ProblemSpa.webp",
+	"Gyms y Fitness": "/images/presentation/ProblemGym.webp",
+	"Salones de Belleza": "/images/presentation/ProblemSalonBelleza.webp",
+	"Tiendas de Ropa": "/images/presentation/ProblemBoutique.webp",
+	"Farmacias y Salud": "/images/presentation/ProblemFarmacia.webp",
+	"Clínicas Veterinarias": "/images/presentation/ProblemVeterinaria.webp",
+};
+
 export async function generatePitchSlides(
 	nicheName: string,
 	customInstructions?: string,
@@ -293,5 +319,13 @@ export async function generatePitchSlides(
 		throw new Error("La IA no devolvió slides válidos");
 	}
 
-	return parsed.slides;
+	return parsed.slides.map((slide) => {
+		if (slide.type === "solution" && NICHE_SOLUTION_IMAGES[nicheName]) {
+			return { ...slide, content: { ...slide.content, imageUrl: NICHE_SOLUTION_IMAGES[nicheName] } };
+		}
+		if (slide.type === "problem" && NICHE_PROBLEM_IMAGES[nicheName]) {
+			return { ...slide, content: { ...slide.content, imageUrl: NICHE_PROBLEM_IMAGES[nicheName] } };
+		}
+		return slide;
+	});
 }

@@ -150,7 +150,7 @@ export default function PublicPitchPage({ params }: { params: Promise<{ slug: st
 			)}
 
 			{/* Click-to-advance overlay — oculto en CTA para que sus botones sean clickeables */}
-			{currentSlide?.type !== "cta" && (
+			{slide?.type !== "cta" && (
 				<button
 					type="button"
 					className="absolute inset-0 z-10 w-full h-full cursor-pointer"
