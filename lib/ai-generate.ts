@@ -200,7 +200,7 @@ Genera exactamente 14 slides en este orden y con esta estructura JSON:
       "content": {
         "title": "Todo lo que incluye Xtarly Rewards",
         "features": [
-          { "emoji": "📱", "title": "App para tus clientes", "description": "Descripción adaptada al nicho" },
+          { "emoji": "🎯", "title": "3 programas a tu medida", "description": "Sellos por visita, Puntos por monto de compra o Niveles VIP Bronze→Gold. Tú decides cuál encaja con tu negocio." },
           { "emoji": "💳", "title": "Apple & Google Wallet", "description": "Tarjeta digital que vive en el teléfono del cliente" },
           { "emoji": "📊", "title": "Dashboard analytics", "description": "Segmentos RFM, frecuencia, ticket, retención en tiempo real" },
           { "emoji": "🔔", "title": "Push notifications", "description": "Winback, cumpleaños, campañas — automáticos y segmentados" }
