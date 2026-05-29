@@ -7,7 +7,7 @@ interface ProblemContent {
 export function ProblemSlide({ content }: { content: ProblemContent }) {
 	return (
 		<div
-			className="slide-root slide-split"
+			className="slide-root slide-split slide-problem"
 			style={{
 				background: "var(--slide-bg)",
 				display: "grid",

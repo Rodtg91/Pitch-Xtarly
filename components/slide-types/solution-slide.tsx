@@ -40,10 +40,12 @@ export function SolutionSlide({ content }: { content: SolutionContent }) {
 					{content.description}
 				</p>
 
-				{/* Beneficios — solo cuando no hay imagen (si hay imagen, imagen toma la col derecha) */}
-				{!content.imageUrl && (
-					<div style={{ display: "flex", flexDirection: "column", gap: "0", marginTop: "1.5rem" }}>
-						{content.benefitPoints.map((point, i) => (
+				{/* Beneficios — ocultos en desktop cuando hay imagen, siempre visibles en móvil */}
+				<div
+					className="slide-solution-benefits"
+					style={{ display: content.imageUrl ? "none" : "flex", flexDirection: "column", gap: "0", marginTop: "1.5rem" }}
+				>
+					{content.benefitPoints.map((point, i) => (
 							<div
 								key={i}
 								style={{
@@ -66,8 +68,7 @@ export function SolutionSlide({ content }: { content: SolutionContent }) {
 								</p>
 							</div>
 						))}
-					</div>
-				)}
+				</div>
 			</div>
 
 			{/* Right: imagen o beneficios numerados */}

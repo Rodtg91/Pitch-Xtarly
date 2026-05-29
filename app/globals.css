@@ -139,6 +139,54 @@ body {
   .slide-root > img {
     display: none !important;
   }
+
+  /* ── Problem slide: el último hijo son los PUNTOS (contenido principal) ─── */
+  /* Usar flex-col para que las filas no se estiren con align-content:stretch */
+  .slide-problem {
+    display: flex !important;
+    flex-direction: column !important;
+  }
+  /* Imagen del problema: ocupa ~40% de la pantalla */
+  .slide-problem > img:first-child {
+    flex-shrink: 0 !important;
+    height: 38vh !important;
+    width: 100% !important;
+    object-fit: cover !important;
+    object-position: center 20% !important;
+    display: block !important;
+    border-right: none !important;
+    border-bottom: 1px solid var(--slide-border) !important;
+  }
+  /* Columna de número+título (sin imagen): compacta arriba */
+  .slide-problem > div:first-child {
+    flex-shrink: 0 !important;
+    padding: 5% 7% 4% 7% !important;
+    border-right: none !important;
+    border-bottom: 1px solid var(--slide-border) !important;
+    justify-content: flex-start !important;
+  }
+  /* Override: mostrar los puntos centrados en el espacio restante */
+  .slide-problem > *:last-child:not(:first-child) {
+    display: flex !important;
+    flex: 1 !important;
+    flex-direction: column !important;
+    justify-content: center !important;
+    padding: 6% 7% 6% 7% !important;
+    overflow-y: auto !important;
+  }
+  /* Espaciado entre puntos en móvil */
+  .slide-problem > div:last-child > div {
+    padding-bottom: 1rem !important;
+    margin-bottom: 1rem !important;
+  }
+
+  /* ── Solution slide: mostrar beneficios en móvil aunque haya imagen ──────── */
+  .slide-solution-benefits {
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 0 !important;
+    margin-top: 1.25rem !important;
+  }
 }
 
 /* Slide typography scale */
