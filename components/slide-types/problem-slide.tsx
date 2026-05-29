@@ -1,6 +1,7 @@
 interface ProblemContent {
 	title: string;
 	points: { emoji: string; text: string }[];
+	imageUrl?: string;
 }
 
 export function ProblemSlide({ content }: { content: ProblemContent }) {
@@ -14,7 +15,11 @@ export function ProblemSlide({ content }: { content: ProblemContent }) {
 				gap: "0",
 			}}
 		>
-			{/* Left col: número grande + título */}
+			{/* Left col: imagen (si hay) o número grande + título */}
+			{content.imageUrl ? (
+				// eslint-disable-next-line @next/next/no-img-element
+				<img src={content.imageUrl} alt="" style={{ width: "100%", height: "100%", objectFit: "cover", objectPosition: "center top", display: "block", borderRight: "1px solid var(--slide-border)" }} />
+			) : (
 			<div
 				style={{
 					display: "flex",
@@ -48,6 +53,7 @@ export function ProblemSlide({ content }: { content: ProblemContent }) {
 					{content.title}
 				</h2>
 			</div>
+			)}
 
 			{/* Right col: los puntos como lista editorial */}
 			<div

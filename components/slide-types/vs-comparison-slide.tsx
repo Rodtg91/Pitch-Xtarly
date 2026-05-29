@@ -9,6 +9,7 @@ interface VsComparisonContent {
 	subheadline?: string;
 	variant?: "paper" | "competition";
 	rows?: ComparisonRow[];
+	imageUrl?: string;
 }
 
 const PAPER_ROWS: ComparisonRow[] = [
@@ -73,7 +74,7 @@ export function VsComparisonSlide({ content }: { content: VsComparisonContent })
 				gap: "0",
 			}}
 		>
-			{/* Left: headline */}
+			{/* Left: headline + imagen de fondo opcional */}
 			<div
 				style={{
 					display: "flex",
@@ -81,8 +82,17 @@ export function VsComparisonSlide({ content }: { content: VsComparisonContent })
 					justifyContent: "center",
 					padding: "10% 5% 10% 11%",
 					borderRight: "1px solid var(--slide-border)",
+					position: "relative",
+					overflow: "hidden",
 				}}
 			>
+				{content.imageUrl && (
+					<>
+						{/* eslint-disable-next-line @next/next/no-img-element */}
+						<img src={content.imageUrl} alt="" style={{ position: "absolute", inset: 0, width: "100%", height: "100%", objectFit: "cover", opacity: 0.22 }} />
+						<div style={{ position: "absolute", inset: 0, background: "linear-gradient(to right, var(--slide-bg) 40%, transparent)" }} />
+					</>
+				)}
 				<div className="slide-rule" style={{ marginBottom: "1.5rem" }} />
 				<h2
 					className="slide-display"

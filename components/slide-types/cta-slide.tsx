@@ -3,6 +3,7 @@ interface CtaContent {
 	subtitle: string;
 	ctaText: string;
 	ctaUrl?: string;
+	imageUrl?: string;
 	contact?: {
 		whatsapp?: string;
 		email?: string;
@@ -20,8 +21,17 @@ export function CtaSlide({ content }: { content: CtaContent }) {
 				flexDirection: "column",
 				justifyContent: "center",
 				padding: "10% 12% 10% 11%",
+				position: "relative",
+				overflow: "hidden",
 			}}
 		>
+			{content.imageUrl && (
+				<>
+					{/* eslint-disable-next-line @next/next/no-img-element */}
+					<img src={content.imageUrl} alt="" style={{ position: "absolute", inset: 0, width: "100%", height: "100%", objectFit: "cover", opacity: 0.18 }} />
+					<div style={{ position: "absolute", inset: 0, background: "linear-gradient(to right, rgba(13,11,26,0.95) 55%, rgba(13,11,26,0.5))" }} />
+				</>
+			)}
 			{/* eslint-disable-next-line @next/next/no-img-element */}
 			<img
 				src="/icons/logo-dark.webp"
