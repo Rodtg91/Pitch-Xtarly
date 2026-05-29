@@ -149,14 +149,16 @@ export default function PublicPitchPage({ params }: { params: Promise<{ slug: st
 				</>
 			)}
 
-			{/* Click-to-advance overlay — behind controls (z-10), above slide */}
-			<button
-				type="button"
-				className="absolute inset-0 z-10 w-full h-full cursor-pointer"
-				onClick={goNext}
-				aria-label="Siguiente slide"
-				style={{ background: "transparent" }}
-			/>
+			{/* Click-to-advance overlay — oculto en CTA para que sus botones sean clickeables */}
+			{currentSlide?.type !== "cta" && (
+				<button
+					type="button"
+					className="absolute inset-0 z-10 w-full h-full cursor-pointer"
+					onClick={goNext}
+					aria-label="Siguiente slide"
+					style={{ background: "transparent" }}
+				/>
+			)}
 
 			{/* ── Top bar ─────────────────────────────────────────────────────── */}
 			<div className="absolute top-5 inset-x-5 flex items-center justify-between z-50 pointer-events-none">
