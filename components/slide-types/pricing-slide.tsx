@@ -191,9 +191,6 @@ export function PricingSlide({ content }: { content: PricingContent }) {
 		price: p.price?.startsWith("$") ? p.price.replace("$", "") + " US$" : (p.price ?? ""),
 	}));
 
-	const regular = plans.filter((p) => !p.lifetime);
-	const lifetime = plans.find((p) => p.lifetime);
-
 	return (
 		<div
 			className="slide-root slide-pricing"
@@ -216,56 +213,20 @@ export function PricingSlide({ content }: { content: PricingContent }) {
 				</h2>
 			</div>
 
-			{/* Main plans grid */}
+			{/* Todos los planes en el mismo grid */}
 			<div
 				className="slide-pricing-grid"
 				style={{
 					display: "grid",
-					gridTemplateColumns: `repeat(${regular.length}, 1fr)`,
+					gridTemplateColumns: `repeat(${plans.length}, 1fr)`,
 					gap: "clamp(4px, 0.6vw, 10px)",
 				}}
 			>
-				{regular.map((plan) => (
-					<PlanCard key={plan.name} plan={plan} compact={regular.length >= 4} />
+				{plans.map((plan) => (
+					<PlanCard key={plan.name} plan={plan} compact={plans.length >= 4} />
 				))}
 			</div>
 
-			{/* Founder Lifetime — full-width row */}
-			{lifetime && (
-				<div style={{ marginTop: "clamp(4px, 0.6vw, 10px)" }}>
-					<div
-						style={{
-							borderRadius: "14px",
-							border: "1px solid var(--slide-border)",
-							background: "var(--slide-surface)",
-							padding: "0.85rem 1rem",
-							display: "grid",
-							gridTemplateColumns: "1fr auto",
-							alignItems: "center",
-							gap: "2rem",
-						}}
-					>
-						<div style={{ display: "flex", alignItems: "center", gap: "2rem" }}>
-							<h3 className="slide-heading" style={{ fontSize: "clamp(0.8rem, 1.3vw, 1rem)", color: "var(--slide-text)", margin: 0, whiteSpace: "nowrap" }}>
-								{lifetime.name}
-							</h3>
-							<ul style={{ listStyle: "none", padding: 0, margin: 0, display: "flex", flexWrap: "wrap", gap: "0.25rem 1.5rem" }}>
-								{lifetime.features.map((f, i) => (
-									<li key={i} style={{ display: "flex", alignItems: "center", gap: "0.4rem" }}>
-										<Dot />
-										<span className="slide-body" style={{ fontSize: "clamp(0.55rem, 0.9vw, 0.7rem)", color: "var(--slide-text-secondary)" }}>
-											{f}
-										</span>
-									</li>
-								))}
-							</ul>
-						</div>
-						<strong style={{ fontSize: "clamp(1rem, 1.8vw, 1.4rem)", color: "var(--slide-text)", fontWeight: 600, whiteSpace: "nowrap" }}>
-							{lifetime.price}
-						</strong>
-					</div>
-				</div>
-			)}
 		</div>
 	);
 }
