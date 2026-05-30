@@ -128,8 +128,8 @@ export default function PublicPitchPage({ params }: { params: Promise<{ slug: st
 			{/* Slide content */}
 			{slide && (
 				<>
-					{/* Móvil: slide llena todo el ancho, altura libre — sin letterbox */}
-					<div className="flex-1 relative md:hidden overflow-hidden">
+					{/* Móvil: slide llena todo el ancho, scroll libre — sin overflow-hidden para permitir scroll táctil */}
+					<div className="flex-1 relative md:hidden overflow-y-auto">
 						<SlideViewer slide={slide} />
 					</div>
 					{/* Desktop: mantiene ratio 16:9, letterbox */}
@@ -149,11 +149,11 @@ export default function PublicPitchPage({ params }: { params: Promise<{ slug: st
 				</>
 			)}
 
-			{/* Click-to-advance overlay — oculto en CTA para que sus botones sean clickeables */}
+			{/* Click-to-advance overlay — solo desktop (móvil usa flechas del bottom bar para no bloquear scroll) */}
 			{slide?.type !== "cta" && (
 				<button
 					type="button"
-					className="absolute inset-0 z-10 w-full h-full cursor-pointer"
+					className="absolute inset-0 z-10 w-full h-full cursor-pointer hidden md:block"
 					onClick={goNext}
 					aria-label="Siguiente slide"
 					style={{ background: "transparent" }}
