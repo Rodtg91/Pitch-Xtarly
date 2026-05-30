@@ -255,7 +255,7 @@ export default function PublicPitchPage({ params }: { params: Promise<{ slug: st
 				type="button"
 				onClick={goPrev}
 				disabled={current === 0}
-				className="absolute left-5 top-1/2 -translate-y-1/2 z-50 hidden md:flex items-center justify-center rounded-2xl transition-all hover:scale-105 active:scale-95 disabled:opacity-0 disabled:pointer-events-none"
+				className="absolute left-5 top-[75%] -translate-y-1/2 z-50 hidden md:flex items-center justify-center rounded-2xl transition-all hover:scale-105 active:scale-95 disabled:opacity-0 disabled:pointer-events-none"
 				style={{ width: 52, height: 52, background: "rgba(15,15,20,0.7)", backdropFilter: "blur(12px)", border: "1px solid rgba(255,255,255,0.1)", color: "rgba(248,249,250,0.85)", boxShadow: "0 4px 20px rgba(0,0,0,0.4)" }}
 				aria-label="Anterior"
 			>
@@ -265,7 +265,7 @@ export default function PublicPitchPage({ params }: { params: Promise<{ slug: st
 				type="button"
 				onClick={goNext}
 				disabled={current === slides.length - 1}
-				className="absolute right-5 top-1/2 -translate-y-1/2 z-50 hidden md:flex items-center justify-center rounded-2xl transition-all hover:scale-105 active:scale-95 disabled:opacity-0 disabled:pointer-events-none"
+				className="absolute right-5 top-[75%] -translate-y-1/2 z-50 hidden md:flex items-center justify-center rounded-2xl transition-all hover:scale-105 active:scale-95 disabled:opacity-0 disabled:pointer-events-none"
 				style={{ width: 52, height: 52, background: "rgba(15,15,20,0.7)", backdropFilter: "blur(12px)", border: "1px solid rgba(255,255,255,0.1)", color: "rgba(248,249,250,0.85)", boxShadow: "0 4px 20px rgba(0,0,0,0.4)" }}
 				aria-label="Siguiente"
 			>
