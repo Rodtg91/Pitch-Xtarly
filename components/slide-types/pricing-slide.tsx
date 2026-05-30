@@ -14,7 +14,7 @@ interface PricingContent {
 export function PricingSlide({ content }: { content: PricingContent }) {
 	return (
 		<div
-			className="slide-root"
+			className="slide-root slide-pricing"
 			style={{
 				background: "var(--slide-bg)",
 				display: "flex",
@@ -23,7 +23,7 @@ export function PricingSlide({ content }: { content: PricingContent }) {
 				padding: "10% 11%",
 			}}
 		>
-			<div style={{ marginBottom: "4%" }}>
+			<div className="slide-pricing-header" style={{ marginBottom: "4%" }}>
 				<div className="slide-rule" style={{ marginBottom: "1.25rem" }} />
 				<h2
 					className="slide-display"
@@ -33,7 +33,7 @@ export function PricingSlide({ content }: { content: PricingContent }) {
 				</h2>
 			</div>
 
-			<div style={{ display: "grid", gridTemplateColumns: `repeat(${content.plans.length}, 1fr)`, gap: "1px", background: "var(--slide-border)", border: "1px solid var(--slide-border)", borderRadius: "14px", overflow: "hidden" }}>
+			<div className="slide-pricing-grid" style={{ display: "grid", gridTemplateColumns: `repeat(${content.plans.length}, 1fr)`, gap: "1px", background: "var(--slide-border)", border: "1px solid var(--slide-border)", borderRadius: "14px", overflow: "hidden" }}>
 				{content.plans.map((plan, i) => (
 					<div
 						key={i}

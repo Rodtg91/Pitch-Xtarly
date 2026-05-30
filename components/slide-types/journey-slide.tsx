@@ -26,7 +26,7 @@ export function JourneySlide({ content }: { content: JourneyContent }) {
 
 	return (
 		<div
-			className="slide-root"
+			className="slide-root slide-journey"
 			style={{
 				background: "var(--slide-bg)",
 				display: "flex",
@@ -36,7 +36,7 @@ export function JourneySlide({ content }: { content: JourneyContent }) {
 			}}
 		>
 			{/* Header */}
-			<div style={{ marginBottom: "4%" }}>
+			<div className="slide-journey-header" style={{ marginBottom: "4%" }}>
 				<div className="slide-rule" style={{ marginBottom: "1.25rem" }} />
 				<h2
 					className="slide-display"
@@ -56,6 +56,7 @@ export function JourneySlide({ content }: { content: JourneyContent }) {
 
 			{/* Timeline grid */}
 			<div
+				className="slide-journey-grid"
 				style={{
 					display: "grid",
 					gridTemplateColumns: `repeat(${moments.length}, 1fr)`,
@@ -64,6 +65,7 @@ export function JourneySlide({ content }: { content: JourneyContent }) {
 			>
 				{/* Connecting line */}
 				<div
+					className="slide-journey-line"
 					style={{
 						position: "absolute",
 						top: "1.25rem",
@@ -83,6 +85,7 @@ export function JourneySlide({ content }: { content: JourneyContent }) {
 					return (
 						<div
 							key={i}
+							className="slide-journey-moment"
 							style={{
 								display: "flex",
 								flexDirection: "column",
@@ -95,6 +98,7 @@ export function JourneySlide({ content }: { content: JourneyContent }) {
 						>
 							{/* Step indicator */}
 							<div
+								className="slide-journey-icon"
 								style={{
 									width: "2.5rem",
 									height: "2.5rem",

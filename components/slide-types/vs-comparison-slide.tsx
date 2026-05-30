@@ -66,7 +66,7 @@ export function VsComparisonSlide({ content }: { content: VsComparisonContent })
 
 	return (
 		<div
-			className="slide-root slide-split"
+			className="slide-root slide-split slide-vscomp"
 			style={{
 				background: "var(--slide-bg)",
 				display: "grid",

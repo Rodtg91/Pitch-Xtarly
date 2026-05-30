@@ -3,6 +3,8 @@ import Link from "next/link";
 import { ThemeLogo } from "@/components/theme-logo";
 import { ThemeToggle } from "@/components/theme-toggle";
 
+export const dynamic = "force-dynamic";
+
 export default function LandingPage() {
 	return (
 		<div

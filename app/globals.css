@@ -114,13 +114,14 @@ body {
     overflow-y: auto !important;
   }
 
-  /* Splits de 2 columnas → columna única */
+  /* Todos los splits → flex columna única apilada */
   .slide-split {
-    grid-template-columns: 1fr !important;
+    display: flex !important;
+    flex-direction: column !important;
   }
 
-  /* Ocultar columna decorativa derecha (imagen, mockup) en split — solo muestra el contenido */
-  .slide-split > *:last-child:not(:first-child) {
+  /* Ocultar solo columnas marcadas explícitamente como decorativas */
+  .slide-mobile-hide {
     display: none !important;
   }
 
@@ -130,7 +131,7 @@ body {
     gap: 1.5rem !important;
   }
 
-  /* Cover: quitar el padding de la columna derecha reservada para imagen */
+  /* Cover: quitar el padding derecho reservado para la foto */
   .slide-root {
     padding-right: 11% !important;
   }
@@ -138,6 +139,86 @@ body {
   /* Ocultar logo flotante para no solapar contenido */
   .slide-root > img {
     display: none !important;
+  }
+
+  /* ── Testimonial: foto arriba (~36vh), quote abajo ────────── */
+  .slide-testimonial > .slide-testimonial-bar {
+    display: none !important;
+  }
+  .slide-testimonial > div:last-child {
+    order: -1 !important;
+    flex-shrink: 0 !important;
+    height: 36vh !important;
+    min-height: 0 !important;
+    overflow: hidden !important;
+    border-bottom: 1px solid rgba(255,255,255,0.08) !important;
+  }
+  .slide-testimonial > div:last-child img {
+    width: 100% !important;
+    height: 100% !important;
+    object-fit: cover !important;
+    object-position: center top !important;
+  }
+  .slide-testimonial > div:nth-child(2) {
+    padding: 5% 7% 7% 7% !important;
+    justify-content: flex-start !important;
+  }
+  .slide-testimonial blockquote {
+    font-size: clamp(0.85rem, 3.8vw, 1.15rem) !important;
+  }
+
+  /* ── Journey: 5 momentos en vertical ─────────────────────── */
+  .slide-journey {
+    padding: 6% 7% 5% 7% !important;
+    overflow-y: auto !important;
+  }
+  .slide-journey-header {
+    margin-bottom: 4% !important;
+  }
+  .slide-journey-grid {
+    grid-template-columns: 1fr !important;
+    gap: 0 !important;
+  }
+  .slide-journey-line {
+    display: none !important;
+  }
+  .slide-journey-moment {
+    flex-direction: row !important;
+    text-align: left !important;
+    align-items: flex-start !important;
+    gap: 0.9rem !important;
+    padding: 0 !important;
+    padding-bottom: 0.9rem !important;
+    margin-bottom: 0.9rem !important;
+    border-bottom: 1px solid var(--slide-border) !important;
+  }
+  .slide-journey-moment:last-child {
+    border-bottom: none !important;
+    margin-bottom: 0 !important;
+  }
+  .slide-journey-icon {
+    flex-shrink: 0 !important;
+    width: 2rem !important;
+    height: 2rem !important;
+    margin-bottom: 0 !important;
+  }
+  .slide-journey-moment > div:last-child {
+    text-align: left !important;
+  }
+
+  /* ── Pricing: cards en vertical con scroll ─────────────────── */
+  .slide-pricing {
+    padding: 72px 6% 5% !important;
+    overflow-y: auto !important;
+    justify-content: flex-start !important;
+  }
+  .slide-pricing-header {
+    margin-bottom: 3% !important;
+    flex-shrink: 0 !important;
+  }
+  .slide-pricing-grid {
+    grid-template-columns: 1fr !important;
+    border-radius: 10px !important;
   }
 
   /* ── Problem slide: el último hijo son los PUNTOS (contenido principal) ─── */
@@ -178,6 +259,32 @@ body {
   .slide-problem > div:last-child > div {
     padding-bottom: 1rem !important;
     margin-bottom: 1rem !important;
+  }
+
+  /* ── VS Comparison slide: el último hijo es la TABLA (contenido) ─────────── */
+  .slide-vscomp {
+    display: flex !important;
+    flex-direction: column !important;
+  }
+  .slide-vscomp > div:first-child {
+    flex-shrink: 0 !important;
+    padding: 5% 7% 4% 7% !important;
+    border-right: none !important;
+    border-bottom: 1px solid var(--slide-border) !important;
+    justify-content: flex-start !important;
+  }
+  .slide-vscomp > *:last-child:not(:first-child) {
+    display: flex !important;
+    flex: 1 !important;
+    flex-direction: column !important;
+    justify-content: flex-start !important;
+    padding: 4% 5% 5% 5% !important;
+    overflow-y: auto !important;
+  }
+  /* Reducir texto de la tabla para que quepa en pantalla angosta */
+  .slide-vscomp .slide-body,
+  .slide-vscomp .slide-label {
+    font-size: 0.7rem !important;
   }
 
   /* ── Solution slide: mostrar beneficios en móvil aunque haya imagen ──────── */

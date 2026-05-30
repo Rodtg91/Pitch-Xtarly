@@ -9,7 +9,7 @@ interface TestimonialContent {
 export function TestimonialSlide({ content }: { content: TestimonialContent }) {
 	return (
 		<div
-			className="slide-root slide-split"
+			className="slide-root slide-split slide-testimonial"
 			style={{
 				background: "var(--brand-gradient-bg)",
 				display: "grid",
@@ -19,6 +19,7 @@ export function TestimonialSlide({ content }: { content: TestimonialContent }) {
 		>
 			{/* Left accent bar */}
 			<div
+				className="slide-testimonial-bar"
 				style={{
 					width: "4px",
 					background: "#7C5CFF",

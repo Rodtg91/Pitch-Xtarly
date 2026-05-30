@@ -71,10 +71,11 @@ export function SolutionSlide({ content }: { content: SolutionContent }) {
 				</div>
 			</div>
 
-			{/* Right: imagen o beneficios numerados */}
+			{/* Right: imagen (oculta en móvil — los beneficios se muestran arriba) o lista */}
 			{content.imageUrl ? (
 				// eslint-disable-next-line @next/next/no-img-element
 				<img
+					className="slide-mobile-hide"
 					src={content.imageUrl}
 					alt=""
 					style={{ width: "100%", height: "100%", objectFit: "cover", objectPosition: "center top", display: "block" }}
