@@ -224,31 +224,68 @@ Genera exactamente 14 slides en este orden y con esta estructura JSON:
         "plans": [
           {
             "name": "Wallet",
-            "price": "$19",
+            "price": "19 US$",
             "period": "mes",
             "highlight": false,
-            "features": ["Tarjetas Apple & Google Wallet", "Hasta 300 transacciones/mes", "Notificaciones por geolocalización", "Analytics con KPIs y RFM"]
+            "trial": "14 días de prueba gratis",
+            "features": [
+              "Sin app móvil — tarjetas en Apple Wallet y Google Wallet",
+              "Notificaciones personalizadas y por geolocalización",
+              "Hasta 300 transacciones / mes incluidas",
+              "$0.05 USD por transacción adicional",
+              "Analíticas avanzadas con KPIs y RFM"
+            ]
           },
           {
             "name": "Shared",
-            "price": "$29",
+            "price": "29 US$",
             "period": "mes",
-            "highlight": false,
-            "features": ["Apple & Google Wallet incluidos", "App marketplace compartida", "Hasta 600 transacciones/mes", "Dashboard completo KPIs y RFM"]
+            "highlight": true,
+            "trial": "14 días de prueba gratis",
+            "features": [
+              "Tarjetas digitales en Apple Wallet y Google Wallet",
+              "App marketplace compartida (sin marca blanca)",
+              "Hasta 600 transacciones / mes incluidas",
+              "$0.05 USD por transacción adicional",
+              "Dashboard completo con KPIs y RFM"
+            ]
           },
           {
             "name": "Branded",
-            "price": "$99",
+            "price": "99 US$",
             "period": "mes",
-            "highlight": true,
-            "features": ["Apple & Google Wallet incluidos", "Tu propia app marca blanca", "Hasta 2,000 transacciones/mes", "Notificaciones WhatsApp Business"]
+            "highlight": false,
+            "features": [
+              "Tu propia app marca blanca (basada en plantilla)",
+              "Hasta 2,000 transacciones / mes incluidas",
+              "$0.05 USD por transacción adicional",
+              "Dashboard completo con KPIs y RFM",
+              "Notificaciones por WhatsApp Business"
+            ]
           },
           {
             "name": "Premium",
-            "price": "$299",
+            "price": "299 US$",
             "period": "mes",
             "highlight": false,
-            "features": ["App totalmente personalizada", "Hasta 6,000 transacciones/mes", "REST API y webhooks", "Onboarding prioritario"]
+            "features": [
+              "App móvil totalmente personalizada (diseño a medida)",
+              "Hasta 6,000 transacciones / mes incluidas",
+              "$0.05 USD por transacción adicional",
+              "Notificaciones por WhatsApp Business",
+              "REST API, webhooks y onboarding prioritario"
+            ]
+          },
+          {
+            "name": "Founder Lifetime",
+            "price": "799 US$",
+            "lifetime": true,
+            "highlight": false,
+            "features": [
+              "Sin cuota mensual recurrente, nunca",
+              "Todas las funciones del plan Branded",
+              "Limitado a los primeros founders — cohorte limitada"
+            ]
           }
         ]
       }
