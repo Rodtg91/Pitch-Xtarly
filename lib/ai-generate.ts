@@ -275,17 +275,6 @@ Genera exactamente 14 slides en este orden y con esta estructura JSON:
               "Notificaciones por WhatsApp Business",
               "REST API, webhooks y onboarding prioritario"
             ]
-          },
-          {
-            "name": "Founder Lifetime",
-            "price": "799 US$",
-            "lifetime": true,
-            "highlight": false,
-            "features": [
-              "Sin cuota mensual recurrente, nunca",
-              "Todas las funciones del plan Branded",
-              "Limitado a los primeros founders — cohorte limitada"
-            ]
           }
         ]
       }
@@ -335,6 +324,19 @@ const NICHE_PROBLEM_IMAGES: Record<string, string> = {
 	"Clínicas Veterinarias": "/images/presentation/ProblemVeterinaria.webp",
 };
 
+function withoutFounderLifetimePlans(content: SlideContent): SlideContent {
+	const plans = content.plans;
+	if (!Array.isArray(plans)) return content;
+
+	return {
+		...content,
+		plans: plans.filter((plan) => {
+			if (!plan || typeof plan !== "object" || !("name" in plan)) return true;
+			return String((plan as { name?: unknown }).name).trim().toLowerCase() !== "founder lifetime";
+		}),
+	};
+}
+
 export async function generatePitchSlides(
 	nicheName: string,
 	customInstructions?: string,
@@ -362,6 +364,9 @@ export async function generatePitchSlides(
 		}
 		if (slide.type === "problem" && NICHE_PROBLEM_IMAGES[nicheName]) {
 			return { ...slide, content: { ...slide.content, imageUrl: NICHE_PROBLEM_IMAGES[nicheName] } };
+		}
+		if (slide.type === "pricing") {
+			return { ...slide, content: withoutFounderLifetimePlans(slide.content) };
 		}
 		return slide;
 	});

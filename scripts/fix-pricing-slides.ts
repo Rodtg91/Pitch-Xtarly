@@ -43,14 +43,6 @@ const NEW_PLANS = [
 			"REST API, webhooks y onboarding prioritario",
 		],
 	},
-	{
-		name: "Founder Lifetime", price: "799 US$", lifetime: true, highlight: false,
-		features: [
-			"Sin cuota mensual recurrente, nunca",
-			"Todas las funciones del plan Branded",
-			"Limitado a los primeros founders — cohorte limitada",
-		],
-	},
 ];
 
 async function run() {

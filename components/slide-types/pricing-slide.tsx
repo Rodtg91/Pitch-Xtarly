@@ -67,17 +67,11 @@ const DEFAULT_PLANS: Plan[] = [
 			"REST API, webhooks y onboarding prioritario",
 		],
 	},
-	{
-		name: "Founder Lifetime",
-		price: "799 US$",
-		lifetime: true,
-		features: [
-			"Sin cuota mensual recurrente, nunca",
-			"Todas las funciones del plan Branded",
-			"Limitado a los primeros founders — cohorte limitada",
-		],
-	},
 ];
+
+function isFounderLifetime(plan: Plan) {
+	return plan.name?.trim().toLowerCase() === "founder lifetime";
+}
 
 function Dot({ highlight }: { highlight?: boolean }) {
 	return (
@@ -185,11 +179,13 @@ function PlanCard({ plan, compact }: { plan: Plan; compact?: boolean }) {
 }
 
 export function PricingSlide({ content }: { content: PricingContent }) {
-	const plans = (content.plans?.length ? content.plans : DEFAULT_PLANS).map((p) => ({
-		...p,
-		// normalize legacy format: "$19" → "19 US$"
-		price: p.price?.startsWith("$") ? p.price.replace("$", "") + " US$" : (p.price ?? ""),
-	}));
+	const plans = (content.plans?.length ? content.plans : DEFAULT_PLANS)
+		.filter((p) => !isFounderLifetime(p))
+		.map((p) => ({
+			...p,
+			// normalize legacy format: "$19" → "19 US$"
+			price: p.price?.startsWith("$") ? p.price.replace("$", "") + " US$" : (p.price ?? ""),
+		}));
 
 	return (
 		<div
