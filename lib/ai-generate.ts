@@ -261,7 +261,8 @@ Genera exactamente 14 slides en este orden y con esta estructura JSON:
               "Hasta 2,000 transacciones / mes incluidas",
               "$0.05 USD por transacción adicional",
               "Dashboard completo con KPIs y RFM",
-              "Notificaciones push ilimitadas",
+              "App Xtarly Rewards incluida (2 push/semana)",
+              "Notificaciones push ilimitadas a tu app dedicada",
               "Soporte prioritario"
             ]
           },
