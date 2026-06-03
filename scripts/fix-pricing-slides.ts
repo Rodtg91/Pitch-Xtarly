@@ -16,22 +16,23 @@ const NEW_PLANS = [
 		name: "Shared", price: "29 US$", period: "mes", highlight: true,
 		trial: "14 días de prueba gratis",
 		features: [
-			"Tarjetas digitales en Apple Wallet y Google Wallet",
+			"Tarjetas digitales en Apple Wallet y Google Wallet incluidas",
 			"Disponible en la app Xtarly Rewards en iOS y Android (sin marca blanca)",
 			"Hasta 600 transacciones / mes incluidas",
 			"$0.05 USD por transacción adicional",
-			"Dashboard completo con KPIs y RFM",
+			"Dashboard de operador completo con KPIs y RFM",
 			"2 notificaciones push por semana",
 		],
 	},
 	{
 		name: "Branded", price: "99 US$", period: "mes", highlight: false,
 		features: [
+			"Tarjetas digitales en Apple Wallet y Google Wallet incluidas",
 			"Tu propia app marca blanca (basada en plantilla)",
 			"Hasta 2,000 transacciones / mes incluidas",
 			"$0.05 USD por transacción adicional",
-			"Dashboard completo con KPIs y RFM",
-			"App Xtarly Rewards incluida (2 push/semana)",
+			"Dashboard de operador completo con KPIs y RFM",
+			"App Xtarly Rewards incluida (2 notificaciones push/semana)",
 			"Notificaciones push ilimitadas a tu app dedicada",
 			"Soporte prioritario",
 		],
@@ -39,11 +40,14 @@ const NEW_PLANS = [
 	{
 		name: "Premium", price: "299 US$", period: "mes", highlight: false,
 		features: [
+			"Tarjetas digitales en Apple Wallet y Google Wallet incluidas",
 			"App móvil totalmente personalizada (diseño a medida)",
 			"Hasta 6,000 transacciones / mes incluidas",
 			"$0.05 USD por transacción adicional",
+			"Dashboard de operador completo con KPIs y RFM",
 			"Notificaciones por WhatsApp Business",
-			"REST API, webhooks y onboarding prioritario",
+			"Acceso a REST API y webhooks",
+			"Soporte y onboarding prioritarios",
 		],
 	},
 ];
