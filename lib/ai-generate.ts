@@ -244,10 +244,11 @@ Genera exactamente 14 slides en este orden y con esta estructura JSON:
             "trial": "14 días de prueba gratis",
             "features": [
               "Tarjetas digitales en Apple Wallet y Google Wallet",
-              "App marketplace compartida (sin marca blanca)",
+              "Disponible en la app Xtarly Rewards en iOS y Android (sin marca blanca)",
               "Hasta 600 transacciones / mes incluidas",
               "$0.05 USD por transacción adicional",
-              "Dashboard completo con KPIs y RFM"
+              "Dashboard completo con KPIs y RFM",
+              "2 notificaciones push por semana"
             ]
           },
           {
@@ -260,7 +261,8 @@ Genera exactamente 14 slides en este orden y con esta estructura JSON:
               "Hasta 2,000 transacciones / mes incluidas",
               "$0.05 USD por transacción adicional",
               "Dashboard completo con KPIs y RFM",
-              "Notificaciones por WhatsApp Business"
+              "Notificaciones push ilimitadas",
+              "Soporte prioritario"
             ]
           },
           {

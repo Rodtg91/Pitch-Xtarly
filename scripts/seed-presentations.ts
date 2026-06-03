@@ -24,7 +24,7 @@ const PLANS = [
 		price: "$99",
 		period: "mes",
 		highlight: true,
-		features: ["Sellos, Puntos o Niveles VIP — tú eliges", "Tu propia app con tu nombre y logo", "Más exclusividad — se ve más profesional", "App publicada en App Store y Google Play", "Hasta 2,000 transacciones/mes + WhatsApp Business"],
+		features: ["Sellos, Puntos o Niveles VIP — tú eliges", "Tu propia app con tu nombre y logo", "Más exclusividad — se ve más profesional", "App publicada en App Store y Google Play", "Hasta 2,000 transacciones/mes + notificaciones push ilimitadas"],
 	},
 	{
 		name: "Premium",
